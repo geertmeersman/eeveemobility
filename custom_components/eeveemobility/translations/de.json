@@ -1,0 +1,340 @@
+{
+    "config": {
+        "step": {
+            "connection_init": {
+                "title": "Neues Eevee Mobility-Konto",
+                "description": "Richten Sie Ihr Eevee Mobility-Benutzerkonto ein",
+                "data": {
+                    "email": "E-Mail-Adresse",
+                    "password": "Passwort"
+                }
+            }
+        },
+        "abort": {
+            "already_configured": "Konto ist bereits konfiguriert"
+        },
+        "error": {
+            "cannot_connect": "Verbindung fehlgeschlagen",
+            "invalid_auth": "Ungültige Authentifizierung",
+            "unknown": "Unerwarteter Fehler",
+            "service_error": "Dienst nicht verfügbar"
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "title": "Eevee Mobility neu konfigurieren",
+                "data": {
+                    "email": "E-Mail-Adresse",
+                    "password": "Passwort"
+                }
+            },
+            "password": {
+                "title": "Ihr Passwort aktualisieren",
+                "description": "Wenn Sie Ihr Passwort bei 'Eevee Mobility' geändert haben",
+                "data": {
+                    "password": "Passwort"
+                }
+            },
+            "options_init": {
+                "title": "Optionen ändern",
+                "menu_options": {
+                    "password": "Passwort"
+                }
+            }
+        },
+        "error": {
+            "cannot_connect": "Verbindung fehlgeschlagen",
+            "invalid_auth": "Ungültige Authentifizierung",
+            "unknown": "Unerwarteter Fehler",
+            "service_error": "Dienst nicht verfügbar"
+        },
+        "abort": {
+            "already_configured": "Konto ist bereits konfiguriert"
+        }
+    },
+    "entity": {
+        "sensor": {
+            "user": {
+                "name": "Benutzer",
+                "state_attributes": {
+                    "id": {
+                        "name": "ID"
+                    },
+                    "email": {
+                        "name": "E-Mail"
+                    },
+                    "first_name": {
+                        "name": "Vorname"
+                    },
+                    "last_name": {
+                        "name": "Nachname"
+                    },
+                    "phone_number": {
+                        "name": "Telefonnummer"
+                    },
+                    "currency_code": {
+                        "name": "Währungscode"
+                    },
+                    "currency_symbol": {
+                        "name": "Währungssymbol"
+                    },
+                    "uses_miles": {
+                        "name": "Verwendet Meilen"
+                    },
+                    "metric_volume": {
+                        "name": "Metrisches Volumen"
+                    },
+                    "metric_temperature": {
+                        "name": "Metrische Temperatur"
+                    },
+                    "accepted_terms_at": {
+                        "name": "Akzeptierte Bedingungen am"
+                    },
+                    "accepted_privacy_at": {
+                        "name": "Akzeptierte Datenschutzrichtlinie am"
+                    },
+                    "news_letters": {
+                        "name": "Newsletter"
+                    },
+                    "authentication_hash": {
+                        "name": "Authentifizierungshash"
+                    },
+                    "created_at": {
+                        "name": "Erstellt am"
+                    },
+                    "updated_at": {
+                        "name": "Aktualisiert am"
+                    },
+                    "charge_passes": {
+                        "name": "Ladevorgänge"
+                    },
+                    "accounts": {
+                        "name": "Konten"
+                    },
+                    "active_subscriptions": {
+                        "name": "Aktive Abonnements"
+                    }
+                }
+            },
+            "addresses": {
+                "name": "Adressen",
+                "state_attributes": {
+                    "Addresses": {
+                        "name": "Adressen"
+                    }
+                }
+            },
+            "fleet": {
+                "name": "Flotte",
+                "state_attributes": {
+                    "id": {
+                        "name": "ID"
+                    },
+                    "entity_id": {
+                        "name": "Entitäts-ID"
+                    },
+                    "car_id": {
+                        "name": "Fahrzeug-ID"
+                    },
+                    "name": {
+                        "name": "Name"
+                    },
+                    "bank_account_number": {
+                        "name": "Bankkontonummer"
+                    },
+                    "eligible_for_reimbursement": {
+                        "name": "Berechtigt zur Rückerstattung"
+                    },
+                    "invited_at": {
+                        "name": "Eingeladen am"
+                    },
+                    "accepted_at": {
+                        "name": "Akzeptiert am"
+                    },
+                    "declined_at": {
+                        "name": "Abgelehnt am"
+                    },
+                    "payout_rate": {
+                        "name": "Auszahlungsrate"
+                    },
+                    "fleet": {
+                        "name": "Flotte"
+                    }
+                }
+            },
+            "car": {
+                "name": "Fahrzeug",
+                "state_attributes": {
+                    "id": {
+                        "name": "ID"
+                    },
+                    "vin": {
+                        "name": "VIN"
+                    },
+                    "display_name": {
+                        "name": "Anzeigename"
+                    },
+                    "image": {
+                        "name": "Bild"
+                    },
+                    "model": {
+                        "name": "Modell"
+                    },
+                    "license": {
+                        "name": "Kennzeichen"
+                    },
+                    "battery_capacity": {
+                        "name": "Batteriekapazität"
+                    },
+                    "range": {
+                        "name": "Reichweite"
+                    },
+                    "range_fossil": {
+                        "name": "Reichweite (Benzin)"
+                    },
+                    "range_electric": {
+                        "name": "Reichweite (Elektro)"
+                    },
+                    "current_range": {
+                        "name": "Aktuelle Reichweite"
+                    },
+                    "current_range_fossil": {
+                        "name": "Aktuelle Reichweite (Benzin)"
+                    },
+                    "current_range_electric": {
+                        "name": "Aktuelle Reichweite (Elektro)"
+                    },
+                    "estimated_range": {
+                        "name": "Geschätzte Reichweite"
+                    },
+                    "estimated_range_fossil": {
+                        "name": "Geschätzte Reichweite (Benzin)"
+                    },
+                    "estimated_range_electric": {
+                        "name": "Geschätzte Reichweite (Elektro)"
+                    },
+                    "battery_level": {
+                        "name": "Batteriestand"
+                    },
+                    "odometer": {
+                        "name": "Kilometerstand"
+                    },
+                    "temp_inside": {
+                        "name": "Innentemperatur"
+                    },
+                    "temp_outside": {
+                        "name": "Außentemperatur"
+                    },
+                    "carbon_emission_saved": {
+                        "name": "Gesparte CO2-Emissionen"
+                    },
+                    "type": {
+                        "name": "Typ"
+                    },
+                    "in_service": {
+                        "name": "In Betrieb"
+                    },
+                    "in_setup": {
+                        "name": "In Einrichtung"
+                    },
+                    "is_charging": {
+                        "name": "Wird geladen"
+                    },
+                    "tracking_mode": {
+                        "name": "Verfolgungsmodus"
+                    },
+                    "track_filter_enabled": {
+                        "name": "Verfolgungsfilter aktiviert"
+                    },
+                    "track_from": {
+                        "name": "Verfolgen ab"
+                    },
+                    "track_until": {
+                        "name": "Verfolgen bis"
+                    },
+                    "track_timezone": {
+                        "name": "Zeitzone der Verfolgung"
+                    },
+                    "track_location": {
+                        "name": "Verfolgungsort"
+                    },
+                    "track_metrics": {
+                        "name": "Verfolgungsmetriken"
+                    },
+                    "error": {
+                        "name": "Fehler"
+                    },
+                    "enabled": {
+                        "name": "Aktiviert"
+                    },
+                    "disabled_at": {
+                        "name": "Deaktiviert am"
+                    },
+                    "disabled_by": {
+                        "name": "Deaktiviert von"
+                    },
+                    "parked_drain_high": {
+                        "name": "Hoher Standby-Verbrauch"
+                    },
+                    "parked_drain_med": {
+                        "name": "Mittlerer Standby-Verbrauch"
+                    },
+                    "parked_drain_low": {
+                        "name": "Niedriger Standby-Verbrauch"
+                    },
+                    "clear_history_at": {
+                        "name": "Verlauf löschen am"
+                    },
+                    "date_of_purchase": {
+                        "name": "Kaufdatum"
+                    },
+                    "flags": {
+                        "name": "Flags"
+                    },
+                    "has_connection": {
+                        "name": "Hat Verbindung"
+                    },
+                    "in_fleet": {
+                        "name": "In Flotte"
+                    },
+                    "last_refreshed_at": {
+                        "name": "Zuletzt aktualisiert am"
+                    },
+                    "last_data_at": {
+                        "name": "Zuletzt aktualisierte Daten am"
+                    },
+                    "created_at": {
+                        "name": "Erstellt am"
+                    },
+                    "updated_at": {
+                        "name": "Aktualisiert am"
+                    },
+                    "brand": {
+                        "name": "Marke"
+                    },
+                    "errors": {
+                        "name": "Fehler"
+                    },
+                    "connection": {
+                        "name": "Verbindung"
+                    }
+                }
+            },
+            "events": {
+                "name": "Ereignisse",
+                "state_attributes": {
+                    "data": {
+                        "name": "Daten"
+                    },
+                    "links": {
+                        "name": "Links"
+                    },
+                    "meta": {
+                        "name": "Meta"
+                    }
+                }
+            }
+        }
+    }
+}
