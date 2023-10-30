@@ -65,7 +65,7 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         icon="mdi:map-marker",
         available_fn=lambda car: car.get("addresses") is not None,
         value_fn=lambda car: len(car.get("addresses")),
-        attributes_fn=lambda car: {"Addresses": car.get("addresses")},
+        attributes_fn=lambda car: {"addresses": car.get("addresses")},
     ),
     EeveeMobilitySensorDescription(
         key="cars",

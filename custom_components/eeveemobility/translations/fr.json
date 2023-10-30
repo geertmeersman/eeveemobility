@@ -120,7 +120,7 @@
       "addresses": {
         "name": "Adresses",
         "state_attributes": {
-          "Addresses": {
+          "addresses": {
             "name": "Adresses"
           }
         }
