@@ -1,19 +1,12 @@
 """EeveeMobility sensor platform."""
 from __future__ import annotations
-import logging
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Any
+import logging
 
-from homeassistant.components.sensor import (
-    SensorDeviceClass,
-    SensorEntity,
-    SensorEntityDescription,
-    SensorStateClass,
-)
+from homeassistant.components.sensor import SensorEntity, SensorEntityDescription
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CURRENCY_EURO, PERCENTAGE
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -22,7 +15,6 @@ from homeassistant.helpers.typing import StateType
 from . import EeveeMobilityDataUpdateCoordinator
 from .const import DOMAIN
 from .entity import EeveeMobilityEntity
-from .models import EeveeMobilityItem
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -73,7 +65,7 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         icon="mdi:map-marker",
         available_fn=lambda car: car.get("addresses") is not None,
         value_fn=lambda car: len(car.get("addresses")),
-        attributes_fn=lambda car: {'Addresses': car.get("addresses")},
+        attributes_fn=lambda car: {"Addresses": car.get("addresses")},
     ),
     EeveeMobilitySensorDescription(
         key="cars",
@@ -85,6 +77,7 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         attributes_fn=lambda car: car.get("events"),
     ),
 )
+
 
 async def async_setup_entry(
     hass: HomeAssistant,
@@ -109,14 +102,14 @@ async def async_setup_entry(
                     EeveeMobilitySensor(coordinator, sensor_type, device_name, item_id)
                 )
             elif sensor_type.key == "fleets":
-                for index, fleet in enumerate(coordinator.data[sensor_type.key]):
+                for index in enumerate(coordinator.data[sensor_type.key]):
                     entities.append(
                         EeveeMobilitySensor(
                             coordinator, sensor_type, device_name, index
                         )
                     )
             elif sensor_type.key == "cars":
-                for index, fleet in enumerate(coordinator.data[sensor_type.key]):
+                for index in enumerate(coordinator.data[sensor_type.key]):
                     entities.append(
                         EeveeMobilitySensor(
                             coordinator, sensor_type, device_name, index

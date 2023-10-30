@@ -1,10 +1,11 @@
 """Config flow to configure the Eevee Mobililty integration."""
 from abc import ABC, abstractmethod
-from typing import Any
 import logging
+from typing import Any
 
+from aioeeveemobility import EeveeMobilityClient
 from homeassistant.config_entries import ConfigEntry, ConfigFlow, OptionsFlow
-from homeassistant.const import CONF_PASSWORD, CONF_EMAIL
+from homeassistant.const import CONF_EMAIL, CONF_PASSWORD
 from homeassistant.core import callback
 from homeassistant.data_entry_flow import FlowHandler, FlowResult
 import homeassistant.helpers.config_validation as cv
@@ -16,11 +17,10 @@ from homeassistant.helpers.selector import (
 from homeassistant.helpers.typing import UNDEFINED
 import voluptuous as vol
 
-import aiohttp
-from aioeeveemobility import EeveeMobilityClient
 from .const import DOMAIN, NAME
 from .exceptions import BadCredentialsException, EeveeMobilityServiceException
 from .models import EeveeMobilityConfigEntryData
+
 _LOGGER = logging.getLogger(__name__)
 
 DEFAULT_ENTRY_DATA = EeveeMobilityConfigEntryData(
@@ -125,9 +125,7 @@ class EeveeMobilityCommonFlow(ABC, FlowHandler):
                 self.new_entry_data |= EeveeMobilityConfigEntryData(
                     password=user_input[CONF_PASSWORD],
                 )
-                _LOGGER.debug(
-                    f"Password changed for {test['user'].get('email')}"
-                )
+                _LOGGER.debug(f"Password changed for {test['user'].get('email')}")
                 return self.finish_flow()
 
         fields = {

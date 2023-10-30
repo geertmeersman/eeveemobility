@@ -1,22 +1,23 @@
 """EeveeMobility integration."""
 from __future__ import annotations
+
 import logging
 
+from aioeeveemobility import EeveeMobilityClient
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_PASSWORD, CONF_EMAIL
+from homeassistant.const import CONF_EMAIL, CONF_PASSWORD
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 from requests.exceptions import ConnectionError
 
-from aioeeveemobility import EeveeMobilityClient
 from .const import COORDINATOR_UPDATE_INTERVAL, DOMAIN, PLATFORMS
 from .exceptions import (
     BadCredentialsException,
     EeveeMobilityException,
     EeveeMobilityServiceException,
 )
-from .models import EeveeMobilityItem
+
 _LOGGER = logging.getLogger(__name__)
 
 
@@ -49,7 +50,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             dr.async_get(hass), entry.entry_id
         )
     }
-    
+
     for item in current_items:
         _LOGGER.critical(f"ITEM: {item}")
 
@@ -90,20 +91,23 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
         self.hass = hass
 
     async def get_data(self) -> dict | None:
+        """Get the data from the Eevee client."""
         items = {}
         items["user"] = await self.client.request("user")
         _LOGGER.debug(f"User: {items['user']}")
-        items["fleets"] = await self.client.request(f"user/{items['user'].get('id')}/fleets")
+        items["fleets"] = await self.client.request(
+            f"user/{items['user'].get('id')}/fleets"
+        )
         _LOGGER.debug(f"Fleets: {items['fleets']}")
         items["cars"] = {}
-        cars = await self.client.request(f"cars")
+        cars = await self.client.request("cars")
         for idx, car in enumerate(cars):
             _LOGGER.debug(f"Car: {car}")
             addresses = await self.client.request(f"cars/{car.get('id')}/addresses")
             _LOGGER.debug(f"Addresses: {addresses}")
             events = await self.client.request(f"cars/{car.get('id')}/events")
             _LOGGER.debug(f"Events: {events}")
-            items["cars"][idx] = {'car': car, 'addresses': addresses, 'events': events}
+            items["cars"][idx] = {"car": car, "addresses": addresses, "events": events}
         return items
 
     async def _async_update_data(self) -> dict | None:
@@ -135,7 +139,9 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
                 )
             }
 
-            if stale_items := current_items - {f"{self._config_entry_id}_{items['user'].get('email')}"}:
+            if stale_items := current_items - {
+                f"{self._config_entry_id}_{items['user'].get('email')}"
+            }:
                 for device_key in stale_items:
                     if device := self._device_registry.async_get_device(
                         {(DOMAIN, device_key)}

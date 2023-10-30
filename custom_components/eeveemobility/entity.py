@@ -1,8 +1,8 @@
 """Base EeveeMobility entity."""
 from __future__ import annotations
-import logging
 
 from datetime import datetime
+import logging
 
 from homeassistant.core import callback
 from homeassistant.helpers.device_registry import DeviceEntryType
@@ -11,9 +11,9 @@ from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from . import EeveeMobilityDataUpdateCoordinator
 from .const import ATTRIBUTION, DOMAIN, NAME, VERSION, WEBSITE
-from .models import EeveeMobilityItem
-from .utils import sensor_name
+
 _LOGGER = logging.getLogger(__name__)
+
 
 class EeveeMobilityEntity(CoordinatorEntity[EeveeMobilityDataUpdateCoordinator]):
     """Base EeveeMobility entity."""
@@ -36,16 +36,16 @@ class EeveeMobilityEntity(CoordinatorEntity[EeveeMobilityDataUpdateCoordinator])
         else:
             self._identifier = f"{description.key}_{item_id}"
         self._attr_device_info = DeviceInfo(
-            identifiers={(DOMAIN, f"{coordinator.config_entry.entry_id}_{device_name}")},
+            identifiers={
+                (DOMAIN, f"{coordinator.config_entry.entry_id}_{device_name}")
+            },
             name=f"{NAME} {device_name}",
             manufacturer=NAME,
             configuration_url=WEBSITE,
             entry_type=DeviceEntryType.SERVICE,
             sw_version=VERSION,
         )
-        self._attr_unique_id = (
-            f"{coordinator.config_entry.entry_id}_{self.entity_description.translation_key}_{self.entity_description.unique_id_fn(self.item)}"
-        )
+        self._attr_unique_id = f"{coordinator.config_entry.entry_id}_{self.entity_description.translation_key}_{self.entity_description.unique_id_fn(self.item)}"
         self.last_synced = datetime.now()
         _LOGGER.debug(f"[EeveeMobilityEntity|init] {self._identifier}")
 
@@ -66,14 +66,11 @@ class EeveeMobilityEntity(CoordinatorEntity[EeveeMobilityDataUpdateCoordinator])
         if self.item_id is not None:
             return self.coordinator.data[self.entity_description.key][self.item_id]
         return self.coordinator.data[self.entity_description.key]
-        
 
     @property
     def available(self) -> bool:
         """Return if the entity is available."""
-        return super().available and self.entity_description.available_fn(
-            self.item
-        )
+        return super().available and self.entity_description.available_fn(self.item)
 
     async def async_update(self) -> None:
         """Update the entity.  Only used by the generic entity update service."""
