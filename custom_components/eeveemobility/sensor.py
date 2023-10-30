@@ -101,15 +101,8 @@ async def async_setup_entry(
                 entities.append(
                     EeveeMobilitySensor(coordinator, sensor_type, device_name, item_id)
                 )
-            elif sensor_type.key == "fleets":
-                for index in enumerate(coordinator.data[sensor_type.key]):
-                    entities.append(
-                        EeveeMobilitySensor(
-                            coordinator, sensor_type, device_name, index
-                        )
-                    )
-            elif sensor_type.key == "cars":
-                for index in enumerate(coordinator.data[sensor_type.key]):
+            elif sensor_type.key in ["fleets", "cars"]:
+                for index, _ in enumerate(coordinator.data[sensor_type.key]):
                     entities.append(
                         EeveeMobilitySensor(
                             coordinator, sensor_type, device_name, index

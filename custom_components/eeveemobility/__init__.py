@@ -44,16 +44,6 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
-    current_items = {
-        list(device.identifiers)[0][1]
-        for device in dr.async_entries_for_config_entry(
-            dr.async_get(hass), entry.entry_id
-        )
-    }
-
-    for item in current_items:
-        _LOGGER.critical(f"ITEM: {item}")
-
     return True
 
 
