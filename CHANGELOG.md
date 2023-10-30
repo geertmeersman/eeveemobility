@@ -1,5 +1,15 @@
 # Changelog
 
+## [v0.2.0](https://github.com/geertmeersman/eeveemobility/tree/v0.2.0) (2023-10-30)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.1.0...v0.2.0)
+
+**Merged pull requests:**
+
+- fix: fix for tuple [\#4](https://github.com/geertmeersman/eeveemobility/pull/4) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): update pip requirement from \<23.3,\>=8.0.3 to \>=8.0.3,\<23.4 [\#3](https://github.com/geertmeersman/eeveemobility/pull/3) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.0.292 to 0.1.3 [\#2](https://github.com/geertmeersman/eeveemobility/pull/2) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v0.1.0](https://github.com/geertmeersman/eeveemobility/tree/v0.1.0) (2023-10-30)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/cf9e52de1a9f4edd513258e783045572eb09e372...v0.1.0)
