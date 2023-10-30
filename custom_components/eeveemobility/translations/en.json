@@ -1,0 +1,340 @@
+{
+  "config": {
+    "step": {
+      "connection_init": {
+        "title": "New Eevee Mobililty account",
+        "description": "Set up your Eevee Mobililty user account",
+        "data": {
+          "email": "E-mail address",
+          "password": "Password"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Account is already configured"
+    },
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "invalid_auth": "Invalid authentication",
+      "unknown": "Unexpected error",
+      "service_error": "Service unavailable"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Reconfigure Eevee Mobililty",
+        "data": {
+          "email": "E-mail address",
+          "password": "Password"
+        }
+      },
+      "password": {
+        "title": "Update your password",
+        "description": "To do when you changed your password on 'Eevee Mobililty'",
+        "data": {
+          "password": "Password"
+        }
+      },
+      "options_init": {
+        "title": "Change options",
+        "menu_options": {
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "invalid_auth": "Invalid authentication",
+      "unknown": "Unexpected error",
+      "service_error": "Service unavailable"
+    },
+    "abort": {
+      "already_configured": "Account is already configured"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "user": {
+        "name": "User",
+        "state_attributes": {
+          "id": {
+            "name": "ID"
+          },
+          "email": {
+            "name": "Email"
+          },
+          "first_name": {
+            "name": "First name"
+          },
+          "last_name": {
+            "name": "Last name"
+          },
+          "phone_number": {
+            "name": "Phone number"
+          },
+          "currency_code": {
+            "name": "Currency code"
+          },
+          "currency_symbol": {
+            "name": "Currency symbol"
+          },
+          "uses_miles": {
+            "name": "Uses miles"
+          },
+          "metric_volume": {
+            "name": "Metric volume"
+          },
+          "metric_temperature": {
+            "name": "Metric temperature"
+          },
+          "accepted_terms_at": {
+            "name": "Accepted terms at"
+          },
+          "accepted_privacy_at": {
+            "name": "Accepted privacy at"
+          },
+          "news_letters": {
+            "name": "News letters"
+          },
+          "authentication_hash": {
+            "name": "Authentication hash"
+          },
+          "created_at": {
+            "name": "Created at"
+          },
+          "updated_at": {
+            "name": "Updated at"
+          },
+          "charge_passes": {
+            "name": "Charge passes"
+          },
+          "accounts": {
+            "name": "Accounts"
+          },
+          "active_subscriptions": {
+            "name": "Active subscriptions"
+          }
+        }
+      },
+      "addresses": {
+        "name": "Addresses",
+        "state_attributes": {
+          "addresses": {
+            "name": "Addresses"
+          }
+        }
+      },
+      "fleet": {
+        "name": "Fleet",
+        "state_attributes": {
+          "id": {
+            "name": "ID"
+          },
+          "entity_id": {
+            "name": "Entity ID"
+          },
+          "car_id": {
+            "name": "Car ID"
+          },
+          "name": {
+            "name": "Name"
+          },
+          "bank_account_number": {
+            "name": "Bank Account Number"
+          },
+          "eligible_for_reimbursement": {
+            "name": "Eligible for Reimbursement"
+          },
+          "invited_at": {
+            "name": "Invited At"
+          },
+          "accepted_at": {
+            "name": "Accepted At"
+          },
+          "declined_at": {
+            "name": "Declined At"
+          },
+          "payout_rate": {
+            "name": "Payout Rate"
+          },
+          "fleet": {
+            "name": "Fleet"
+          }
+        }
+      },
+      "car": {
+        "name": "Car",
+        "state_attributes": {
+          "id": {
+            "name": "ID"
+          },
+          "vin": {
+            "name": "VIN"
+          },
+          "display_name": {
+            "name": "Display Name"
+          },
+          "image": {
+            "name": "Image"
+          },
+          "model": {
+            "name": "Model"
+          },
+          "license": {
+            "name": "License"
+          },
+          "battery_capacity": {
+            "name": "Battery Capacity"
+          },
+          "range": {
+            "name": "Range"
+          },
+          "range_fossil": {
+            "name": "Range Fossil"
+          },
+          "range_electric": {
+            "name": "Range Electric"
+          },
+          "current_range": {
+            "name": "Current Range"
+          },
+          "current_range_fossil": {
+            "name": "Current Range Fossil"
+          },
+          "current_range_electric": {
+            "name": "Current Range Electric"
+          },
+          "estimated_range": {
+            "name": "Estimated Range"
+          },
+          "estimated_range_fossil": {
+            "name": "Estimated Range Fossil"
+          },
+          "estimated_range_electric": {
+            "name": "Estimated Range Electric"
+          },
+          "battery_level": {
+            "name": "Battery Level"
+          },
+          "odometer": {
+            "name": "Odometer"
+          },
+          "temp_inside": {
+            "name": "Temperature Inside"
+          },
+          "temp_outside": {
+            "name": "Temperature Outside"
+          },
+          "carbon_emission_saved": {
+            "name": "Carbon Emission Saved"
+          },
+          "type": {
+            "name": "Type"
+          },
+          "in_service": {
+            "name": "In Service"
+          },
+          "in_setup": {
+            "name": "In Setup"
+          },
+          "is_charging": {
+            "name": "Is Charging"
+          },
+          "tracking_mode": {
+            "name": "Tracking Mode"
+          },
+          "track_filter_enabled": {
+            "name": "Track Filter Enabled"
+          },
+          "track_from": {
+            "name": "Track From"
+          },
+          "track_until": {
+            "name": "Track Until"
+          },
+          "track_timezone": {
+            "name": "Track Timezone"
+          },
+          "track_location": {
+            "name": "Track Location"
+          },
+          "track_metrics": {
+            "name": "Track Metrics"
+          },
+          "error": {
+            "name": "Error"
+          },
+          "enabled": {
+            "name": "Enabled"
+          },
+          "disabled_at": {
+            "name": "Disabled At"
+          },
+          "disabled_by": {
+            "name": "Disabled By"
+          },
+          "parked_drain_high": {
+            "name": "Parked Drain High"
+          },
+          "parked_drain_med": {
+            "name": "Parked Drain Med"
+          },
+          "parked_drain_low": {
+            "name": "Parked Drain Low"
+          },
+          "clear_history_at": {
+            "name": "Clear History At"
+          },
+          "date_of_purchase": {
+            "name": "Date of Purchase"
+          },
+          "flags": {
+            "name": "Flags"
+          },
+          "has_connection": {
+            "name": "Has Connection"
+          },
+          "in_fleet": {
+            "name": "In Fleet"
+          },
+          "last_refreshed_at": {
+            "name": "Last Refreshed At"
+          },
+          "last_data_at": {
+            "name": "Last Data At"
+          },
+          "created_at": {
+            "name": "Created At"
+          },
+          "updated_at": {
+            "name": "Updated At"
+          },
+          "brand": {
+            "name": "Brand"
+          },
+          "errors": {
+            "name": "Errors"
+          },
+          "connection": {
+            "name": "Connection"
+          }
+        }
+      },
+      "events": {
+        "name": "Events",
+        "state_attributes": {
+          "data": {
+            "name": "Data"
+          },
+          "links": {
+            "name": "Links"
+          },
+          "meta": {
+            "name": "Meta"
+          }
+        }
+      }
+    }
+  }
+}

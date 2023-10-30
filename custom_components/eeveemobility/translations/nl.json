@@ -1,0 +1,334 @@
+{
+  "config": {
+    "step": {
+      "connection_init": {
+        "title": "Nieuwe Eevee Mobiliteit account",
+        "description": "Stel uw Eevee Mobiliteit gebruikersaccount in",
+        "data": {
+          "email": "E-mailadres",
+          "password": "Wachtwoord"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Account is al geconfigureerd"
+    },
+    "error": {
+      "cannot_connect": "Kan geen verbinding maken",
+      "invalid_auth": "Ongeldige authenticatie",
+      "unknown": "Onverwachte fout",
+      "service_error": "Dienst niet beschikbaar"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Herconfigureer Eevee Mobiliteit",
+        "data": {
+          "email": "E-mailadres",
+          "password": "Wachtwoord"
+        }
+      },
+      "password": {
+        "title": "Wijzig uw wachtwoord",
+        "description": "Te doen wanneer u uw wachtwoord heeft gewijzigd op 'Eevee Mobiliteit'",
+        "data": {
+          "password": "Wachtwoord"
+        }
+      },
+      "options_init": {
+        "title": "Wijzig opties",
+        "menu_options": {
+          "password": "Wachtwoord"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Kan geen verbinding maken",
+      "invalid_auth": "Ongeldige authenticatie",
+      "unknown": "Onverwachte fout",
+      "service_error": "Dienst niet beschikbaar"
+    },
+    "abort": {
+      "already_configured": "Account is al geconfigureerd"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "user": {
+        "name": "Gebruiker",
+        "state_attributes": {
+          "id": {
+            "name": "ID"
+          },
+          "email": {
+            "name": "E-mail"
+          },
+          "first_name": {
+            "name": "Voornaam"
+          },
+          "last_name": {
+            "name": "Achternaam"
+          },
+          "phone_number": {
+            "name": "Telefoonnummer"
+          },
+          "currency_code": {
+            "name": "Valutacode"
+          },
+          "currency_symbol": {
+            "name": "Valutasymbool"
+          },
+          "uses_miles": {
+            "name": "Gebruikt mijlen"
+          },
+          "metric_volume": {
+            "name": "Metrisch volume"
+          },
+          "metric_temperature": {
+            "name": "Metrische temperatuur"
+          },
+          "accepted_terms_at": {
+            "name": "Geaccepteerde voorwaarden op"
+          },
+          "accepted_privacy_at": {
+            "name": "Geaccepteerde privacy op"
+          },
+          "news_letters": {
+            "name": "Nieuwsbrieven"
+          },
+          "authentication_hash": {
+            "name": "Authenticatiehash"
+          },
+          "created_at": {
+            "name": "Aangemaakt op"
+          },
+          "updated_at": {
+            "name": "Bijgewerkt op"
+          },
+          "charge_passes": {
+            "name": "Oplaadpassen"
+          },
+          "accounts": {
+            "name": "Accounts"
+          },
+          "active_subscriptions": {
+            "name": "Actieve abonnementen"
+          }
+        }
+      },
+      "addresses": {
+        "name": "Adressen",
+        "state_attributes": {
+          "addresses": {
+            "name": "Adressen"
+          }
+        }
+      },
+      "fleet": {
+        "name": "Vloot",
+        "state_attributes": {
+          "id": {
+            "name": "ID"
+          },
+          "entity_id": {
+            "name": "Entiteit ID"
+          },
+          "car_id": {
+            "name": "Auto ID"
+          },
+          "name": {
+            "name": "Naam"
+          },
+          "bank_account_number": {
+            "name": "Bankrekeningnummer"
+          },
+          "eligible_for_reimbursement": {
+            "name": "In aanmerking komend voor vergoeding"
+          },
+          "invited_at": {
+            "name": "Uitgenodigd op"
+          },
+          "accepted_at": {
+            "name": "Geaccepteerd op"
+          },
+          "declined_at": {
+            "name": "Afgewezen op"
+          },
+          "payout_rate": {
+            "name": "Uitbetalingspercentage"
+          },
+          "fleet": {
+            "name": "Vloot"
+          }
+        }
+      },
+      "car": {
+        "name": "Auto",
+        "state_attributes": {
+          "id": {
+            "name": "ID"
+          },
+          "vin": {
+            "name": "VIN"
+          },
+          "display_name": {
+            "name": "Weergavenaam"
+          },
+          "image": {
+            "name": "Afbeelding"
+          },
+          "model": {
+            "name": "Model"
+          },
+          "license": {
+            "name": "Licentie"
+          },
+          "battery_capacity": {
+            "name": "Batterijcapaciteit"
+          },
+          "range": {
+            "name": "Bereik"
+          },
+          "range_fossil": {
+            "name": "Bereik Fossiel"
+          },
+          "range_electric": {
+            "name": "Bereik Elektrisch"
+          },
+          "current_range": {
+            "name": "Huidig bereik"
+          },
+          "current_range_fossil": {
+            "name": "Huidig bereik Fossiel"
+          },
+          "current_range_electric": {
+            "name": "Huidig bereik Elektrisch"
+          },
+          "estimated_range": {
+            "name": "Geschat bereik"
+          },
+          "estimated_range_fossil": {
+            "name": "Geschat bereik Fossiel"
+          },
+          "estimated_range_electric": {
+            "name": "Geschat bereik Elektrisch"
+          },
+          "battery_level": {
+            "name": "Batterijniveau"
+          },
+          "odometer": {
+            "name": "Odometer"
+          },
+          "temp_inside": {
+            "name": "Temperatuur Binnen"
+          },
+          "temp_outside": {
+            "name": "Temperatuur Buiten"
+          },
+          "carbon_emission_saved": {
+            "name": "Koolstofemissie Bespaard"
+          },
+          "type": {
+            "name": "Type"
+          },
+          "in_service": {
+            "name": "In gebruik"
+          },
+          "in_setup": {
+            "name": "In installatie"
+          },
+          "is_charging": {
+            "name": "Wordt opgeladen"
+          },
+          "tracking_mode": {
+            "name": "Volgmodus"
+          },
+          "track_filter_enabled": {
+            "name": "Volgfilter ingeschakeld"
+          },
+          "track_from": {
+            "name": "Volg van"
+          },
+          "track_until": {
+            "name": "Volg tot"
+          },
+          "track_timezone": {
+            "name": "Volg tijdszone"
+          },
+          "track_location": {
+            "name": "Volg locatie"
+          },
+          "track_metrics": {
+            "name": "Volg metingen"
+          },
+          "error": {
+            "name": "Fout"
+          },
+          "enabled": {
+            "name": "Ingeschakeld"
+          },
+          "disabled_at": {
+            "name": "Uitgeschakeld op"
+          },
+          "disabled_by": {
+            "name": "Uitgeschakeld door"
+          },
+          "parked_drain_high": {
+            "name": "Hoog batterijverlies geparkeerd"
+          },
+          "parked_drain_med": {
+            "name": "Gemiddeld batterijverlies geparkeerd"
+          },
+          "parked_drain_low": {
+            "name": "Laag batterijverlies geparkeerd"
+          },
+          "clear_history_at": {
+            "name": "Wis geschiedenis op"
+          },
+          "date_of_purchase": {
+            "name": "Aankoopdatum"
+          },
+          "flags": {
+            "name": "Vlaggen"
+          },
+          "has_connection": {
+            "name": "Heeft verbinding"
+          },
+          "in_fleet": {
+            "name": "In vloot"
+          },
+          "last_refreshed_at": {
+            "name": "Laatst vernieuwd op"
+          },
+          "last_data_at": {
+            "name": "Laatste gegevens op"
+          },
+          "brand": {
+            "name": "Merk"
+          },
+          "errors": {
+            "name": "Fouten"
+          },
+          "connection": {
+            "name": "Verbinding"
+          }
+        }
+      },
+      "events": {
+        "name": "Gebeurtenissen",
+        "state_attributes": {
+          "data": {
+            "name": "Gegevens"
+          },
+          "links": {
+            "name": "Koppelingen"
+          },
+          "meta": {
+            "name": "Meta"
+          }
+        }
+      }
+    }
+  }
+}
