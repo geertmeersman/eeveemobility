@@ -2,8 +2,8 @@
   "config": {
     "step": {
       "connection_init": {
-        "title": "Nieuwe Eevee Mobiliteit account",
-        "description": "Stel uw Eevee Mobiliteit gebruikersaccount in",
+        "title": "Nieuwe Eevee Mobility account",
+        "description": "Stel uw Eevee Mobility gebruikersaccount in",
         "data": {
           "email": "E-mailadres",
           "password": "Wachtwoord"
@@ -23,7 +23,7 @@
   "options": {
     "step": {
       "init": {
-        "title": "Herconfigureer Eevee Mobiliteit",
+        "title": "Herconfigureer Eevee Mobility",
         "data": {
           "email": "E-mailadres",
           "password": "Wachtwoord"
@@ -31,7 +31,7 @@
       },
       "password": {
         "title": "Wijzig uw wachtwoord",
-        "description": "Te doen wanneer u uw wachtwoord heeft gewijzigd op 'Eevee Mobiliteit'",
+        "description": "Te doen wanneer u uw wachtwoord heeft gewijzigd op 'Eevee Mobility'",
         "data": {
           "password": "Wachtwoord"
         }
