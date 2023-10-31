@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.2.1](https://github.com/geertmeersman/eeveemobility/tree/v0.2.1) (2023-10-31)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.2.0...v0.2.1)
+
+**Merged pull requests:**
+
+- fix: NL translation fix [\#5](https://github.com/geertmeersman/eeveemobility/pull/5) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.2.0](https://github.com/geertmeersman/eeveemobility/tree/v0.2.0) (2023-10-30)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.1.0...v0.2.0)
