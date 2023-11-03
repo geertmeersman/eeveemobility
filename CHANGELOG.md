@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.3.0](https://github.com/geertmeersman/eeveemobility/tree/v0.3.0) (2023-11-03)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.2.1...v0.3.0)
+
+**Merged pull requests:**
+
+- feat: Extra car sensors [\#6](https://github.com/geertmeersman/eeveemobility/pull/6) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.2.1](https://github.com/geertmeersman/eeveemobility/tree/v0.2.1) (2023-10-31)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.2.0...v0.2.1)
