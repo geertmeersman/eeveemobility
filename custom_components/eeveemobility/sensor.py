@@ -5,7 +5,11 @@ from collections.abc import Callable
 from dataclasses import dataclass
 import logging
 
-from homeassistant.components.sensor import SensorEntity, SensorEntityDescription
+from homeassistant.components.sensor import (
+    RestoreSensor,
+    SensorEntity,
+    SensorEntityDescription,
+)
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import PERCENTAGE, UnitOfLength, UnitOfMass
 from homeassistant.core import HomeAssistant
@@ -170,8 +174,8 @@ async def async_setup_entry(
     return
 
 
-class EeveeMobilitySensor(EeveeMobilityEntity, SensorEntity):
-    """Representation of a EeveeMobility sensor."""
+class EeveeMobilitySensor(EeveeMobilityEntity, RestoreSensor, SensorEntity):
+    """Representation of an EeveeMobility sensor."""
 
     entity_description: EeveeMobilitySensorDescription
     _attr_has_entity_name = True
@@ -186,11 +190,24 @@ class EeveeMobilitySensor(EeveeMobilityEntity, SensorEntity):
         """Set entity ID."""
         super().__init__(coordinator, description, device_name, item_id)
         self.entity_id = f"sensor.{DOMAIN}_{self.entity_description.translation_key}_{self.entity_description.unique_id_fn(self.item)}"
+        self._value: StateType = None
 
     @property
     def native_value(self) -> StateType:
         """Return the value reported by the sensor."""
-        return self.entity_description.value_fn(self.item)
+        return self._value
+
+    async def async_added_to_hass(self) -> None:
+        """Handle entity which will be added."""
+        await super().async_added_to_hass()
+        if self.coordinator.data is None:
+            sensor_data = await self.async_get_last_sensor_data()
+            if sensor_data is not None:
+                self._value = sensor_data.native_value
+            else:
+                await self.coordinator.async_request_refresh()
+        else:
+            self._value = self.entity_description.value_fn(self.item)
 
     @property
     def entity_picture(self) -> str | None:
