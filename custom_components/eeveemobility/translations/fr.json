@@ -334,6 +334,24 @@
             "name": "Méta"
           }
         }
+      },
+      "odometer": {
+        "name": "Compteur kilométrique"
+      },
+      "battery": {
+        "name": "Batterie"
+      },
+      "carbon_emission_saved": {
+        "name": "Émissions de carbone réduites"
+      },
+      "range": {
+        "name": "Autonomie"
+      },
+      "license": {
+        "name": "Licence"
+      },
+      "is_charging": {
+        "name": "En charge"
       }
     }
   }

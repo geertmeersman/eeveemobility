@@ -334,6 +334,24 @@
             "name": "Meta"
           }
         }
+      },
+      "odometer": {
+        "name": "Kilometerzähler"
+      },
+      "battery": {
+        "name": "Batterie"
+      },
+      "carbon_emission_saved": {
+        "name": "Gesparte Kohlendioxidemissionen"
+      },
+      "range": {
+        "name": "Reichweite"
+      },
+      "license": {
+        "name": "Kennzeichen"
+      },
+      "is_charging": {
+        "name": "Wird aufgeladen"
       }
     }
   }
