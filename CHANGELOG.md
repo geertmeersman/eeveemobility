@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.4.0](https://github.com/geertmeersman/eeveemobility/tree/v0.4.0) (2023-11-03)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.3.0...v0.4.0)
+
+**Merged pull requests:**
+
+- feat: Restore sensor value when coordinator is empty [\#7](https://github.com/geertmeersman/eeveemobility/pull/7) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.3.0](https://github.com/geertmeersman/eeveemobility/tree/v0.3.0) (2023-11-03)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.2.1...v0.3.0)
