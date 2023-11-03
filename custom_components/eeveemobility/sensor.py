@@ -7,6 +7,7 @@ import logging
 
 from homeassistant.components.sensor import SensorEntity, SensorEntityDescription
 from homeassistant.config_entries import ConfigEntry
+from homeassistant.const import PERCENTAGE, UnitOfLength, UnitOfMass
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -26,6 +27,7 @@ class EeveeMobilitySensorDescription(SensorEntityDescription):
     available_fn: Callable | None = None
     value_fn: Callable | None = None
     attributes_fn: Callable | None = None
+    entity_picture_fn: Callable | None = None
     unique_id_fn: Callable | None = None
     translation_key: str | None = None
 
@@ -53,10 +55,65 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         key="cars",
         translation_key="car",
         unique_id_fn=lambda car: car.get("car").get("id"),
-        icon="mdi:car",
+        icon="mdi:car-electric",
+        entity_picture_fn=lambda car: car.get("car").get("image"),
         available_fn=lambda car: car.get("car") is not None,
         value_fn=lambda car: car.get("car").get("display_name"),
         attributes_fn=lambda car: car.get("car"),
+    ),
+    EeveeMobilitySensorDescription(
+        key="cars",
+        translation_key="odometer",
+        unique_id_fn=lambda car: car.get("car").get("id"),
+        icon="mdi:counter",
+        available_fn=lambda car: car.get("car") is not None,
+        value_fn=lambda car: car.get("car").get("odometer"),
+        native_unit_of_measurement=UnitOfLength.KILOMETERS,
+    ),
+    EeveeMobilitySensorDescription(
+        key="cars",
+        translation_key="battery",
+        unique_id_fn=lambda car: car.get("car").get("id"),
+        icon="mdi:battery",
+        available_fn=lambda car: car.get("car") is not None,
+        value_fn=lambda car: car.get("car").get("battery_level"),
+        native_unit_of_measurement=PERCENTAGE,
+        suggested_display_precision=0,
+    ),
+    EeveeMobilitySensorDescription(
+        key="cars",
+        translation_key="carbon_emission_saved",
+        unique_id_fn=lambda car: car.get("car").get("id"),
+        icon="mdi:molecule-co2",
+        available_fn=lambda car: car.get("car") is not None,
+        value_fn=lambda car: car.get("car").get("carbon_emission_saved") / 1000,
+        native_unit_of_measurement=UnitOfMass.KILOGRAMS,
+        suggested_display_precision=0,
+    ),
+    EeveeMobilitySensorDescription(
+        key="cars",
+        translation_key="range",
+        unique_id_fn=lambda car: car.get("car").get("id"),
+        icon="mdi:map-marker-distance",
+        available_fn=lambda car: car.get("car") is not None,
+        value_fn=lambda car: car.get("car").get("range"),
+        native_unit_of_measurement=UnitOfLength.KILOMETERS,
+    ),
+    EeveeMobilitySensorDescription(
+        key="cars",
+        translation_key="license",
+        unique_id_fn=lambda car: car.get("car").get("id"),
+        icon="mdi:numeric",
+        available_fn=lambda car: car.get("car") is not None,
+        value_fn=lambda car: car.get("car").get("license"),
+    ),
+    EeveeMobilitySensorDescription(
+        key="cars",
+        translation_key="is_charging",
+        unique_id_fn=lambda car: car.get("car").get("id"),
+        icon="mdi:ev-station",
+        available_fn=lambda car: car.get("car") is not None,
+        value_fn=lambda car: car.get("car").get("is_charging"),
     ),
     EeveeMobilitySensorDescription(
         key="cars",
@@ -134,6 +191,13 @@ class EeveeMobilitySensor(EeveeMobilityEntity, SensorEntity):
     def native_value(self) -> StateType:
         """Return the value reported by the sensor."""
         return self.entity_description.value_fn(self.item)
+
+    @property
+    def entity_picture(self) -> str | None:
+        """Return the entity picture to use in the frontend, if any."""
+        if self.entity_description.entity_picture_fn is None:
+            return None
+        return self.entity_description.entity_picture_fn(self.item)
 
     @property
     def extra_state_attributes(self):

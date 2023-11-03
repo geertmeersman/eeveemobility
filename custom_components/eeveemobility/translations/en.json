@@ -334,6 +334,24 @@
             "name": "Meta"
           }
         }
+      },
+      "odometer": {
+        "name": "Odometer"
+      },
+      "battery": {
+        "name": "Battery"
+      },
+      "carbon_emission_saved": {
+        "name": "Carbon Emission Saved"
+      },
+      "range": {
+        "name": "Range"
+      },
+      "license": {
+        "name": "License"
+      },
+      "is_charging": {
+        "name": "Is Charging"
       }
     }
   }

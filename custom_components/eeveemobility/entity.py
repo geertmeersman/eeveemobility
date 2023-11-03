@@ -19,6 +19,16 @@ class EeveeMobilityEntity(CoordinatorEntity[EeveeMobilityDataUpdateCoordinator])
     """Base EeveeMobility entity."""
 
     _attr_attribution = ATTRIBUTION
+    _unrecorded_attributes = frozenset(
+        {
+            "data",
+            "links",
+            "meta",
+            "fleet",
+            "brand",
+            "addresses",
+        }
+    )
 
     def __init__(
         self,

@@ -328,6 +328,24 @@
             "name": "Meta"
           }
         }
+      },
+      "odometer": {
+        "name": "Kilometerteller"
+      },
+      "battery": {
+        "name": "Batterij"
+      },
+      "carbon_emission_saved": {
+        "name": "Gereduceerde CO2-uitstoot"
+      },
+      "range": {
+        "name": "Bereik"
+      },
+      "license": {
+        "name": "Nummerplaat"
+      },
+      "is_charging": {
+        "name": "Is aan het opladen"
       }
     }
   }
