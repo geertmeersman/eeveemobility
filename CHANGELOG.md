@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.4.1](https://github.com/geertmeersman/eeveemobility/tree/v0.4.1) (2023-11-05)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.4.0...v0.4.1)
+
+**Merged pull requests:**
+
+- fix: update interval shortened, last synced & force refresh of events [\#8](https://github.com/geertmeersman/eeveemobility/pull/8) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.4.0](https://github.com/geertmeersman/eeveemobility/tree/v0.4.0) (2023-11-03)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.3.0...v0.4.0)
