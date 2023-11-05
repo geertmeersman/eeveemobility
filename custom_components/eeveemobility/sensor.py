@@ -117,7 +117,7 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         unique_id_fn=lambda car: car.get("car").get("id"),
         icon="mdi:ev-station",
         available_fn=lambda car: car.get("car") is not None,
-        value_fn=lambda car: car.get("car").get("is_charging"),
+        value_fn=lambda car: car.get("car").get("is_charging") == "true",
     ),
     EeveeMobilitySensorDescription(
         key="cars",
@@ -199,10 +199,12 @@ class EeveeMobilitySensor(EeveeMobilityEntity, RestoreSensor, SensorEntity):
 
     async def async_added_to_hass(self) -> None:
         """Handle entity which will be added."""
+        _LOGGER.debug(f"Async added to hass {self.entity_id}")
         await super().async_added_to_hass()
         if self.coordinator.data is None:
             sensor_data = await self.async_get_last_sensor_data()
             if sensor_data is not None:
+                _LOGGER.debug(f"Restoring latest data for {self.entity_id}")
                 self._value = sensor_data.native_value
             else:
                 await self.coordinator.async_request_refresh()
