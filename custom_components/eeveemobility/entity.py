@@ -63,6 +63,7 @@ class EeveeMobilityEntity(CoordinatorEntity[EeveeMobilityDataUpdateCoordinator])
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
         if len(self.coordinator.data):
+            self.last_synced = datetime.now()
             self.async_write_ha_state()
             return
         _LOGGER.debug(

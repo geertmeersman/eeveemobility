@@ -10,7 +10,7 @@ PLATFORMS: Final = [Platform.SENSOR]
 
 ATTRIBUTION: Final = "Data provided by Eevee Mobility"
 
-COORDINATOR_UPDATE_INTERVAL = timedelta(minutes=30)
+COORDINATOR_UPDATE_INTERVAL = timedelta(minutes=15)
 WEBSITE = "https://eeveemobility.com/"
 
 manifestfile = Path(__file__).parent / "manifest.json"
