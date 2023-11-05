@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.4.2](https://github.com/geertmeersman/eeveemobility/tree/v0.4.2) (2023-11-05)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.4.1...v0.4.2)
+
+**Merged pull requests:**
+
+- fix: is charging [\#9](https://github.com/geertmeersman/eeveemobility/pull/9) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.4.1](https://github.com/geertmeersman/eeveemobility/tree/v0.4.1) (2023-11-05)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.4.0...v0.4.1)
