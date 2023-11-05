@@ -95,17 +95,19 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
             _LOGGER.debug(f"Car: {car}")
             addresses = await self.client.request(f"cars/{car.get('id')}/addresses")
             _LOGGER.debug(f"Addresses: {addresses}")
-            events = await self.client.request(f"cars/{car.get('id')}/events")
+            events = await self.client.request(
+                f"cars/{car.get('id')}/events?force_refresh=1"
+            )
             _LOGGER.debug(f"Events: {events}")
             items["cars"][idx] = {"car": car, "addresses": addresses, "events": events}
         return items
 
     async def _async_update_data(self) -> dict | None:
         """Update data."""
+        _LOGGER.debug("Updating data")
         items = {}
         if self._debug:
             items = await self.get_data()
-
         try:
             items = await self.get_data()
         except ConnectionError as exception:
