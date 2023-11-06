@@ -92,14 +92,18 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
         items["cars"] = {}
         cars = await self.client.request("cars")
         for idx, car in enumerate(cars):
-            _LOGGER.debug(f"Car: {car}")
-            addresses = await self.client.request(f"cars/{car.get('id')}/addresses")
-            _LOGGER.debug(f"Addresses: {addresses}")
-            events = await self.client.request(
-                f"cars/{car.get('id')}/events?force_refresh=1"
-            )
+            car_id = car.get("id")
+            events = await self.client.request(f"cars/{car_id}/events?force_refresh=1")
             _LOGGER.debug(f"Events: {events}")
-            items["cars"][idx] = {"car": car, "addresses": addresses, "events": events}
+            car_info = await self.client.request(f"cars/{car_id}")
+            _LOGGER.debug(f"Car: {car}")
+            addresses = await self.client.request(f"cars/{car_id}/addresses")
+            _LOGGER.debug(f"Addresses: {addresses}")
+            items["cars"][idx] = {
+                "car": car_info,
+                "addresses": addresses,
+                "events": events,
+            }
         return items
 
     async def _async_update_data(self) -> dict | None:

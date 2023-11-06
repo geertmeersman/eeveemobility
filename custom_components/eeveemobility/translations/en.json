@@ -352,6 +352,15 @@
       },
       "is_charging": {
         "name": "Is Charging"
+      },
+      "state": {
+        "name": "State",
+        "state": {
+          "parked": "Parked",
+          "driving": "Driving",
+          "plugged_in": "Plugged in",
+          "charging": "Charging"
+        }
       }
     }
   }

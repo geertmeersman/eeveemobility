@@ -352,6 +352,15 @@
       },
       "is_charging": {
         "name": "En charge"
+      },
+      "state": {
+        "name": "Statut",
+        "state": {
+          "parked": "Stationnée",
+          "driving": "Conduite",
+          "plugged_in": "Branchée",
+          "charging": "Chargement"
+        }
       }
     }
   }

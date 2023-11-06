@@ -346,6 +346,15 @@
       },
       "is_charging": {
         "name": "Is aan het opladen"
+      },
+      "state": {
+        "name": "Status",
+        "state": {
+          "parked": "Geparkeerd",
+          "driving": "Rijden",
+          "plugged_in": "Aangesloten",
+          "charging": "Laden"
+        }
       }
     }
   }
