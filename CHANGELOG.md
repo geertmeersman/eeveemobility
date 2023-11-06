@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.5.0](https://github.com/geertmeersman/eeveemobility/tree/v0.5.0) (2023-11-06)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.4.3...v0.5.0)
+
+**Merged pull requests:**
+
+- feat: GPS device tracker from last event having a location [\#12](https://github.com/geertmeersman/eeveemobility/pull/12) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.4.3](https://github.com/geertmeersman/eeveemobility/tree/v0.4.3) (2023-11-06)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.4.2...v0.4.3)
