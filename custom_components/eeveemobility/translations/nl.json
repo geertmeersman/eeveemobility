@@ -356,6 +356,16 @@
           "charging": "Laden"
         }
       }
+    },
+    "device_tracker": {
+      "gps": {
+        "name": "GPS Tracker",
+        "state_attributes": {
+          "last_synced": {
+            "name": "Laatste synchronisatie"
+          }
+        }
+      }
     }
   }
 }

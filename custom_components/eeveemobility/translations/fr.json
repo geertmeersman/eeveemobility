@@ -362,6 +362,16 @@
           "charging": "Chargement"
         }
       }
+    },
+    "device_tracker": {
+      "gps": {
+        "name": "Tracker GPS",
+        "state_attributes": {
+          "last_synced": {
+            "name": "Dernière synchronisation"
+          }
+        }
+      }
     }
   }
 }
