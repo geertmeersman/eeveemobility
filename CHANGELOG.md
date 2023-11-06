@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.4.3](https://github.com/geertmeersman/eeveemobility/tree/v0.4.3) (2023-11-06)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.4.2...v0.4.3)
+
+**Merged pull requests:**
+
+- fix: state sensor & sensor values improved [\#11](https://github.com/geertmeersman/eeveemobility/pull/11) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.1.3 to 0.1.4 [\#10](https://github.com/geertmeersman/eeveemobility/pull/10) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v0.4.2](https://github.com/geertmeersman/eeveemobility/tree/v0.4.2) (2023-11-05)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.4.1...v0.4.2)
