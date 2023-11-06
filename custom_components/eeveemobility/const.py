@@ -6,7 +6,7 @@ from typing import Final
 
 from homeassistant.const import Platform
 
-PLATFORMS: Final = [Platform.SENSOR]
+PLATFORMS: Final = [Platform.SENSOR, Platform.DEVICE_TRACKER]
 
 ATTRIBUTION: Final = "Data provided by Eevee Mobility"
 
