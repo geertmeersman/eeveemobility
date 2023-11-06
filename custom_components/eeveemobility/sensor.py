@@ -117,7 +117,7 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         unique_id_fn=lambda car: car.get("car").get("id"),
         icon="mdi:ev-station",
         available_fn=lambda car: car.get("car") is not None,
-        value_fn=lambda car: car.get("car").get("is_charging") == "true",
+        value_fn=lambda car: car.get("car").get("is_charging") is True,
     ),
     EeveeMobilitySensorDescription(
         key="cars",
@@ -135,6 +135,15 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         icon="mdi:calendar-multiple",
         available_fn=lambda car: car.get("events") is not None,
         value_fn=lambda car: car.get("events").get("meta").get("total"),
+        attributes_fn=lambda car: car.get("events"),
+    ),
+    EeveeMobilitySensorDescription(
+        key="cars",
+        translation_key="state",
+        unique_id_fn=lambda car: car.get("car").get("id"),
+        icon="mdi:car",
+        available_fn=lambda car: car.get("events") is not None,
+        value_fn=lambda car: car.get("events").get("data")[0].get("type"),
         attributes_fn=lambda car: car.get("events"),
     ),
 )
@@ -155,7 +164,6 @@ async def async_setup_entry(
     for sensor_type in SENSOR_TYPES:
         _LOGGER.debug(f"Searching for {sensor_type.key}-{sensor_type.translation_key}")
         if sensor_type.key in coordinator.data:
-            _LOGGER.debug("Key found")
             item_id = None
             if sensor_type.key == "user":
                 device_name = coordinator.data[sensor_type.key].get("email")
@@ -195,6 +203,8 @@ class EeveeMobilitySensor(EeveeMobilityEntity, RestoreSensor, SensorEntity):
     @property
     def native_value(self) -> StateType:
         """Return the value reported by the sensor."""
+        if self.coordinator.data is not None:
+            return self.entity_description.value_fn(self.item)
         return self._value
 
     async def async_added_to_hass(self) -> None:
@@ -207,8 +217,12 @@ class EeveeMobilitySensor(EeveeMobilityEntity, RestoreSensor, SensorEntity):
                 _LOGGER.debug(f"Restoring latest data for {self.entity_id}")
                 self._value = sensor_data.native_value
             else:
+                _LOGGER.debug(
+                    f"Restoring latest - waiting for coordinator refresh {self.entity_id}"
+                )
                 await self.coordinator.async_request_refresh()
         else:
+            _LOGGER.debug(f"Setting value for {self.entity_id}")
             self._value = self.entity_description.value_fn(self.item)
 
     @property

@@ -352,6 +352,15 @@
       },
       "is_charging": {
         "name": "Wird aufgeladen"
+      },
+      "state": {
+        "name": "Status",
+        "state": {
+          "parked": "Geparkt",
+          "driving": "Fahren",
+          "plugged_in": "Angeschlossen",
+          "charging": "Laden"
+        }
       }
     }
   }
