@@ -125,6 +125,74 @@
           }
         }
       },
+      "last_charge": {
+        "name": "Dernière session de charge",
+        "state_attributes": {
+          "id": {
+            "name": "ID"
+          },
+          "car_id": {
+            "name": "ID de la voiture"
+          },
+          "charge_added": {
+            "name": "Charge ajoutée"
+          },
+          "charge_added_day": {
+            "name": "Charge ajoutée (jour)"
+          },
+          "charge_added_night": {
+            "name": "Charge ajoutée (nuit)"
+          },
+          "battery_charge_added": {
+            "name": "Charge de batterie ajoutée"
+          },
+          "battery_charge_added_day": {
+            "name": "Charge de batterie ajoutée (jour)"
+          },
+          "battery_charge_added_night": {
+            "name": "Charge de batterie ajoutée (nuit)"
+          },
+          "efficiency_trustworthy": {
+            "name": "Efficacité fiable"
+          },
+          "fuel_liters": {
+            "name": "Litre de carburant"
+          },
+          "fuel_percent": {
+            "name": "Pourcentage de carburant"
+          },
+          "fuel_liters_added": {
+            "name": "Litre de carburant ajouté"
+          },
+          "fuel_percent_added": {
+            "name": "Pourcentage de carburant ajouté"
+          },
+          "price": {
+            "name": "Prix"
+          },
+          "rates": {
+            "name": "Tarifs"
+          },
+          "price_per_unit": {
+            "name": "Prix par unité"
+          },
+          "status": {
+            "name": "Statut"
+          },
+          "type": {
+            "name": "Type"
+          },
+          "estimated": {
+            "name": "Estimé"
+          },
+          "charge_duration": {
+            "name": "Durée de charge"
+          },
+          "address": {
+            "name": "Adresse"
+          }
+        }
+      },
       "fleet": {
         "name": "Flotte",
         "state_attributes": {

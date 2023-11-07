@@ -11,7 +11,7 @@ from homeassistant.components.sensor import (
     SensorEntityDescription,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import PERCENTAGE, UnitOfLength, UnitOfMass
+from homeassistant.const import CURRENCY_EURO, PERCENTAGE, UnitOfLength, UnitOfMass
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -115,7 +115,7 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         key="cars",
         translation_key="is_charging",
         unique_id_fn=lambda car: car.get("car").get("id"),
-        icon="mdi:ev-station",
+        icon="mdi:battery-charging",
         available_fn=lambda car: car.get("car") is not None,
         value_fn=lambda car: car.get("car").get("is_charging") is True,
     ),
@@ -144,6 +144,33 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         icon="mdi:car",
         available_fn=lambda car: car.get("events") is not None,
         value_fn=lambda car: car.get("events").get("data")[0].get("type"),
+    ),
+    EeveeMobilitySensorDescription(
+        key="cars",
+        translation_key="last_charge",
+        unique_id_fn=lambda car: car.get("car").get("id"),
+        icon="mdi:ev-station",
+        available_fn=lambda car: car.get("events") is not None,
+        value_fn=lambda car: next(
+            (
+                event.get("charge", {}).get("price")
+                for event in car.get("events", {}).get("data", [])
+                if event.get("type") == "charging"
+                and event.get("charge").get("status") == "finished"
+            ),
+            None,
+        ),
+        attributes_fn=lambda car: next(
+            (
+                event.get("charge", {})
+                for event in car.get("events", {}).get("data", [])
+                if event.get("type") == "charging"
+                and event.get("charge").get("status") == "finished"
+            ),
+            None,
+        ),
+        native_unit_of_measurement=CURRENCY_EURO,
+        suggested_display_precision=2,
     ),
 )
 
