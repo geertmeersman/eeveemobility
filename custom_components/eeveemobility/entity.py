@@ -27,6 +27,9 @@ class EeveeMobilityEntity(CoordinatorEntity[EeveeMobilityDataUpdateCoordinator])
             "fleet",
             "brand",
             "addresses",
+            "address",
+            "rates",
+            "last_synced",
         }
     )
 

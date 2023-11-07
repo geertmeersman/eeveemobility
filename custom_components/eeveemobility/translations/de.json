@@ -125,6 +125,109 @@
           }
         }
       },
+      "last_charge": {
+        "name": "Letzte Ladesitzung",
+        "state_attributes": {
+          "id": {
+            "name": "ID"
+          },
+          "car_id": {
+            "name": "Fahrzeug ID"
+          },
+          "charge_added": {
+            "name": "Ladung hinzugefügt"
+          },
+          "charge_added_day": {
+            "name": "Ladung hinzugefügt (Tag)"
+          },
+          "charge_added_night": {
+            "name": "Ladung hinzugefügt (Nacht)"
+          },
+          "battery_charge_added": {
+            "name": "Batterieladung hinzugefügt"
+          },
+          "battery_charge_added_day": {
+            "name": "Batterieladung hinzugefügt (Tag)"
+          },
+          "battery_charge_added_night": {
+            "name": "Batterieladung hinzugefügt (Nacht)"
+          },
+          "efficiency_trustworthy": {
+            "name": "Vertrauenswürdige Effizienz"
+          },
+          "fuel_liters": {
+            "name": "Kraftstoffliter"
+          },
+          "fuel_percent": {
+            "name": "Kraftstoffprozentsatz"
+          },
+          "fuel_liters_added": {
+            "name": "Kraftstoffliter hinzugefügt"
+          },
+          "fuel_percent_added": {
+            "name": "Kraftstoffprozentsatz hinzugefügt"
+          },
+          "price": {
+            "name": "Preis"
+          },
+          "rates": {
+            "name": "Tarife"
+          },
+          "price_per_unit": {
+            "name": "Preis pro Einheit"
+          },
+          "status": {
+            "name": "Status"
+          },
+          "type": {
+            "name": "Typ"
+          },
+          "estimated": {
+            "name": "Geschätzt"
+          },
+          "charge_duration": {
+            "name": "Ladedauer"
+          },
+          "address": {
+            "name": "Adresse"
+          }
+        }
+      },
+      "last_trip": {
+        "name": "Letzte Fahrt",
+        "state_attributes": {
+          "id": {
+            "name": "ID"
+          },
+          "car_id": {
+            "name": "Auto ID"
+          },
+          "distance_driven_start": {
+            "name": "Entfernung (Start)"
+          },
+          "distance_driven_end": {
+            "name": "Entfernung (Ende)"
+          },
+          "polyline_route": {
+            "name": "Polylinienroute"
+          },
+          "polyline_stops": {
+            "name": "Polylinienhaltestellen"
+          },
+          "average_speed": {
+            "name": "Durchschnittsgeschwindigkeit"
+          },
+          "average_height": {
+            "name": "Durchschnittshöhe"
+          },
+          "start_address": {
+            "name": "Startadresse"
+          },
+          "end_address": {
+            "name": "Zieladresse"
+          }
+        }
+      },
       "fleet": {
         "name": "Flotte",
         "state_attributes": {

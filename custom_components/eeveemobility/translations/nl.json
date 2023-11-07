@@ -125,6 +125,109 @@
           }
         }
       },
+      "last_charge": {
+        "name": "Laatste laadsessie",
+        "state_attributes": {
+          "id": {
+            "name": "ID"
+          },
+          "car_id": {
+            "name": "Auto ID"
+          },
+          "charge_added": {
+            "name": "Lading toegevoegd"
+          },
+          "charge_added_day": {
+            "name": "Lading toegevoegd (dag)"
+          },
+          "charge_added_night": {
+            "name": "Lading toegevoegd (nacht)"
+          },
+          "battery_charge_added": {
+            "name": "Accu lading toegevoegd"
+          },
+          "battery_charge_added_day": {
+            "name": "Accu lading toegevoegd (dag)"
+          },
+          "battery_charge_added_night": {
+            "name": "Accu lading toegevoegd (nacht)"
+          },
+          "efficiency_trustworthy": {
+            "name": "Betrouwbare efficiëntie"
+          },
+          "fuel_liters": {
+            "name": "Brandstof liters"
+          },
+          "fuel_percent": {
+            "name": "Brandstof percentage"
+          },
+          "fuel_liters_added": {
+            "name": "Brandstof liters toegevoegd"
+          },
+          "fuel_percent_added": {
+            "name": "Brandstof percentage toegevoegd"
+          },
+          "price": {
+            "name": "Prijs"
+          },
+          "rates": {
+            "name": "Tarieven"
+          },
+          "price_per_unit": {
+            "name": "Prijs per eenheid"
+          },
+          "status": {
+            "name": "Status"
+          },
+          "type": {
+            "name": "Type"
+          },
+          "estimated": {
+            "name": "Geschat"
+          },
+          "charge_duration": {
+            "name": "Laadduur"
+          },
+          "address": {
+            "name": "Adres"
+          }
+        }
+      },
+      "last_trip": {
+        "name": "Laatste rit",
+        "state_attributes": {
+          "id": {
+            "name": "ID"
+          },
+          "car_id": {
+            "name": "Auto ID"
+          },
+          "distance_driven_start": {
+            "name": "Afstand (start)"
+          },
+          "distance_driven_end": {
+            "name": "Afstand (einde)"
+          },
+          "polyline_route": {
+            "name": "Polylijn route"
+          },
+          "polyline_stops": {
+            "name": "Polylijn stops"
+          },
+          "average_speed": {
+            "name": "Gemiddelde snelheid"
+          },
+          "average_height": {
+            "name": "Gemiddelde hoogte"
+          },
+          "start_address": {
+            "name": "Startadres"
+          },
+          "end_address": {
+            "name": "Eindadres"
+          }
+        }
+      },
       "fleet": {
         "name": "Vloot",
         "state_attributes": {
