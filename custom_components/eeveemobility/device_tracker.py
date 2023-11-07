@@ -134,7 +134,6 @@ class EeveeMobilityGPSEntity(EeveeMobilityEntity, TrackerEntity, RestoreEntity):
                             "last_synced": self.last_synced,
                             "location_name": address.get("location"),
                         }
-                        _LOGGER.critical("Tracker update")
                         self.async_write_ha_state()
                         return True
         return False
