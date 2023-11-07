@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.6.0](https://github.com/geertmeersman/eeveemobility/tree/v0.6.0) (2023-11-07)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.5.1...v0.6.0)
+
+**Merged pull requests:**
+
+- feat: Last charging session and trip info [\#14](https://github.com/geertmeersman/eeveemobility/pull/14) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.5.1](https://github.com/geertmeersman/eeveemobility/tree/v0.5.1) (2023-11-07)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.5.0...v0.5.1)
