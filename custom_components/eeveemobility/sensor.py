@@ -144,7 +144,6 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         icon="mdi:car",
         available_fn=lambda car: car.get("events") is not None,
         value_fn=lambda car: car.get("events").get("data")[0].get("type"),
-        attributes_fn=lambda car: car.get("events"),
     ),
 )
 

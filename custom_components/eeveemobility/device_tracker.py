@@ -7,7 +7,7 @@ import logging
 from homeassistant.components.device_tracker import SourceType, TrackerEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import ATTR_BATTERY_LEVEL, ATTR_LATITUDE, ATTR_LONGITUDE
-from homeassistant.core import HomeAssistant
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.restore_state import RestoreEntity
@@ -132,10 +132,18 @@ class EeveeMobilityGPSEntity(EeveeMobilityEntity, TrackerEntity, RestoreEntity):
                         self.last_synced = datetime.now()
                         self._attributes = {
                             "last_synced": self.last_synced,
+                            "location_name": address.get("location"),
                         }
+                        _LOGGER.critical("Tracker update")
                         self.async_write_ha_state()
                         return True
         return False
+
+    @callback
+    def _handle_coordinator_update(self) -> None:
+        """Handle updated data from the coordinator."""
+        self.update_gps_state()
+        return
 
     async def async_added_to_hass(self) -> None:
         """Subscribe to MQTT events."""
