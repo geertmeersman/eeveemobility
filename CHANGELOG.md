@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.5.1](https://github.com/geertmeersman/eeveemobility/tree/v0.5.1) (2023-11-07)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.5.0...v0.5.1)
+
+**Merged pull requests:**
+
+- fix: Device tracker coordinator update [\#13](https://github.com/geertmeersman/eeveemobility/pull/13) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.5.0](https://github.com/geertmeersman/eeveemobility/tree/v0.5.0) (2023-11-06)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.4.3...v0.5.0)
