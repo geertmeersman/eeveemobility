@@ -193,6 +193,41 @@
           }
         }
       },
+      "last_trip": {
+        "name": "Laatste rit",
+        "state_attributes": {
+          "id": {
+            "name": "ID"
+          },
+          "car_id": {
+            "name": "Auto ID"
+          },
+          "distance_driven_start": {
+            "name": "Afstand (start)"
+          },
+          "distance_driven_end": {
+            "name": "Afstand (einde)"
+          },
+          "polyline_route": {
+            "name": "Polylijn route"
+          },
+          "polyline_stops": {
+            "name": "Polylijn stops"
+          },
+          "average_speed": {
+            "name": "Gemiddelde snelheid"
+          },
+          "average_height": {
+            "name": "Gemiddelde hoogte"
+          },
+          "start_address": {
+            "name": "Startadres"
+          },
+          "end_address": {
+            "name": "Eindadres"
+          }
+        }
+      },
       "fleet": {
         "name": "Vloot",
         "state_attributes": {

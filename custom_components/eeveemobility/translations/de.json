@@ -193,6 +193,41 @@
           }
         }
       },
+      "last_trip": {
+        "name": "Letzte Fahrt",
+        "state_attributes": {
+          "id": {
+            "name": "ID"
+          },
+          "car_id": {
+            "name": "Auto ID"
+          },
+          "distance_driven_start": {
+            "name": "Entfernung (Start)"
+          },
+          "distance_driven_end": {
+            "name": "Entfernung (Ende)"
+          },
+          "polyline_route": {
+            "name": "Polylinienroute"
+          },
+          "polyline_stops": {
+            "name": "Polylinienhaltestellen"
+          },
+          "average_speed": {
+            "name": "Durchschnittsgeschwindigkeit"
+          },
+          "average_height": {
+            "name": "Durchschnittshöhe"
+          },
+          "start_address": {
+            "name": "Startadresse"
+          },
+          "end_address": {
+            "name": "Zieladresse"
+          }
+        }
+      },
       "fleet": {
         "name": "Flotte",
         "state_attributes": {

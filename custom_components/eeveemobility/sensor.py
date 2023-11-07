@@ -172,6 +172,38 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         native_unit_of_measurement=CURRENCY_EURO,
         suggested_display_precision=2,
     ),
+    EeveeMobilitySensorDescription(
+        key="cars",
+        translation_key="last_trip",
+        unique_id_fn=lambda car: car.get("car").get("id"),
+        icon="mdi:map-marker-distance",
+        available_fn=lambda car: car.get("events") is not None,
+        value_fn=lambda car: next(
+            (
+                event.get("trip", {}).get("distance_driven_end", 0)
+                - event.get("trip", {}).get("distance_driven_start", 0)
+                for event in car.get("events", {}).get("data", [])
+                if event.get("type") == "driving"
+                and event.get("trip")
+                and event.get("trip").get("distance_driven_end")
+                != event.get("trip").get("distance_driven_start")
+            ),
+            None,
+        ),
+        attributes_fn=lambda car: next(
+            (
+                event.get("trip", {})
+                for event in car.get("events", {}).get("data", [])
+                if event.get("type") == "driving"
+                and event.get("trip")
+                and event.get("trip").get("distance_driven_end")
+                != event.get("trip").get("distance_driven_start")
+            ),
+            None,
+        ),
+        native_unit_of_measurement=UnitOfLength.KILOMETERS,
+        suggested_display_precision=0,
+    ),
 )
 
 

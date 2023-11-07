@@ -193,6 +193,41 @@
           }
         }
       },
+      "last_trip": {
+        "name": "Dernier trajet",
+        "state_attributes": {
+          "id": {
+            "name": "ID"
+          },
+          "car_id": {
+            "name": "ID de la voiture"
+          },
+          "distance_driven_start": {
+            "name": "Distance parcourue (départ)"
+          },
+          "distance_driven_end": {
+            "name": "Distance parcourue (arrivée)"
+          },
+          "polyline_route": {
+            "name": "Itinéraire en polygone"
+          },
+          "polyline_stops": {
+            "name": "Arrêts en polygone"
+          },
+          "average_speed": {
+            "name": "Vitesse moyenne"
+          },
+          "average_height": {
+            "name": "Hauteur moyenne"
+          },
+          "start_address": {
+            "name": "Adresse de départ"
+          },
+          "end_address": {
+            "name": "Adresse de destination"
+          }
+        }
+      },
       "fleet": {
         "name": "Flotte",
         "state_attributes": {
