@@ -93,7 +93,9 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
         cars = await self.client.request("cars")
         for idx, car in enumerate(cars):
             car_id = car.get("id")
-            events = await self.client.request(f"cars/{car_id}/events?force_refresh=1")
+            events = await self.client.request(
+                f"cars/{car_id}/events?limit=50&force_refresh=1"
+            )
             _LOGGER.debug(f"Events: {events}")
             car_info = await self.client.request(f"cars/{car_id}")
             _LOGGER.debug(f"Car: {car}")

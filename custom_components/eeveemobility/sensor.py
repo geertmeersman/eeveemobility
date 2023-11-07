@@ -298,6 +298,9 @@ class EeveeMobilitySensor(EeveeMobilityEntity, RestoreSensor, SensorEntity):
         attributes = {
             "last_synced": self.last_synced,
         }
-        if self.entity_description.attributes_fn:
+        if (
+            self.entity_description.attributes_fn
+            and self.entity_description.attributes_fn(self.item) is not None
+        ):
             return attributes | self.entity_description.attributes_fn(self.item)
         return attributes
