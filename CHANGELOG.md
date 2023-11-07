@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.6.1](https://github.com/geertmeersman/eeveemobility/tree/v0.6.1) (2023-11-07)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.6.0...v0.6.1)
+
+**Merged pull requests:**
+
+- fix: events fetching limit increase [\#15](https://github.com/geertmeersman/eeveemobility/pull/15) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.6.0](https://github.com/geertmeersman/eeveemobility/tree/v0.6.0) (2023-11-07)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.5.1...v0.6.0)
