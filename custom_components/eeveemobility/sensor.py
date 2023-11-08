@@ -193,6 +193,14 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         attributes_fn=lambda car: next(
             (
                 event.get("trip", {})
+                | {
+                    "started_at": event.get("started_at"),
+                    "finished_at": event.get("finished_at"),
+                    "percent_used": event.get("percent_start")
+                    - event.get("percent_end"),
+                    "range_ideal_used": event.get("range_ideal_start")
+                    - event.get("range_ideal_end"),
+                }
                 for event in car.get("events", {}).get("data", [])
                 if event.get("type") == "driving"
                 and event.get("trip")
@@ -229,7 +237,7 @@ async def async_setup_entry(
                     EeveeMobilitySensor(coordinator, sensor_type, device_name, item_id)
                 )
             elif sensor_type.key in ["fleets", "cars"]:
-                for index, _ in enumerate(coordinator.data[sensor_type.key]):
+                for index in coordinator.data[sensor_type.key]:
                     entities.append(
                         EeveeMobilitySensor(
                             coordinator, sensor_type, device_name, index
@@ -267,7 +275,6 @@ class EeveeMobilitySensor(EeveeMobilityEntity, RestoreSensor, SensorEntity):
 
     async def async_added_to_hass(self) -> None:
         """Handle entity which will be added."""
-        _LOGGER.debug(f"Async added to hass {self.entity_id}")
         await super().async_added_to_hass()
         if self.coordinator.data is None:
             sensor_data = await self.async_get_last_sensor_data()
@@ -280,7 +287,6 @@ class EeveeMobilitySensor(EeveeMobilityEntity, RestoreSensor, SensorEntity):
                 )
                 await self.coordinator.async_request_refresh()
         else:
-            _LOGGER.debug(f"Setting value for {self.entity_id}")
             self._value = self.entity_description.value_fn(self.item)
 
     @property

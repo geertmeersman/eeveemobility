@@ -13,6 +13,9 @@ ATTRIBUTION: Final = "Data provided by Eevee Mobility"
 COORDINATOR_UPDATE_INTERVAL = timedelta(minutes=15)
 WEBSITE = "https://eeveemobility.com/"
 
+EVENTS_LIMIT = 200
+EVENTS_EXCLUDE_KEYS = ["polyline", "graphs"]
+
 manifestfile = Path(__file__).parent / "manifest.json"
 with open(manifestfile) as json_file:
     manifest_data = json.load(json_file)
