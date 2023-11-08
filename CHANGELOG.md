@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.7.0](https://github.com/geertmeersman/eeveemobility/tree/v0.7.0) (2023-11-08)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.6.1...v0.7.0)
+
+**Merged pull requests:**
+
+- feat: add store for coordinator data and remove objects with null values [\#16](https://github.com/geertmeersman/eeveemobility/pull/16) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.6.1](https://github.com/geertmeersman/eeveemobility/tree/v0.6.1) (2023-11-07)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.6.0...v0.6.1)
