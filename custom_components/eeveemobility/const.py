@@ -10,7 +10,7 @@ PLATFORMS: Final = [Platform.SENSOR, Platform.DEVICE_TRACKER]
 
 ATTRIBUTION: Final = "Data provided by Eevee Mobility"
 
-COORDINATOR_UPDATE_INTERVAL = timedelta(minutes=2)
+COORDINATOR_UPDATE_INTERVAL = timedelta(minutes=15)
 WEBSITE = "https://eeveemobility.com/"
 
 EVENTS_LIMIT = 200

@@ -123,10 +123,6 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
             _LOGGER.debug(f"Car: {car}")
             addresses = await self.client.request(f"cars/{car_id}/addresses")
             _LOGGER.debug(f"Addresses: {addresses}")
-            """
-                "events": filter_json(self.data["cars"].get(car_id).get("events"), ["polyline", "graphs"]),
-            }
-            """
             if car_id in self.data["cars"]:
                 total = events.get("meta").get("total")
                 store_total = (
