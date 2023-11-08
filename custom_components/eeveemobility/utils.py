@@ -9,7 +9,7 @@ def sensor_name(string: str) -> str:
 
 
 def filter_json(json_data, exclude_substrings=None):
-    """Remove objects with null or where the key is in the substring list"""
+    """Remove objects with null or where the key is in the substring list."""
     if exclude_substrings is None:
         exclude_substrings = []
 
@@ -26,7 +26,7 @@ def filter_json(json_data, exclude_substrings=None):
             ):
                 # Remove the object
                 del result[key]
-            elif isinstance(value, (dict, list)):
+            elif isinstance(value, dict | list):
                 # Recursively call the function for nested dictionaries
                 nested_result = filter_json(value, exclude_substrings)
                 if not nested_result:
