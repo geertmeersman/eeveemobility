@@ -163,6 +163,14 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         attributes_fn=lambda car: next(
             (
                 event.get("charge", {})
+                | {
+                    "started_at": event.get("started_at"),
+                    "finished_at": event.get("finished_at"),
+                    "percent_added": event.get("percent_end")
+                    - event.get("percent_start"),
+                    "range_ideal_added": event.get("range_ideal_end")
+                    - event.get("range_ideal_start"),
+                }
                 for event in car.get("events", {}).get("data", [])
                 if event.get("type") == "charging"
                 and event.get("charge").get("status") == "finished"

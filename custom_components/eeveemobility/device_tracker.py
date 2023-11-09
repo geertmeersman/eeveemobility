@@ -24,7 +24,7 @@ async def async_setup_entry(
 ) -> None:
     """Set up an EeveeMobility device_tracker entry."""
 
-    _LOGGER.debug("Creating REST device tracker")
+    _LOGGER.debug("Creating device tracker")
     coordinator: EeveeMobilityDataUpdateCoordinator = hass.data[DOMAIN][entry.entry_id]
     if coordinator.data is not None and "cars" in coordinator.data:
         for idx in coordinator.data.get("cars"):
