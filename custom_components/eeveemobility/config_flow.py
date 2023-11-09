@@ -59,7 +59,7 @@ class EeveeMobilityCommonFlow(ABC, FlowHandler):
         return user
 
     async def async_step_connection_init(
-        self, user_input: dict | None = None
+        self, user_input: dict[str, Any] | None = None
     ) -> FlowResult:
         """Handle connection configuration."""
         errors: dict = {}
@@ -91,7 +91,7 @@ class EeveeMobilityCommonFlow(ABC, FlowHandler):
             errors=errors,
         )
 
-    async def test_connection(self, user_input: dict | None = None) -> dict:
+    async def test_connection(self, user_input: dict[str, Any] | None = None) -> dict:
         """Test the connection to EeveeMobility."""
         errors: dict = {}
         user: dict = {}
@@ -114,7 +114,9 @@ class EeveeMobilityCommonFlow(ABC, FlowHandler):
                 _LOGGER.debug(exception)
         return {"user": user, "errors": errors}
 
-    async def async_step_password(self, user_input: dict | None = None) -> FlowResult:
+    async def async_step_password(
+        self, user_input: dict[str, Any] | None = None
+    ) -> FlowResult:
         """Configure password."""
         errors: dict = {}
 

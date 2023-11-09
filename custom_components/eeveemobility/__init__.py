@@ -2,13 +2,14 @@
 from __future__ import annotations
 
 import logging
+from pathlib import Path
 
 from aioeeveemobility import EeveeMobilityClient
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_EMAIL, CONF_PASSWORD
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import device_registry as dr
-from homeassistant.helpers.storage import Store
+from homeassistant.helpers.storage import STORAGE_DIR, Store
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 from requests.exceptions import ConnectionError
 
@@ -38,7 +39,11 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         password=entry.data[CONF_PASSWORD],
     )
 
-    store: Store = Store(hass, 1, DOMAIN)
+    storage_dir = Path(f"{hass.config.path(STORAGE_DIR)}/{DOMAIN}")
+    if not storage_dir.is_dir():
+        storage_dir.unlink()
+    storage_dir.mkdir(exist_ok=True)
+    store: Store = Store(hass, 1, f"{DOMAIN}/{entry.entry_id}")
     dev_reg = dr.async_get(hass)
     hass.data[DOMAIN][
         entry.entry_id
@@ -61,6 +66,10 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Unload a config entry."""
     if unload_ok := await hass.config_entries.async_unload_platforms(entry, PLATFORMS):
         hass.data[DOMAIN].pop(entry.entry_id)
+        storage_dir = f"{hass.config.path(STORAGE_DIR)}/{DOMAIN}"
+        Path(f"{storage_dir}/{entry.entry_id}").unlink(True)
+        if storage_dir.is_dir() and not any(storage_dir.iterdir()):
+            storage_dir.rmdir()
 
     return unload_ok
 
@@ -91,7 +100,6 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
         self.hass = hass
         self.client = client
         self.store = store
-        self.data = None
 
     async def async_config_entry_first_refresh(self) -> None:
         """Refresh data for the first time when a config entry is setup."""
