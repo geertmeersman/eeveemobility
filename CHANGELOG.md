@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.7.1](https://github.com/geertmeersman/eeveemobility/tree/v0.7.1) (2023-11-09)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.7.0...v0.7.1)
+
+**Closed issues:**
+
+- Config-flow kon niet geladen worden: {"message":"Invalid handler specified"} after loading eeveemobility [\#17](https://github.com/geertmeersman/eeveemobility/issues/17)
+
+**Merged pull requests:**
+
+- feat: Store support for multiple Eevee accounts [\#18](https://github.com/geertmeersman/eeveemobility/pull/18) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.7.0](https://github.com/geertmeersman/eeveemobility/tree/v0.7.0) (2023-11-08)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.6.1...v0.7.0)
