@@ -42,3 +42,21 @@ def filter_json(json_data, exclude_substrings=None):
         return [item for item in filtered_list if item is not None]
     else:
         return json_data
+
+
+def format_duration(seconds):
+    """Format a time duration."""
+    minutes, seconds = divmod(seconds, 60)
+    hours, minutes = divmod(minutes, 60)
+    days, hours = divmod(hours, 24)
+
+    duration_str = ""
+    if days > 0:
+        duration_str += f"{int(days)} days, "
+    if hours > 0:
+        duration_str += f"{int(hours)} hours, "
+    if minutes > 0:
+        duration_str += f"{int(minutes)} minutes, "
+    duration_str += f"{round(seconds)} seconds"
+
+    return duration_str

@@ -463,6 +463,23 @@
           "driving": "Driving",
           "plugged_in": "Plugged in",
           "charging": "Charging"
+        },
+        "state_attributes": {
+          "last_synced": {
+            "name": "Last synchronization"
+          },
+          "started_at": {
+            "name": "Started at"
+          },
+          "formatted_started_at": {
+            "name": "Formatted started at"
+          },
+          "duration": {
+            "name": "Duration"
+          },
+          "address": {
+            "name": "Address"
+          }
         }
       }
     },

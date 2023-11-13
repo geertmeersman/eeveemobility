@@ -463,6 +463,23 @@
           "driving": "Fahren",
           "plugged_in": "Angeschlossen",
           "charging": "Laden"
+        },
+        "state_attributes": {
+          "last_synced": {
+            "name": "Zuletzt synchronisiert"
+          },
+          "started_at": {
+            "name": "Gestartet am"
+          },
+          "formatted_started_at": {
+            "name": "Formatiert gestartet am"
+          },
+          "duration": {
+            "name": "Dauer"
+          },
+          "address": {
+            "name": "Adresse"
+          }
         }
       }
     },
