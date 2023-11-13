@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.8.1](https://github.com/geertmeersman/eeveemobility/tree/v0.8.1) (2023-11-13)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.8.0...v0.8.1)
+
+**Merged pull requests:**
+
+- fix: Add zip file to release artifacts [\#21](https://github.com/geertmeersman/eeveemobility/pull/21) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.8.0](https://github.com/geertmeersman/eeveemobility/tree/v0.8.0) (2023-11-13)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.7.1...v0.8.0)
