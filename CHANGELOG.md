@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.8.0](https://github.com/geertmeersman/eeveemobility/tree/v0.8.0) (2023-11-13)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.7.1...v0.8.0)
+
+**Merged pull requests:**
+
+- feat: Add duration attributes to state sensor [\#20](https://github.com/geertmeersman/eeveemobility/pull/20) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.1.4 to 0.1.5 [\#19](https://github.com/geertmeersman/eeveemobility/pull/19) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v0.7.1](https://github.com/geertmeersman/eeveemobility/tree/v0.7.1) (2023-11-09)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.7.0...v0.7.1)
