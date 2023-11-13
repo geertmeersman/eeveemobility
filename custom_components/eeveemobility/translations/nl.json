@@ -125,6 +125,41 @@
           }
         }
       },
+      "last_trip": {
+        "name": "Laatste rit",
+        "state_attributes": {
+          "id": {
+            "name": "ID"
+          },
+          "car_id": {
+            "name": "Auto ID"
+          },
+          "distance_driven_start": {
+            "name": "Afstand (start)"
+          },
+          "distance_driven_end": {
+            "name": "Afstand (einde)"
+          },
+          "polyline_route": {
+            "name": "Polylijn route"
+          },
+          "polyline_stops": {
+            "name": "Polylijn stops"
+          },
+          "average_speed": {
+            "name": "Gemiddelde snelheid"
+          },
+          "average_height": {
+            "name": "Gemiddelde hoogte"
+          },
+          "start_address": {
+            "name": "Startadres"
+          },
+          "end_address": {
+            "name": "Eindadres"
+          }
+        }
+      },
       "last_charge": {
         "name": "Laatste laadsessie",
         "state_attributes": {
@@ -190,41 +225,6 @@
           },
           "address": {
             "name": "Adres"
-          }
-        }
-      },
-      "last_trip": {
-        "name": "Laatste rit",
-        "state_attributes": {
-          "id": {
-            "name": "ID"
-          },
-          "car_id": {
-            "name": "Auto ID"
-          },
-          "distance_driven_start": {
-            "name": "Afstand (start)"
-          },
-          "distance_driven_end": {
-            "name": "Afstand (einde)"
-          },
-          "polyline_route": {
-            "name": "Polylijn route"
-          },
-          "polyline_stops": {
-            "name": "Polylijn stops"
-          },
-          "average_speed": {
-            "name": "Gemiddelde snelheid"
-          },
-          "average_height": {
-            "name": "Gemiddelde hoogte"
-          },
-          "start_address": {
-            "name": "Startadres"
-          },
-          "end_address": {
-            "name": "Eindadres"
           }
         }
       },
@@ -407,6 +407,12 @@
           "last_data_at": {
             "name": "Laatste gegevens op"
           },
+          "created_at": {
+            "name": "Aangemaakt op"
+          },
+          "updated_at": {
+            "name": "Bijgewerkt op"
+          },
           "brand": {
             "name": "Merk"
           },
@@ -457,6 +463,23 @@
           "driving": "Rijden",
           "plugged_in": "Aangesloten",
           "charging": "Laden"
+        },
+        "state_attributes": {
+          "last_synced": {
+            "name": "Laatst gesynchroniseerd"
+          },
+          "started_at": {
+            "name": "Gestart op"
+          },
+          "formatted_started_at": {
+            "name": "Geformatteerd gestart op"
+          },
+          "duration": {
+            "name": "Duur"
+          },
+          "address": {
+            "name": "Adres"
+          }
         }
       }
     },

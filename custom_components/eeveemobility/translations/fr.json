@@ -463,6 +463,23 @@
           "driving": "Conduite",
           "plugged_in": "Branchée",
           "charging": "Chargement"
+        },
+        "state_attributes": {
+          "last_synced": {
+            "name": "Dernière synchronisation"
+          },
+          "started_at": {
+            "name": "Démarré le"
+          },
+          "formatted_started_at": {
+            "name": "Démarré le (formaté)"
+          },
+          "duration": {
+            "name": "Durée"
+          },
+          "address": {
+            "name": "Adresse"
+          }
         }
       }
     },
