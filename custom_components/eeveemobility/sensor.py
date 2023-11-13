@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from datetime import datetime
 import logging
 
 from homeassistant.components.sensor import (
@@ -20,6 +21,7 @@ from homeassistant.helpers.typing import StateType
 from . import EeveeMobilityDataUpdateCoordinator
 from .const import DOMAIN
 from .entity import EeveeMobilityEntity
+from .utils import format_duration
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -144,6 +146,26 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         icon="mdi:car",
         available_fn=lambda car: car.get("events") is not None,
         value_fn=lambda car: car.get("events").get("data")[0].get("type"),
+        attributes_fn=lambda car: {
+            "started_at": (event_data := car.get("events").get("data")[0]).get(
+                "started_at"
+            ),
+            "formatted_started_at": datetime.utcfromtimestamp(
+                event_data.get("started_at")
+            ).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3]
+            + "Z",
+            "duration": format_duration(
+                (
+                    datetime.utcnow()
+                    - datetime.utcfromtimestamp(event_data.get("started_at"))
+                ).total_seconds()
+            ),
+            "address": event_data.get("parked").get("address").get("location")
+            if event_data.get("type") == "parked"
+            else event_data.get("trip").get("start_address").get("location")
+            if event_data.get("type") == "driving"
+            else None,
+        },
     ),
     EeveeMobilitySensorDescription(
         key="cars",
