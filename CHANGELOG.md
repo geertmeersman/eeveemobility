@@ -1,27 +1,14 @@
 # Changelog
 
-## [v0.8.3](https://github.com/geertmeersman/eeveemobility/tree/v0.8.3) (2023-11-13)
-
-[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.8.2...v0.8.3)
-
-**Merged pull requests:**
-
-- fix: fetch tags [\#23](https://github.com/geertmeersman/eeveemobility/pull/23) ([geertmeersman](https://github.com/geertmeersman))
-
-## [v0.8.2](https://github.com/geertmeersman/eeveemobility/tree/v0.8.2) (2023-11-13)
-
-[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.8.1...v0.8.2)
-
-**Merged pull requests:**
-
-- fix: Add zip file to release artifacts [\#22](https://github.com/geertmeersman/eeveemobility/pull/22) ([geertmeersman](https://github.com/geertmeersman))
-
 ## [v0.8.1](https://github.com/geertmeersman/eeveemobility/tree/v0.8.1) (2023-11-13)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.8.0...v0.8.1)
 
 **Merged pull requests:**
 
+- fix: gh release workflow for zip fix [\#24](https://github.com/geertmeersman/eeveemobility/pull/24) ([geertmeersman](https://github.com/geertmeersman))
+- fix: fetch tags [\#23](https://github.com/geertmeersman/eeveemobility/pull/23) ([geertmeersman](https://github.com/geertmeersman))
+- fix: Add zip file to release artifacts [\#22](https://github.com/geertmeersman/eeveemobility/pull/22) ([geertmeersman](https://github.com/geertmeersman))
 - fix: Add zip file to release artifacts [\#21](https://github.com/geertmeersman/eeveemobility/pull/21) ([geertmeersman](https://github.com/geertmeersman))
 
 ## [v0.8.0](https://github.com/geertmeersman/eeveemobility/tree/v0.8.0) (2023-11-13)
