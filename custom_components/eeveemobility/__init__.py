@@ -66,8 +66,8 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Unload a config entry."""
     if unload_ok := await hass.config_entries.async_unload_platforms(entry, PLATFORMS):
         hass.data[DOMAIN].pop(entry.entry_id)
-        storage_dir = f"{hass.config.path(STORAGE_DIR)}/{DOMAIN}"
-        Path(f"{storage_dir}/{entry.entry_id}").unlink(True)
+        storage_dir = Path(f"{hass.config.path(STORAGE_DIR)}/{DOMAIN}")
+        storage_dir.unlink(True)
         if storage_dir.is_dir() and not any(storage_dir.iterdir()):
             storage_dir.rmdir()
 
@@ -152,6 +152,13 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
                         filter_json(events.get("data"), EVENTS_EXCLUDE_KEYS)
                         + self.data["cars"][car_id]["events"]["data"]
                     )
+                else:
+                    self.data["cars"][car_id]["events"]["data"].pop(0)
+                    self.data["cars"][car_id]["events"]["data"] = (
+                        filter_json(events.get("data"), EVENTS_EXCLUDE_KEYS)
+                        + self.data["cars"][car_id]["events"]["data"]
+                    )
+
             else:
                 car_events = {}
                 page = 1
