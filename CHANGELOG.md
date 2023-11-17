@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.8.3](https://github.com/geertmeersman/eeveemobility/tree/v0.8.3) (2023-11-17)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.8.2...v0.8.3)
+
+**Merged pull requests:**
+
+- fix: move zip file [\#28](https://github.com/geertmeersman/eeveemobility/pull/28) ([geertmeersman](https://github.com/geertmeersman))
+- fix: update last event data when total didn't change [\#27](https://github.com/geertmeersman/eeveemobility/pull/27) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.8.2](https://github.com/geertmeersman/eeveemobility/tree/v0.8.2) (2023-11-17)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.8.1...v0.8.2)
