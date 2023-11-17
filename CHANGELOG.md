@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.8.2](https://github.com/geertmeersman/eeveemobility/tree/v0.8.2) (2023-11-17)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.8.1...v0.8.2)
+
+**Merged pull requests:**
+
+- feat: added battery % delta to state sensor attributes [\#26](https://github.com/geertmeersman/eeveemobility/pull/26) ([geertmeersman](https://github.com/geertmeersman))
+- fix: Release workflow - remove path from zip [\#25](https://github.com/geertmeersman/eeveemobility/pull/25) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.8.1](https://github.com/geertmeersman/eeveemobility/tree/v0.8.1) (2023-11-13)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.8.0...v0.8.1)
