@@ -471,6 +471,9 @@
           "started_at": {
             "name": "Démarré le"
           },
+          "battery_percentage_delta": {
+            "name": "Delta de pourcentage de batterie"
+          },
           "formatted_started_at": {
             "name": "Démarré le (formaté)"
           },

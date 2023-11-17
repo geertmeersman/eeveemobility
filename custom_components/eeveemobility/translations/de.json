@@ -471,6 +471,9 @@
           "started_at": {
             "name": "Gestartet am"
           },
+          "battery_percentage_delta": {
+            "name": "Batterieprozent-Differenz"
+          },
           "formatted_started_at": {
             "name": "Formatiert gestartet am"
           },

@@ -471,6 +471,9 @@
           "started_at": {
             "name": "Started at"
           },
+          "battery_percentage_delta": {
+            "name": "Battery percentage delta"
+          },
           "formatted_started_at": {
             "name": "Formatted started at"
           },

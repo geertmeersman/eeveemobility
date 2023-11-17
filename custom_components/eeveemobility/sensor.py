@@ -150,6 +150,8 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
             "started_at": (event_data := car.get("events").get("data")[0]).get(
                 "started_at"
             ),
+            "battery_percentage_delta": event_data.get("percent_end")
+            - event_data.get("percent_start"),
             "formatted_started_at": datetime.utcfromtimestamp(
                 event_data.get("started_at")
             ).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3]
