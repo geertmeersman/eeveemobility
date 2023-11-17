@@ -471,6 +471,9 @@
           "started_at": {
             "name": "Gestart op"
           },
+          "battery_percentage_delta": {
+            "name": "Batterijpercentage delta"
+          },
           "formatted_started_at": {
             "name": "Geformatteerd gestart op"
           },
