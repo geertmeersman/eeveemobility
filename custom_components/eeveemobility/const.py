@@ -1,5 +1,4 @@
 """Constants used by EeveeMobility."""
-from datetime import timedelta
 import json
 from pathlib import Path
 from typing import Final
@@ -10,7 +9,9 @@ PLATFORMS: Final = [Platform.SENSOR, Platform.DEVICE_TRACKER]
 
 ATTRIBUTION: Final = "Data provided by Eevee Mobility"
 
-COORDINATOR_UPDATE_INTERVAL = timedelta(minutes=15)
+DEFAULT_SCAN_INTERVAL = 15
+SCAN_INTERVAL_MIN = 10
+SCAN_INTERVAL_MAX = 1440
 WEBSITE = "https://eeveemobility.com/"
 
 EVENTS_LIMIT = 200

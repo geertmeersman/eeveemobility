@@ -5,11 +5,13 @@ from typing import Any
 
 from aioeeveemobility import EeveeMobilityClient
 from homeassistant.config_entries import ConfigEntry, ConfigFlow, OptionsFlow
-from homeassistant.const import CONF_EMAIL, CONF_PASSWORD
+from homeassistant.const import CONF_EMAIL, CONF_PASSWORD, CONF_SCAN_INTERVAL
 from homeassistant.core import callback
 from homeassistant.data_entry_flow import FlowHandler, FlowResult
-import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.selector import (
+    NumberSelector,
+    NumberSelectorConfig,
+    NumberSelectorMode,
     TextSelector,
     TextSelectorConfig,
     TextSelectorType,
@@ -17,7 +19,13 @@ from homeassistant.helpers.selector import (
 from homeassistant.helpers.typing import UNDEFINED
 import voluptuous as vol
 
-from .const import DOMAIN, NAME
+from .const import (
+    DEFAULT_SCAN_INTERVAL,
+    DOMAIN,
+    NAME,
+    SCAN_INTERVAL_MAX,
+    SCAN_INTERVAL_MIN,
+)
 from .exceptions import BadCredentialsException, EeveeMobilityServiceException
 from .models import EeveeMobilityConfigEntryData
 
@@ -26,6 +34,7 @@ _LOGGER = logging.getLogger(__name__)
 DEFAULT_ENTRY_DATA = EeveeMobilityConfigEntryData(
     email=None,
     password=None,
+    scan_interval=DEFAULT_SCAN_INTERVAL,
 )
 
 
@@ -84,6 +93,16 @@ class EeveeMobilityCommonFlow(ABC, FlowHandler):
                     type=TextSelectorType.PASSWORD, autocomplete="current-password"
                 )
             ),
+            vol.Required(
+                CONF_SCAN_INTERVAL, default=DEFAULT_SCAN_INTERVAL
+            ): NumberSelector(
+                NumberSelectorConfig(
+                    min=SCAN_INTERVAL_MIN,
+                    max=SCAN_INTERVAL_MAX,
+                    step=1,
+                    mode=NumberSelectorMode.BOX,
+                )
+            ),
         }
         return self.async_show_form(
             step_id="connection_init",
@@ -102,7 +121,7 @@ class EeveeMobilityCommonFlow(ABC, FlowHandler):
                 user = await self.async_validate_input(user_input)
             except AssertionError as exception:
                 errors["base"] = "cannot_connect"
-                _LOGGER.debug(f"[async_step_password|login] AssertionError {exception}")
+                _LOGGER.debug(f"[test_connection|login] AssertionError {exception}")
             except ConnectionError:
                 errors["base"] = "cannot_connect"
             except EeveeMobilityServiceException:
@@ -114,7 +133,7 @@ class EeveeMobilityCommonFlow(ABC, FlowHandler):
                 _LOGGER.debug(exception)
         return {"user": user, "errors": errors}
 
-    async def async_step_password(
+    async def async_step_email_password(
         self, user_input: dict[str, Any] | None = None
     ) -> FlowResult:
         """Configure password."""
@@ -127,20 +146,58 @@ class EeveeMobilityCommonFlow(ABC, FlowHandler):
                 self.new_entry_data |= EeveeMobilityConfigEntryData(
                     password=user_input[CONF_PASSWORD],
                 )
-                _LOGGER.debug(f"Password changed for {test['user'].get('email')}")
+                _LOGGER.debug(
+                    f"Password and email changed for {test['user'].get('email')}"
+                )
                 return self.finish_flow()
 
         fields = {
-            vol.Required(CONF_PASSWORD): cv.string,
+            vol.Required(CONF_EMAIL): TextSelector(
+                TextSelectorConfig(type=TextSelectorType.EMAIL, autocomplete="email")
+            ),
+            vol.Required(CONF_PASSWORD): TextSelector(
+                TextSelectorConfig(
+                    type=TextSelectorType.PASSWORD, autocomplete="current-password"
+                )
+            ),
         }
         return self.async_show_form(
-            step_id="password",
+            step_id="email_password",
             data_schema=self.add_suggested_values_to_schema(
                 vol.Schema(fields),
                 self.initial_data
                 | EeveeMobilityConfigEntryData(
                     password=None,
                 ),
+            ),
+            errors=errors,
+        )
+
+    async def async_step_scan_interval(
+        self, user_input: dict | None = None
+    ) -> FlowResult:
+        """Configure update interval."""
+        errors: dict = {}
+
+        if user_input is not None:
+            self.new_entry_data |= user_input
+            return self.finish_flow()
+
+        fields = {
+            vol.Required(CONF_SCAN_INTERVAL): NumberSelector(
+                NumberSelectorConfig(
+                    min=SCAN_INTERVAL_MIN,
+                    max=SCAN_INTERVAL_MAX,
+                    step=1,
+                    mode=NumberSelectorMode.BOX,
+                )
+            ),
+        }
+        return self.async_show_form(
+            step_id="scan_interval",
+            data_schema=self.add_suggested_values_to_schema(
+                vol.Schema(fields),
+                self.initial_data,
             ),
             errors=errors,
         )
@@ -177,7 +234,8 @@ class EeveeMobilityOptionsFlow(EeveeMobilityCommonFlow, OptionsFlow):
         return self.async_show_menu(
             step_id="options_init",
             menu_options=[
-                "password",
+                "email_password",
+                "scan_interval",
             ],
         )
 
