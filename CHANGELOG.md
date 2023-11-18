@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.9.0](https://github.com/geertmeersman/eeveemobility/tree/v0.9.0) (2023-11-18)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.8.3...v0.9.0)
+
+**Merged pull requests:**
+
+- feat: configurable update interval [\#29](https://github.com/geertmeersman/eeveemobility/pull/29) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.8.3](https://github.com/geertmeersman/eeveemobility/tree/v0.8.3) (2023-11-17)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.8.2...v0.8.3)
