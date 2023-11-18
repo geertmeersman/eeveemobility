@@ -243,7 +243,7 @@ class EeveeMobilityOptionsFlow(EeveeMobilityCommonFlow, OptionsFlow):
 class EeveeMobilityConfigFlow(EeveeMobilityCommonFlow, ConfigFlow, domain=DOMAIN):
     """Handle a config flow for EeveeMobility."""
 
-    VERSION = 1
+    VERSION = 2
 
     def __init__(self) -> None:
         """Initialize EeveeMobility Config Flow."""
