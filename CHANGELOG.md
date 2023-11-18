@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.9.1](https://github.com/geertmeersman/eeveemobility/tree/v0.9.1) (2023-11-18)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.9.0...v0.9.1)
+
+**Merged pull requests:**
+
+- fix: bump config flow version to 2 [\#30](https://github.com/geertmeersman/eeveemobility/pull/30) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.9.0](https://github.com/geertmeersman/eeveemobility/tree/v0.9.0) (2023-11-18)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.8.3...v0.9.0)
