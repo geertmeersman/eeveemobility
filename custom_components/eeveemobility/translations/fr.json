@@ -6,7 +6,8 @@
         "description": "Configurez votre compte utilisateur Eevee Mobility",
         "data": {
           "email": "Adresse e-mail",
-          "password": "Mot de passe"
+          "password": "Mot de passe",
+          "scan_interval": "Intervalle de mise à jour (minutes)"
         }
       }
     },
@@ -26,20 +27,30 @@
         "title": "Reconfigurer Eevee Mobility",
         "data": {
           "email": "Adresse e-mail",
+          "password": "Mot de passe",
+          "scan_interval": "Intervalle de mise à jour (minutes)"
+        }
+      },
+      "email_password": {
+        "title": "Mettez à jour vos identifiants",
+        "description": "À faire lorsque vous avez modifié vos identifiants de compte sur 'Eevee Mobililty'",
+        "data": {
+          "email": "Adresse e-mail",
           "password": "Mot de passe"
         }
       },
-      "password": {
-        "title": "Mettre à jour votre mot de passe",
-        "description": "À faire lorsque vous avez changé votre mot de passe sur 'Eevee Mobility'",
+      "scan_interval": {
+        "title": "Intervalle de mise à jour",
+        "description": "Modifier l'intervalle de mise à jour pour actualiser les capteurs",
         "data": {
-          "password": "Mot de passe"
+          "scan_interval": "Intervalle de mise à jour (min)"
         }
       },
       "options_init": {
         "title": "Modifier les options",
         "menu_options": {
-          "password": "Mot de passe"
+          "email_password": "E-mail et mot de passe",
+          "scan_interval": "Intervalle de mise à jour"
         }
       }
     },

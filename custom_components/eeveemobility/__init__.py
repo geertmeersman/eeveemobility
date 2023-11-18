@@ -1,12 +1,13 @@
 """EeveeMobility integration."""
 from __future__ import annotations
 
+from datetime import timedelta
 import logging
 from pathlib import Path
 
 from aioeeveemobility import EeveeMobilityClient
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_EMAIL, CONF_PASSWORD
+from homeassistant.const import CONF_EMAIL, CONF_PASSWORD, CONF_SCAN_INTERVAL
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.storage import STORAGE_DIR, Store
@@ -14,7 +15,7 @@ from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, Upda
 from requests.exceptions import ConnectionError
 
 from .const import (
-    COORDINATOR_UPDATE_INTERVAL,
+    DEFAULT_SCAN_INTERVAL,
     DOMAIN,
     EVENTS_EXCLUDE_KEYS,
     EVENTS_LIMIT,
@@ -40,7 +41,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     )
 
     storage_dir = Path(f"{hass.config.path(STORAGE_DIR)}/{DOMAIN}")
-    if not storage_dir.is_dir():
+    if storage_dir.is_file():
         storage_dir.unlink()
     storage_dir.mkdir(exist_ok=True)
     store: Store = Store(hass, 1, f"{DOMAIN}/{entry.entry_id}")
@@ -49,7 +50,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         entry.entry_id
     ] = coordinator = EeveeMobilityDataUpdateCoordinator(
         hass,
-        config_entry_id=entry.entry_id,
+        config_entry=entry,
         dev_reg=dev_reg,
         client=client,
         store=store,
@@ -66,8 +67,10 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Unload a config entry."""
     if unload_ok := await hass.config_entries.async_unload_platforms(entry, PLATFORMS):
         hass.data[DOMAIN].pop(entry.entry_id)
+
+        storage = Path(f"{hass.config.path(STORAGE_DIR)}/{DOMAIN}/{entry.entry_id}")
+        storage.unlink(True)
         storage_dir = Path(f"{hass.config.path(STORAGE_DIR)}/{DOMAIN}")
-        storage_dir.unlink(True)
         if storage_dir.is_dir() and not any(storage_dir.iterdir()):
             storage_dir.rmdir()
 
@@ -77,12 +80,10 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
     """Data update coordinator for EeveeMobility."""
 
-    config_entry: ConfigEntry
-
     def __init__(
         self,
         hass: HomeAssistant,
-        config_entry_id: str,
+        config_entry: ConfigEntry,
         dev_reg: dr.DeviceRegistry,
         client: EeveeMobilityClient,
         store: Store,
@@ -92,10 +93,10 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
             hass,
             _LOGGER,
             name=DOMAIN,
-            update_interval=COORDINATOR_UPDATE_INTERVAL,
+            update_interval=timedelta(minutes=config_entry.data[CONF_SCAN_INTERVAL]),
         )
         self._debug = _LOGGER.isEnabledFor(logging.DEBUG)
-        self._config_entry_id = config_entry_id
+        self._config_entry = config_entry
         self._device_registry = dev_reg
         self.hass = hass
         self.client = client
@@ -213,12 +214,12 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
             current_items = {
                 list(device.identifiers)[0][1]
                 for device in dr.async_entries_for_config_entry(
-                    self._device_registry, self._config_entry_id
+                    self._device_registry, self._config_entry.entry_id
                 )
             }
 
             if stale_items := current_items - {
-                f"{self._config_entry_id}_{self.data['user'].get('email')}"
+                f"{self._config_entry.entry_id}_{self.data['user'].get('email')}"
             }:
                 for device_key in stale_items:
                     if device := self._device_registry.async_get_device(
@@ -231,3 +232,21 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
                         self._device_registry.async_remove_device(device.id)
             return self.data
         return {}
+
+
+async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
+    """Migrate old entry."""
+    _LOGGER.info("Migrating from version %s", config_entry.version)
+
+    if config_entry.version == 1:
+        new = {**config_entry.data}
+        # TODO: modify Config Entry data
+        if CONF_SCAN_INTERVAL not in new:
+            new[CONF_SCAN_INTERVAL] = DEFAULT_SCAN_INTERVAL
+
+        config_entry.version = 2
+        hass.config_entries.async_update_entry(config_entry, data=new)
+
+    _LOGGER.info("Migration to version %s successful", config_entry.version)
+
+    return True

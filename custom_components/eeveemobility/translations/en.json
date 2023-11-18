@@ -6,7 +6,8 @@
         "description": "Set up your Eevee Mobililty user account",
         "data": {
           "email": "E-mail address",
-          "password": "Password"
+          "password": "Password",
+          "scan_interval": "Update interval (min)"
         }
       }
     },
@@ -26,20 +27,30 @@
         "title": "Reconfigure Eevee Mobililty",
         "data": {
           "email": "E-mail address",
+          "password": "Password",
+          "scan_interval": "Update interval (min)"
+        }
+      },
+      "email_password": {
+        "title": "Update your credentials",
+        "description": "To do when you changed your account credentials on 'Eevee Mobililty'",
+        "data": {
+          "email": "E-mail address",
           "password": "Password"
         }
       },
-      "password": {
-        "title": "Update your password",
-        "description": "To do when you changed your password on 'Eevee Mobililty'",
+      "scan_interval": {
+        "title": "Update interval",
+        "description": "Change the update interval for refreshing the sensors",
         "data": {
-          "password": "Password"
+          "scan_interval": "Update interval (min)"
         }
       },
       "options_init": {
         "title": "Change options",
         "menu_options": {
-          "password": "Password"
+          "email_password": "E-mail and password",
+          "scan_interval": "Update interval"
         }
       }
     },

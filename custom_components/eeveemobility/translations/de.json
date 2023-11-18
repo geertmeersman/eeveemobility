@@ -6,7 +6,8 @@
         "description": "Richten Sie Ihr Eevee Mobility-Benutzerkonto ein",
         "data": {
           "email": "E-Mail-Adresse",
-          "password": "Passwort"
+          "password": "Passwort",
+          "scan_interval": "Update-Intervall (Minuten)"
         }
       }
     },
@@ -26,20 +27,30 @@
         "title": "Eevee Mobility neu konfigurieren",
         "data": {
           "email": "E-Mail-Adresse",
+          "password": "Passwort",
+          "scan_interval": "Update-Intervall (Minuten)"
+        }
+      },
+      "email_password": {
+        "title": "Aktualisieren Sie Ihre Anmeldedaten",
+        "description": "Zu erledigen, wenn Sie Ihre Kontozugangsdaten auf 'Eevee Mobility' geändert haben",
+        "data": {
+          "email": "E-Mail-Adresse",
           "password": "Passwort"
         }
       },
-      "password": {
-        "title": "Ihr Passwort aktualisieren",
-        "description": "Wenn Sie Ihr Passwort bei 'Eevee Mobility' geändert haben",
+      "scan_interval": {
+        "title": "Aktualisierungsintervall",
+        "description": "Ändern Sie das Aktualisierungsintervall zum Auffrischen der Sensoren",
         "data": {
-          "password": "Passwort"
+          "scan_interval": "Aktualisierungsintervall (Minuten)"
         }
       },
       "options_init": {
         "title": "Optionen ändern",
         "menu_options": {
-          "password": "Passwort"
+          "email_password": "E-Mail-Adresse und passwort",
+          "scan_interval": "Update-Intervall"
         }
       }
     },

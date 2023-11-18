@@ -6,7 +6,8 @@
         "description": "Stel uw Eevee Mobility gebruikersaccount in",
         "data": {
           "email": "E-mailadres",
-          "password": "Wachtwoord"
+          "password": "Wachtwoord",
+          "scan_interval": "Update interval (min)"
         }
       }
     },
@@ -26,20 +27,30 @@
         "title": "Herconfigureer Eevee Mobility",
         "data": {
           "email": "E-mailadres",
+          "password": "Wachtwoord",
+          "scan_interval": "Update interval (min)"
+        }
+      },
+      "email_password": {
+        "title": "Werk uw accountgegevens bij",
+        "description": "Te doen wanneer u uw accountgegevens op 'Eevee Mobility' heeft gewijzigd",
+        "data": {
+          "email": "E-mailadres",
           "password": "Wachtwoord"
         }
       },
-      "password": {
-        "title": "Wijzig uw wachtwoord",
-        "description": "Te doen wanneer u uw wachtwoord heeft gewijzigd op 'Eevee Mobility'",
+      "scan_interval": {
+        "title": "Update interval",
+        "description": "Verander het update interval voor het vernieuwen van de sensoren",
         "data": {
-          "password": "Wachtwoord"
+          "scan_interval": "Update interval (min)"
         }
       },
       "options_init": {
         "title": "Wijzig opties",
         "menu_options": {
-          "password": "Wachtwoord"
+          "email_password": "Accountgegevens",
+          "scan_interval": "Update interval"
         }
       }
     },
