@@ -58,6 +58,17 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         attributes_fn=lambda fleet: fleet,
     ),
     EeveeMobilitySensorDescription(
+        key="fleets",
+        translation_key="payout_rate",
+        unique_id_fn=lambda fleet: fleet.get("id"),
+        icon="mdi:currency-eur",
+        available_fn=lambda fleet: fleet.get("id") is not None,
+        value_fn=lambda rate: rate.get("payout_rate").get("rate"),
+        attributes_fn=lambda rate: rate.get("payout_rate"),
+        native_unit_of_measurement=CURRENCY_EURO,
+        suggested_display_precision=4,
+    ),
+    EeveeMobilitySensorDescription(
         key="cars",
         translation_key="car",
         unique_id_fn=lambda car: car.get("car").get("id"),
