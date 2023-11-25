@@ -1,5 +1,16 @@
 # Changelog
 
+## [v0.10.0](https://github.com/geertmeersman/eeveemobility/tree/v0.10.0) (2023-11-25)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.9.1...v0.10.0)
+
+**Merged pull requests:**
+
+- feat: Payout rate [\#34](https://github.com/geertmeersman/eeveemobility/pull/34) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump actions/upload-artifact from 2 to 3 [\#33](https://github.com/geertmeersman/eeveemobility/pull/33) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump actions/github-script from 6 to 7 [\#32](https://github.com/geertmeersman/eeveemobility/pull/32) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.1.5 to 0.1.6 [\#31](https://github.com/geertmeersman/eeveemobility/pull/31) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v0.9.1](https://github.com/geertmeersman/eeveemobility/tree/v0.9.1) (2023-11-18)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.9.0...v0.9.1)
