@@ -66,6 +66,26 @@
   },
   "entity": {
     "sensor": {
+      "payout_rate": {
+        "name": "Taux de paiement",
+        "state_attributes": {
+          "type": {
+            "name": "Type"
+          },
+          "rate": {
+            "name": "Taux"
+          },
+          "max_rate": {
+            "name": "Taux maximal"
+          },
+          "currency_code": {
+            "name": "Code de devise"
+          },
+          "suffix": {
+            "name": "Suffixe"
+          }
+        }
+      },
       "user": {
         "name": "Utilisateur",
         "state_attributes": {

@@ -66,6 +66,26 @@
   },
   "entity": {
     "sensor": {
+      "payout_rate": {
+        "name": "Payout rate",
+        "state_attributes": {
+          "type": {
+            "name": "Type"
+          },
+          "rate": {
+            "name": "Rate"
+          },
+          "max_rate": {
+            "name": "Max rate"
+          },
+          "currency_code": {
+            "name": "Currency code"
+          },
+          "suffix": {
+            "name": "Suffix"
+          }
+        }
+      },
       "user": {
         "name": "User",
         "state_attributes": {

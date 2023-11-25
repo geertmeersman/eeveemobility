@@ -66,6 +66,26 @@
   },
   "entity": {
     "sensor": {
+      "payout_rate": {
+        "name": "Uitbetalingstarief",
+        "state_attributes": {
+          "type": {
+            "name": "Type"
+          },
+          "rate": {
+            "name": "Tarief"
+          },
+          "max_rate": {
+            "name": "Maximale tarief"
+          },
+          "currency_code": {
+            "name": "Valutacode"
+          },
+          "suffix": {
+            "name": "Achtervoegsel"
+          }
+        }
+      },
       "user": {
         "name": "Gebruiker",
         "state_attributes": {
