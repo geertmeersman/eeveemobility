@@ -23,14 +23,6 @@
   },
   "options": {
     "step": {
-      "init": {
-        "title": "Herconfigureer Eevee Mobility",
-        "data": {
-          "email": "E-mailadres",
-          "password": "Wachtwoord",
-          "scan_interval": "Update interval (min)"
-        }
-      },
       "email_password": {
         "title": "Werk uw accountgegevens bij",
         "description": "Te doen wanneer u uw accountgegevens op 'Eevee Mobility' heeft gewijzigd",
@@ -46,7 +38,7 @@
           "scan_interval": "Update interval (min)"
         }
       },
-      "options_init": {
+      "init": {
         "title": "Wijzig opties",
         "menu_options": {
           "email_password": "Accountgegevens",

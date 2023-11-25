@@ -23,14 +23,6 @@
   },
   "options": {
     "step": {
-      "init": {
-        "title": "Reconfigurer Eevee Mobility",
-        "data": {
-          "email": "Adresse e-mail",
-          "password": "Mot de passe",
-          "scan_interval": "Intervalle de mise à jour (minutes)"
-        }
-      },
       "email_password": {
         "title": "Mettez à jour vos identifiants",
         "description": "À faire lorsque vous avez modifié vos identifiants de compte sur 'Eevee Mobililty'",
@@ -46,7 +38,7 @@
           "scan_interval": "Intervalle de mise à jour (min)"
         }
       },
-      "options_init": {
+      "init": {
         "title": "Modifier les options",
         "menu_options": {
           "email_password": "E-mail et mot de passe",

@@ -23,14 +23,6 @@
   },
   "options": {
     "step": {
-      "init": {
-        "title": "Reconfigure Eevee Mobililty",
-        "data": {
-          "email": "E-mail address",
-          "password": "Password",
-          "scan_interval": "Update interval (min)"
-        }
-      },
       "email_password": {
         "title": "Update your credentials",
         "description": "To do when you changed your account credentials on 'Eevee Mobililty'",
@@ -46,7 +38,7 @@
           "scan_interval": "Update interval (min)"
         }
       },
-      "options_init": {
+      "init": {
         "title": "Change options",
         "menu_options": {
           "email_password": "E-mail and password",
