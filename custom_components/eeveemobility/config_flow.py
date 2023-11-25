@@ -203,7 +203,7 @@ class EeveeMobilityCommonFlow(ABC, FlowHandler):
         )
 
 
-class EeveeMobilityOptionsFlow(EeveeMobilityCommonFlow, OptionsFlow):
+class OptionsFlowHandler(EeveeMobilityCommonFlow, OptionsFlow):
     """Handle EeveeMobility options."""
 
     general_settings: dict
@@ -231,8 +231,11 @@ class EeveeMobilityOptionsFlow(EeveeMobilityCommonFlow, OptionsFlow):
         self, user_input: dict[str, Any] | None = None
     ) -> FlowResult:
         """Manage EeveeMobility options."""
+        if user_input is not None:
+            return self.async_create_entry(title="", data=user_input)
+
         return self.async_show_menu(
-            step_id="options_init",
+            step_id="init",
             menu_options=[
                 "email_password",
                 "scan_interval",
@@ -251,9 +254,9 @@ class EeveeMobilityConfigFlow(EeveeMobilityCommonFlow, ConfigFlow, domain=DOMAIN
 
     @staticmethod
     @callback
-    def async_get_options_flow(config_entry: ConfigEntry) -> EeveeMobilityOptionsFlow:
+    def async_get_options_flow(config_entry: ConfigEntry) -> OptionsFlow:
         """Get the options flow for this handler."""
-        return EeveeMobilityOptionsFlow(config_entry)
+        return OptionsFlowHandler(config_entry)
 
     @callback
     def finish_flow(self) -> FlowResult:
@@ -264,6 +267,8 @@ class EeveeMobilityConfigFlow(EeveeMobilityCommonFlow, ConfigFlow, domain=DOMAIN
             data=DEFAULT_ENTRY_DATA | self.new_entry_data,
         )
 
-    async def async_step_user(self, user_input: dict | None = None) -> FlowResult:
+    async def async_step_user(
+        self, user_input: dict[str, Any] | None = None
+    ) -> FlowResult:
         """Handle a flow initialized by the user."""
-        return await self.async_step_connection_init()
+        return await self.async_step_connection_init(user_input)

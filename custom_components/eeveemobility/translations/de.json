@@ -23,14 +23,6 @@
   },
   "options": {
     "step": {
-      "init": {
-        "title": "Eevee Mobility neu konfigurieren",
-        "data": {
-          "email": "E-Mail-Adresse",
-          "password": "Passwort",
-          "scan_interval": "Update-Intervall (Minuten)"
-        }
-      },
       "email_password": {
         "title": "Aktualisieren Sie Ihre Anmeldedaten",
         "description": "Zu erledigen, wenn Sie Ihre Kontozugangsdaten auf 'Eevee Mobility' geändert haben",
@@ -46,7 +38,7 @@
           "scan_interval": "Aktualisierungsintervall (Minuten)"
         }
       },
-      "options_init": {
+      "init": {
         "title": "Optionen ändern",
         "menu_options": {
           "email_password": "E-Mail-Adresse und passwort",
