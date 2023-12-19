@@ -11,8 +11,7 @@ from homeassistant.const import CONF_EMAIL, CONF_PASSWORD, CONF_SCAN_INTERVAL
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.storage import STORAGE_DIR, Store
-from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
-from requests.exceptions import ConnectionError
+from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
 from .const import (
     DEFAULT_SCAN_INTERVAL,
@@ -20,11 +19,6 @@ from .const import (
     EVENTS_EXCLUDE_KEYS,
     EVENTS_LIMIT,
     PLATFORMS,
-)
-from .exceptions import (
-    BadCredentialsException,
-    EeveeMobilityException,
-    EeveeMobilityServiceException,
 )
 from .utils import filter_json
 
@@ -195,20 +189,8 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
         else:
             try:
                 await self.get_data()
-            except ConnectionError as exception:
-                raise UpdateFailed(f"ConnectionError {exception}") from exception
-            except BadCredentialsException as exception:
-                raise UpdateFailed(
-                    f"BadCredentialsException {exception}"
-                ) from exception
-            except EeveeMobilityServiceException as exception:
-                raise UpdateFailed(
-                    f"EeveeMobilityServiceException {exception}"
-                ) from exception
-            except EeveeMobilityException as exception:
-                raise UpdateFailed(f"EeveeMobilityException {exception}") from exception
             except Exception as exception:
-                raise UpdateFailed(f"Exception {exception}") from exception
+                _LOGGER.warning(f"Exception {exception}")
 
         if len(self.data) > 0:
             current_items = {
