@@ -1,5 +1,20 @@
 # Changelog
 
+## [v0.10.2](https://github.com/geertmeersman/eeveemobility/tree/v0.10.2) (2023-12-19)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.1...v0.10.2)
+
+**Merged pull requests:**
+
+- fix: ignore connection errors [\#44](https://github.com/geertmeersman/eeveemobility/pull/44) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.1.6 to 0.1.8 [\#43](https://github.com/geertmeersman/eeveemobility/pull/43) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump github/codeql-action from 2 to 3 [\#42](https://github.com/geertmeersman/eeveemobility/pull/42) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump actions/upload-artifact from 3 to 4 [\#41](https://github.com/geertmeersman/eeveemobility/pull/41) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump heinrichreimer/github-changelog-generator-action from 2.3 to 2.4 [\#39](https://github.com/geertmeersman/eeveemobility/pull/39) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump actions/stale from 8 to 9 [\#38](https://github.com/geertmeersman/eeveemobility/pull/38) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump actions/setup-python from 4.7.1 to 5.0.0 [\#37](https://github.com/geertmeersman/eeveemobility/pull/37) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump colorlog from 6.7.0 to 6.8.0 [\#36](https://github.com/geertmeersman/eeveemobility/pull/36) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v0.10.1](https://github.com/geertmeersman/eeveemobility/tree/v0.10.1) (2023-11-25)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.0...v0.10.1)
