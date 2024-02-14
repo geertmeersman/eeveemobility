@@ -1,4 +1,5 @@
 """EeveeMobility device tracking."""
+
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
@@ -115,6 +116,13 @@ class EeveeMobilityGPSEntity(EeveeMobilityEntity, TrackerEntity, RestoreEntity):
         if len(self.coordinator.data) and "events" in self.coordinator.data.get(
             "cars"
         ).get(self._item_id):
+            self._battery = (
+                self.coordinator.data.get("cars")
+                .get(self._item_id)
+                .get("car")
+                .get("battery_level")
+            )
+            self.last_synced = datetime.now()
             events = self.coordinator.data.get("cars").get(self._item_id).get("events")
             if "data" in events and events.get("meta").get("total") > 0:
                 for event in events.get("data"):
@@ -128,14 +136,13 @@ class EeveeMobilityGPSEntity(EeveeMobilityEntity, TrackerEntity, RestoreEntity):
                     if address is not None:
                         self._latitude = address.get(ATTR_LATITUDE)
                         self._longitude = address.get(ATTR_LONGITUDE)
-                        self._battery = event.get("percent_end")
-                        self.last_synced = datetime.now()
                         self._attributes = {
                             "last_synced": self.last_synced,
                             "location_name": address.get("location"),
                         }
                         self.async_write_ha_state()
-                        return True
+            self.async_write_ha_state()
+            return True
         return False
 
     @callback
