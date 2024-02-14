@@ -1,5 +1,24 @@
 # Changelog
 
+## [v0.10.3](https://github.com/geertmeersman/eeveemobility/tree/v0.10.3) (2024-02-14)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.2...v0.10.3)
+
+**Merged pull requests:**
+
+- fix: improved battery attribute in device tracker [\#57](https://github.com/geertmeersman/eeveemobility/pull/57) ([geertmeersman](https://github.com/geertmeersman))
+- refactor: lint [\#56](https://github.com/geertmeersman/eeveemobility/pull/56) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.2.0 to 0.2.1 [\#55](https://github.com/geertmeersman/eeveemobility/pull/55) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.1.14 to 0.2.0 [\#54](https://github.com/geertmeersman/eeveemobility/pull/54) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): update pip requirement from \<23.4,\>=8.0.3 to \>=8.0.3,\<24.1 [\#53](https://github.com/geertmeersman/eeveemobility/pull/53) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump release-drafter/release-drafter from 5 to 6 [\#52](https://github.com/geertmeersman/eeveemobility/pull/52) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump colorlog from 6.8.0 to 6.8.2 [\#51](https://github.com/geertmeersman/eeveemobility/pull/51) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.1.13 to 0.1.14 [\#50](https://github.com/geertmeersman/eeveemobility/pull/50) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump actions/dependency-review-action from 3 to 4 [\#49](https://github.com/geertmeersman/eeveemobility/pull/49) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.1.11 to 0.1.13 [\#48](https://github.com/geertmeersman/eeveemobility/pull/48) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.1.9 to 0.1.11 [\#46](https://github.com/geertmeersman/eeveemobility/pull/46) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.1.8 to 0.1.9 [\#45](https://github.com/geertmeersman/eeveemobility/pull/45) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v0.10.2](https://github.com/geertmeersman/eeveemobility/tree/v0.10.2) (2023-12-19)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.1...v0.10.2)
