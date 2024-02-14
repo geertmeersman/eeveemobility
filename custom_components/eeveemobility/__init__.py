@@ -160,17 +160,20 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
                 self.data["cars"].setdefault(car_id, {})
                 while True:
                     _LOGGER.debug(f"Fetching page {page}")
-                    events = await self.client.request(
-                        f"cars/{car_id}/events?limit={EVENTS_LIMIT}&page={page}"
-                    )
-                    if events.get("links").get("previous") is None:
-                        car_events = filter_json(events, EVENTS_EXCLUDE_KEYS)
-                    else:
-                        car_events.get("data").extend(
-                            filter_json(events.get("data"), EVENTS_EXCLUDE_KEYS)
+                    try:
+                        events = await self.client.request(
+                            f"cars/{car_id}/events?limit={EVENTS_LIMIT}&page={page}"
                         )
-                    if events.get("links").get("next") is None:
-                        break
+                        if events.get("links").get("previous") is None:
+                            car_events = filter_json(events, EVENTS_EXCLUDE_KEYS)
+                        else:
+                            car_events.get("data").extend(
+                                filter_json(events.get("data"), EVENTS_EXCLUDE_KEYS)
+                            )
+                        if events.get("links").get("next") is None:
+                            break
+                    except Exception as exception:
+                        _LOGGER.warning(f"Exception {exception}")
                     page += 1
                 self.data["cars"][car_id]["events"] = car_events
             self.data["cars"][car_id]["car"] = filter_json(
