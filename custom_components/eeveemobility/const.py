@@ -14,7 +14,7 @@ SCAN_INTERVAL_MIN = 10
 SCAN_INTERVAL_MAX = 1440
 WEBSITE = "https://eeveemobility.com/"
 
-EVENTS_LIMIT = 400
+EVENTS_LIMIT = 50
 EVENTS_EXCLUDE_KEYS = ["polyline", "graphs"]
 
 manifestfile = Path(__file__).parent / "manifest.json"
