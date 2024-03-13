@@ -1,5 +1,15 @@
 # Changelog
 
+## [v0.10.4](https://github.com/geertmeersman/eeveemobility/tree/v0.10.4) (2024-03-13)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.3...v0.10.4)
+
+**Merged pull requests:**
+
+- fix: set HA currency from user settings [\#61](https://github.com/geertmeersman/eeveemobility/pull/61) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.3.0 to 0.3.2 [\#60](https://github.com/geertmeersman/eeveemobility/pull/60) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.2.1 to 0.3.0 [\#59](https://github.com/geertmeersman/eeveemobility/pull/59) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v0.10.3](https://github.com/geertmeersman/eeveemobility/tree/v0.10.3) (2024-02-14)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.2...v0.10.3)
