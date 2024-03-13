@@ -325,21 +325,10 @@ class EeveeMobilitySensor(EeveeMobilityEntity, RestoreSensor, SensorEntity):
     @property
     def native_unit_of_measurement(self) -> str | None:
         """Return the unit of measurement of the sensor, if any."""
-        if hasattr(self, "_attr_native_unit_of_measurement"):
-            return self._attr_native_unit_of_measurement
         if hasattr(self, "entity_description"):
-            if (
-                self.entity_description.device_class
-                == SensorDeviceClass.MONETARY
-                #                and self.coordinator.data["user"].get("currency_symbol")
-                #                != CURRENCY_EURO
-            ):
-                _LOGGER.critical(
-                    f"Returning CURRENCY {self.coordinator.data['user'].get('currency_symbol')}"
-                )
+            if self.entity_description.device_class == SensorDeviceClass.MONETARY:
                 return self.coordinator.data["user"].get("currency_symbol")
-            return self.entity_description.native_unit_of_measurement
-        return None
+        return super().native_unit_of_measurement
 
     async def async_added_to_hass(self) -> None:
         """Handle entity which will be added."""
