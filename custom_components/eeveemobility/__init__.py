@@ -175,6 +175,7 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
                     except Exception as exception:
                         _LOGGER.warning(f"Exception {exception}")
                     page += 1
+                    break  # No more than 1 page for the moment
                 self.data["cars"][car_id]["events"] = car_events
             self.data["cars"][car_id]["car"] = filter_json(
                 car_info, EVENTS_EXCLUDE_KEYS
