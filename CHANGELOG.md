@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.10.6](https://github.com/geertmeersman/eeveemobility/tree/v0.10.6) (2024-03-13)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.5...v0.10.6)
+
+**Merged pull requests:**
+
+- fix: limit fetching of events to 50 [\#64](https://github.com/geertmeersman/eeveemobility/pull/64) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.10.5](https://github.com/geertmeersman/eeveemobility/tree/v0.10.5) (2024-03-13)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.4...v0.10.5)
