@@ -1,4 +1,5 @@
 """EeveeMobility sensor platform."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -8,11 +9,12 @@ import logging
 
 from homeassistant.components.sensor import (
     RestoreSensor,
+    SensorDeviceClass,
     SensorEntity,
     SensorEntityDescription,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CURRENCY_EURO, PERCENTAGE, UnitOfLength, UnitOfMass
+from homeassistant.const import PERCENTAGE, UnitOfLength, UnitOfMass
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -61,11 +63,11 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         key="fleets",
         translation_key="payout_rate",
         unique_id_fn=lambda fleet: fleet.get("id"),
-        icon="mdi:currency-eur",
+        icon="mdi:cash-fast",
         available_fn=lambda fleet: fleet.get("id") is not None,
         value_fn=lambda rate: rate.get("payout_rate").get("rate"),
         attributes_fn=lambda rate: rate.get("payout_rate"),
-        native_unit_of_measurement=CURRENCY_EURO,
+        device_class=SensorDeviceClass.MONETARY,
         suggested_display_precision=4,
     ),
     EeveeMobilitySensorDescription(
@@ -173,11 +175,15 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
                     - datetime.utcfromtimestamp(event_data.get("started_at"))
                 ).total_seconds()
             ),
-            "address": event_data.get("parked").get("address").get("location")
-            if event_data.get("type") == "parked"
-            else event_data.get("trip").get("start_address").get("location")
-            if event_data.get("type") == "driving"
-            else None,
+            "address": (
+                event_data.get("parked").get("address").get("location")
+                if event_data.get("type") == "parked"
+                else (
+                    event_data.get("trip").get("start_address").get("location")
+                    if event_data.get("type") == "driving"
+                    else None
+                )
+            ),
         },
     ),
     EeveeMobilitySensorDescription(
@@ -212,7 +218,7 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
             ),
             None,
         ),
-        native_unit_of_measurement=CURRENCY_EURO,
+        device_class=SensorDeviceClass.MONETARY,
         suggested_display_precision=2,
     ),
     EeveeMobilitySensorDescription(
@@ -315,6 +321,25 @@ class EeveeMobilitySensor(EeveeMobilityEntity, RestoreSensor, SensorEntity):
         if self.coordinator.data is not None:
             return self.entity_description.value_fn(self.item)
         return self._value
+
+    @property
+    def native_unit_of_measurement(self) -> str | None:
+        """Return the unit of measurement of the sensor, if any."""
+        if hasattr(self, "_attr_native_unit_of_measurement"):
+            return self._attr_native_unit_of_measurement
+        if hasattr(self, "entity_description"):
+            if (
+                self.entity_description.device_class
+                == SensorDeviceClass.MONETARY
+                #                and self.coordinator.data["user"].get("currency_symbol")
+                #                != CURRENCY_EURO
+            ):
+                _LOGGER.critical(
+                    f"Returning CURRENCY {self.coordinator.data['user'].get('currency_symbol')}"
+                )
+                return self.coordinator.data["user"].get("currency_symbol")
+            return self.entity_description.native_unit_of_measurement
+        return None
 
     async def async_added_to_hass(self) -> None:
         """Handle entity which will be added."""
