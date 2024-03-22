@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.10.7](https://github.com/geertmeersman/eeveemobility/tree/v0.10.7) (2024-03-22)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.6...v0.10.7)
+
+**Merged pull requests:**
+
+- refactor: improve github workflows & config flow, bump aioeeveemobility [\#66](https://github.com/geertmeersman/eeveemobility/pull/66) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.3.2 to 0.3.3 [\#65](https://github.com/geertmeersman/eeveemobility/pull/65) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v0.10.6](https://github.com/geertmeersman/eeveemobility/tree/v0.10.6) (2024-03-13)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.5...v0.10.6)
