@@ -55,7 +55,7 @@ class EeveeMobilityCommonFlow(ABC, FlowHandler):
         """Construct new data."""
         return DEFAULT_ENTRY_DATA | self.initial_data | self.new_entry_data
 
-    async def async_validate_input(self, user_input: "dict[str, Any]") -> None:
+    async def async_validate_input(self, user_input: dict[str, Any]) -> None:
         """Validate user credentials."""
 
         client = EeveeMobilityClient(
@@ -68,7 +68,7 @@ class EeveeMobilityCommonFlow(ABC, FlowHandler):
         return user
 
     async def async_step_connection_init(
-        self, user_input: "dict[str, Any]" | None = None
+        self, user_input: dict[str, Any] | None = None
     ) -> FlowResult:
         """Handle connection configuration."""
         errors: dict = {}
@@ -110,7 +110,7 @@ class EeveeMobilityCommonFlow(ABC, FlowHandler):
             errors=errors,
         )
 
-    async def test_connection(self, user_input: "dict[str, Any]" | None = None) -> dict:
+    async def test_connection(self, user_input: dict[str, Any] | None = None) -> dict:
         """Test the connection to EeveeMobility."""
         errors: dict = {}
         user: dict = {}
@@ -134,7 +134,7 @@ class EeveeMobilityCommonFlow(ABC, FlowHandler):
         return {"user": user, "errors": errors}
 
     async def async_step_email_password(
-        self, user_input: "dict[str, Any]" | None = None
+        self, user_input: dict[str, Any] | None = None
     ) -> FlowResult:
         """Configure password."""
         errors: dict = {}
@@ -228,7 +228,7 @@ class OptionsFlowHandler(EeveeMobilityCommonFlow, OptionsFlow):
         return self.async_create_entry(title="", data={})
 
     async def async_step_init(
-        self, user_input: "dict[str, Any]" | None = None
+        self, user_input: dict[str, Any] | None = None
     ) -> FlowResult:
         """Manage EeveeMobility options."""
         if user_input is not None:
@@ -268,7 +268,7 @@ class EeveeMobilityConfigFlow(EeveeMobilityCommonFlow, ConfigFlow, domain=DOMAIN
         )
 
     async def async_step_user(
-        self, user_input: "dict[str, Any]" | None = None
+        self, user_input: dict[str, Any] | None = None
     ) -> FlowResult:
         """Handle a flow initialized by the user."""
         return await self.async_step_connection_init(user_input)
