@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.10.9](https://github.com/geertmeersman/eeveemobility/tree/v0.10.9) (2024-03-25)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.8...v0.10.9)
+
+**Merged pull requests:**
+
+- fix: User agent changed + no data fetching when car disabled [\#69](https://github.com/geertmeersman/eeveemobility/pull/69) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.3.3 to 0.3.4 [\#68](https://github.com/geertmeersman/eeveemobility/pull/68) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v0.10.8](https://github.com/geertmeersman/eeveemobility/tree/v0.10.8) (2024-03-23)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.7...v0.10.8)
