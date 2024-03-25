@@ -20,6 +20,7 @@ from homeassistant.helpers.typing import UNDEFINED
 import voluptuous as vol
 
 from .const import (
+    CUSTOM_HEADERS,
     DEFAULT_SCAN_INTERVAL,
     DOMAIN,
     NAME,
@@ -61,6 +62,7 @@ class EeveeMobilityCommonFlow(ABC, FlowHandler):
         client = EeveeMobilityClient(
             email=user_input[CONF_EMAIL],
             password=user_input[CONF_PASSWORD],
+            custom_headers=CUSTOM_HEADERS,
         )
 
         user = await self.hass.async_add_executor_job(client.request, "user")

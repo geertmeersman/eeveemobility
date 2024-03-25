@@ -14,6 +14,7 @@ from homeassistant.helpers.storage import STORAGE_DIR, Store
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
 from .const import (
+    CUSTOM_HEADERS,
     DEFAULT_SCAN_INTERVAL,
     DOMAIN,
     EVENTS_EXCLUDE_KEYS,
@@ -32,6 +33,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     client = EeveeMobilityClient(
         email=entry.data[CONF_EMAIL],
         password=entry.data[CONF_PASSWORD],
+        custom_headers=CUSTOM_HEADERS,
     )
 
     storage_dir = Path(f"{hass.config.path(STORAGE_DIR)}/{DOMAIN}")
@@ -126,57 +128,61 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
             _LOGGER.debug(f"Car: {car}")
             addresses = await self.client.request(f"cars/{car_id}/addresses")
             _LOGGER.debug(f"Addresses: {addresses}")
-            if car_id in self.data["cars"]:
-                total = events.get("meta").get("total")
-                store_total = (
-                    self.data["cars"].get(car_id).get("events").get("meta").get("total")
-                )
-                _LOGGER.debug(
-                    f"{total} events in the API and {store_total} in the store"
-                )
-                if total != store_total:
-                    limit = total - store_total + 1
-                    _LOGGER.debug(f"Updating the store with {limit} events")
-                    events = await self.client.request(
-                        f"cars/{car_id}/events?limit={limit}"
+            if car.get("enabled"):
+                if car_id in self.data["cars"]:
+                    total = events.get("meta").get("total")
+                    store_total = (
+                        self.data["cars"]
+                        .get(car_id)
+                        .get("events")
+                        .get("meta")
+                        .get("total")
                     )
-                    self.data["cars"][car_id]["events"]["meta"]["total"] = total
-                    # Remove the first item and replace it with it's most up to date version, supposing the API only updates the first item in the list
-                    self.data["cars"][car_id]["events"]["data"].pop(0)
-                    self.data["cars"][car_id]["events"]["data"] = (
-                        filter_json(events.get("data"), EVENTS_EXCLUDE_KEYS)
-                        + self.data["cars"][car_id]["events"]["data"]
+                    _LOGGER.debug(
+                        f"{total} events in the API and {store_total} in the store"
                     )
-                else:
-                    self.data["cars"][car_id]["events"]["data"].pop(0)
-                    self.data["cars"][car_id]["events"]["data"] = (
-                        filter_json(events.get("data"), EVENTS_EXCLUDE_KEYS)
-                        + self.data["cars"][car_id]["events"]["data"]
-                    )
-
-            else:
-                car_events = {}
-                page = 1
-                self.data["cars"].setdefault(car_id, {})
-                while True:
-                    _LOGGER.debug(f"Fetching page {page}")
-                    try:
+                    if total != store_total:
+                        limit = total - store_total + 1
+                        _LOGGER.debug(f"Updating the store with {limit} events")
                         events = await self.client.request(
-                            f"cars/{car_id}/events?limit={EVENTS_LIMIT}&page={page}"
+                            f"cars/{car_id}/events?limit={limit}"
                         )
-                        if events.get("links").get("previous") is None:
-                            car_events = filter_json(events, EVENTS_EXCLUDE_KEYS)
-                        else:
-                            car_events.get("data").extend(
-                                filter_json(events.get("data"), EVENTS_EXCLUDE_KEYS)
+                        self.data["cars"][car_id]["events"]["meta"]["total"] = total
+                        # Remove the first item and replace it with it's most up to date version, supposing the API only updates the first item in the list
+                        self.data["cars"][car_id]["events"]["data"].pop(0)
+                        self.data["cars"][car_id]["events"]["data"] = (
+                            filter_json(events.get("data"), EVENTS_EXCLUDE_KEYS)
+                            + self.data["cars"][car_id]["events"]["data"]
+                        )
+                    else:
+                        self.data["cars"][car_id]["events"]["data"].pop(0)
+                        self.data["cars"][car_id]["events"]["data"] = (
+                            filter_json(events.get("data"), EVENTS_EXCLUDE_KEYS)
+                            + self.data["cars"][car_id]["events"]["data"]
+                        )
+                else:
+                    car_events = {}
+                    page = 1
+                    self.data["cars"].setdefault(car_id, {})
+                    while True:
+                        _LOGGER.debug(f"Fetching page {page}")
+                        try:
+                            events = await self.client.request(
+                                f"cars/{car_id}/events?limit={EVENTS_LIMIT}&page={page}"
                             )
-                        if events.get("links").get("next") is None:
-                            break
-                    except Exception as exception:
-                        _LOGGER.warning(f"Exception {exception}")
-                    page += 1
-                    break  # No more than 1 page for the moment
-                self.data["cars"][car_id]["events"] = car_events
+                            if events.get("links").get("previous") is None:
+                                car_events = filter_json(events, EVENTS_EXCLUDE_KEYS)
+                            else:
+                                car_events.get("data").extend(
+                                    filter_json(events.get("data"), EVENTS_EXCLUDE_KEYS)
+                                )
+                            if events.get("links").get("next") is None:
+                                break
+                        except Exception as exception:
+                            _LOGGER.warning(f"Exception {exception}")
+                        page += 1
+                        break  # No more than 1 page for the moment
+                    self.data["cars"][car_id]["events"] = car_events
             self.data["cars"][car_id]["car"] = filter_json(
                 car_info, EVENTS_EXCLUDE_KEYS
             )
