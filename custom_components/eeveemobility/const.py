@@ -9,8 +9,12 @@ PLATFORMS: Final = [Platform.SENSOR, Platform.DEVICE_TRACKER]
 
 ATTRIBUTION: Final = "Data provided by Eevee Mobility"
 
+CUSTOM_HEADERS = {
+    "User-Agent": "Home Assistant Eevee Mobility Integration",
+}
+
 DEFAULT_SCAN_INTERVAL = 15
-SCAN_INTERVAL_MIN = 10
+SCAN_INTERVAL_MIN = 15
 SCAN_INTERVAL_MAX = 1440
 WEBSITE = "https://eeveemobility.com/"
 
