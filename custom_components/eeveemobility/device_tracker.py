@@ -127,12 +127,15 @@ class EeveeMobilityGPSEntity(EeveeMobilityEntity, TrackerEntity, RestoreEntity):
             if "data" in events and events.get("meta").get("total") > 0:
                 for event in events.get("data"):
                     address = None
-                    if event.get("type") == "parked":
-                        address = event.get("parked").get("address")
-                    elif event.get("type") == "driving":
-                        address = event.get("trip").get("end_address")
-                    elif event.get("type") == "charging":
-                        address = event.get("charge").get("address")
+                    event_type = event.get("type")
+                    if event_type == "parked":
+                        address = event.get("parked", {}).get("address")
+                    elif event_type == "driving":
+                        trip = event.get("trip")
+                        if trip is not None:
+                            address = trip.get("end_address")
+                    elif event_type == "charging":
+                        address = event.get("charge", {}).get("address")
                     if address is not None:
                         self._latitude = address.get(ATTR_LATITUDE)
                         self._longitude = address.get(ATTR_LONGITUDE)
@@ -141,6 +144,8 @@ class EeveeMobilityGPSEntity(EeveeMobilityEntity, TrackerEntity, RestoreEntity):
                             "location_name": address.get("location"),
                         }
                         self.async_write_ha_state()
+                    else:
+                        _LOGGER.debug("Address not found for event: %s", event)
             self.async_write_ha_state()
             return True
         return False
