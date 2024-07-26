@@ -1,5 +1,31 @@
 # Changelog
 
+## [v0.10.10](https://github.com/geertmeersman/eeveemobility/tree/v0.10.10) (2024-07-26)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.9...v0.10.10)
+
+**Closed issues:**
+
+- Charging costs [\#47](https://github.com/geertmeersman/eeveemobility/issues/47)
+
+**Merged pull requests:**
+
+- fix: improve device\_tracker address fetching [\#86](https://github.com/geertmeersman/eeveemobility/pull/86) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.5.1 to 0.5.4 [\#85](https://github.com/geertmeersman/eeveemobility/pull/85) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.5.0 to 0.5.1 [\#83](https://github.com/geertmeersman/eeveemobility/pull/83) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.4.10 to 0.5.0 [\#82](https://github.com/geertmeersman/eeveemobility/pull/82) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): update pip requirement from \<24.1,\>=8.0.3 to \>=8.0.3,\<24.2 [\#81](https://github.com/geertmeersman/eeveemobility/pull/81) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.4.9 to 0.4.10 [\#80](https://github.com/geertmeersman/eeveemobility/pull/80) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.4.8 to 0.4.9 [\#79](https://github.com/geertmeersman/eeveemobility/pull/79) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.4.7 to 0.4.8 [\#78](https://github.com/geertmeersman/eeveemobility/pull/78) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.4.5 to 0.4.7 [\#77](https://github.com/geertmeersman/eeveemobility/pull/77) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.4.4 to 0.4.5 [\#76](https://github.com/geertmeersman/eeveemobility/pull/76) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.4.3 to 0.4.4 [\#75](https://github.com/geertmeersman/eeveemobility/pull/75) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.4.2 to 0.4.3 [\#74](https://github.com/geertmeersman/eeveemobility/pull/74) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.4.1 to 0.4.2 [\#73](https://github.com/geertmeersman/eeveemobility/pull/73) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.3.7 to 0.4.1 [\#72](https://github.com/geertmeersman/eeveemobility/pull/72) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.3.4 to 0.3.7 [\#71](https://github.com/geertmeersman/eeveemobility/pull/71) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v0.10.9](https://github.com/geertmeersman/eeveemobility/tree/v0.10.9) (2024-03-25)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.8...v0.10.9)
