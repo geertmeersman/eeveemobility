@@ -1,5 +1,20 @@
 # Changelog
 
+## [v0.10.11](https://github.com/geertmeersman/eeveemobility/tree/v0.10.11) (2024-10-08)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.10...v0.10.11)
+
+**Merged pull requests:**
+
+- fix: async for blocking file system operations [\#98](https://github.com/geertmeersman/eeveemobility/pull/98) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.6.8 to 0.6.9 [\#97](https://github.com/geertmeersman/eeveemobility/pull/97) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.6.7 to 0.6.8 [\#96](https://github.com/geertmeersman/eeveemobility/pull/96) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.6.5 to 0.6.7 [\#95](https://github.com/geertmeersman/eeveemobility/pull/95) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.6.4 to 0.6.5 [\#94](https://github.com/geertmeersman/eeveemobility/pull/94) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.6.2 to 0.6.4 [\#93](https://github.com/geertmeersman/eeveemobility/pull/93) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.5.4 to 0.6.2 [\#91](https://github.com/geertmeersman/eeveemobility/pull/91) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): update pip requirement from \<24.2,\>=8.0.3 to \>=8.0.3,\<24.3 [\#87](https://github.com/geertmeersman/eeveemobility/pull/87) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v0.10.10](https://github.com/geertmeersman/eeveemobility/tree/v0.10.10) (2024-07-26)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.9...v0.10.10)
