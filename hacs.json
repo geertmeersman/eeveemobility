@@ -1,4 +1,6 @@
 {
   "name": "Eeveemobility",
-  "render_readme": true
+  "render_readme": true,
+  "zip_release": true,
+  "filename": "eeveemobility.zip"
 }
