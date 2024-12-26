@@ -1,145 +1,38 @@
 {
   "config": {
+    "abort": {
+      "already_configured": "Account is already configured"
+    },
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "invalid_auth": "Invalid authentication",
+      "service_error": "Service unavailable",
+      "unknown": "Unexpected error"
+    },
     "step": {
       "connection_init": {
-        "title": "New Eevee Mobililty account",
-        "description": "Set up your Eevee Mobililty user account",
         "data": {
           "email": "E-mail address",
           "password": "Password",
           "scan_interval": "Update interval (min)"
-        }
+        },
+        "description": "Set up your Eevee Mobililty user account",
+        "title": "New Eevee Mobililty account"
       }
-    },
-    "abort": {
-      "already_configured": "Account is already configured"
-    },
-    "error": {
-      "cannot_connect": "Failed to connect",
-      "invalid_auth": "Invalid authentication",
-      "unknown": "Unexpected error",
-      "service_error": "Service unavailable"
-    }
-  },
-  "options": {
-    "step": {
-      "email_password": {
-        "title": "Update your credentials",
-        "description": "To do when you changed your account credentials on 'Eevee Mobililty'",
-        "data": {
-          "email": "E-mail address",
-          "password": "Password"
-        }
-      },
-      "scan_interval": {
-        "title": "Update interval",
-        "description": "Change the update interval for refreshing the sensors",
-        "data": {
-          "scan_interval": "Update interval (min)"
-        }
-      },
-      "init": {
-        "title": "Change options",
-        "menu_options": {
-          "email_password": "E-mail and password",
-          "scan_interval": "Update interval"
-        }
-      }
-    },
-    "error": {
-      "cannot_connect": "Failed to connect",
-      "invalid_auth": "Invalid authentication",
-      "unknown": "Unexpected error",
-      "service_error": "Service unavailable"
-    },
-    "abort": {
-      "already_configured": "Account is already configured"
     }
   },
   "entity": {
+    "device_tracker": {
+      "gps": {
+        "name": "GPS Tracker",
+        "state_attributes": {
+          "last_synced": {
+            "name": "Last synchronization"
+          }
+        }
+      }
+    },
     "sensor": {
-      "payout_rate": {
-        "name": "Payout rate",
-        "state_attributes": {
-          "type": {
-            "name": "Type"
-          },
-          "rate": {
-            "name": "Rate"
-          },
-          "max_rate": {
-            "name": "Max rate"
-          },
-          "currency_code": {
-            "name": "Currency code"
-          },
-          "suffix": {
-            "name": "Suffix"
-          }
-        }
-      },
-      "user": {
-        "name": "User",
-        "state_attributes": {
-          "id": {
-            "name": "ID"
-          },
-          "email": {
-            "name": "Email"
-          },
-          "first_name": {
-            "name": "First name"
-          },
-          "last_name": {
-            "name": "Last name"
-          },
-          "phone_number": {
-            "name": "Phone number"
-          },
-          "currency_code": {
-            "name": "Currency code"
-          },
-          "currency_symbol": {
-            "name": "Currency symbol"
-          },
-          "uses_miles": {
-            "name": "Uses miles"
-          },
-          "metric_volume": {
-            "name": "Metric volume"
-          },
-          "metric_temperature": {
-            "name": "Metric temperature"
-          },
-          "accepted_terms_at": {
-            "name": "Accepted terms at"
-          },
-          "accepted_privacy_at": {
-            "name": "Accepted privacy at"
-          },
-          "news_letters": {
-            "name": "News letters"
-          },
-          "authentication_hash": {
-            "name": "Authentication hash"
-          },
-          "created_at": {
-            "name": "Created at"
-          },
-          "updated_at": {
-            "name": "Updated at"
-          },
-          "charge_passes": {
-            "name": "Charge passes"
-          },
-          "accounts": {
-            "name": "Accounts"
-          },
-          "active_subscriptions": {
-            "name": "Active subscriptions"
-          }
-        }
-      },
       "addresses": {
         "name": "Addresses",
         "state_attributes": {
@@ -148,215 +41,86 @@
           }
         }
       },
-      "last_trip": {
-        "name": "Last trip",
-        "state_attributes": {
-          "id": {
-            "name": "ID"
-          },
-          "car_id": {
-            "name": "Car ID"
-          },
-          "distance_driven_start": {
-            "name": "Distance driven (start)"
-          },
-          "distance_driven_end": {
-            "name": "Distance driven (end)"
-          },
-          "polyline_route": {
-            "name": "Polyline route"
-          },
-          "polyline_stops": {
-            "name": "Polyline stops"
-          },
-          "average_speed": {
-            "name": "Average speed"
-          },
-          "average_height": {
-            "name": "Average height"
-          },
-          "start_address": {
-            "name": "Start Address"
-          },
-          "end_address": {
-            "name": "End Address"
-          }
-        }
-      },
-      "last_charge": {
-        "name": "Last charging session",
-        "state_attributes": {
-          "id": {
-            "name": "ID"
-          },
-          "car_id": {
-            "name": "Car ID"
-          },
-          "charge_added": {
-            "name": "Charge added"
-          },
-          "charge_added_day": {
-            "name": "Charge added (day)"
-          },
-          "charge_added_night": {
-            "name": "Charge added (night)"
-          },
-          "battery_charge_added": {
-            "name": "Battery charge added"
-          },
-          "battery_charge_added_day": {
-            "name": "Battery charge added (day)"
-          },
-          "battery_charge_added_night": {
-            "name": "Battery charge added (night)"
-          },
-          "efficiency_trustworthy": {
-            "name": "Efficiency trustworthy"
-          },
-          "fuel_liters": {
-            "name": "Fuel liters"
-          },
-          "fuel_percent": {
-            "name": "Fuel percent"
-          },
-          "fuel_liters_added": {
-            "name": "Fuel liters added"
-          },
-          "fuel_percent_added": {
-            "name": "Fuel percent added"
-          },
-          "price": {
-            "name": "Price"
-          },
-          "rates": {
-            "name": "Rates"
-          },
-          "price_per_unit": {
-            "name": "Price per unit"
-          },
-          "status": {
-            "name": "Status"
-          },
-          "type": {
-            "name": "Type"
-          },
-          "estimated": {
-            "name": "Estimated"
-          },
-          "charge_duration": {
-            "name": "Charge duration"
-          },
-          "address": {
-            "name": "Address"
-          }
-        }
-      },
-      "fleet": {
-        "name": "Fleet",
-        "state_attributes": {
-          "id": {
-            "name": "ID"
-          },
-          "entity_id": {
-            "name": "Entity ID"
-          },
-          "car_id": {
-            "name": "Car ID"
-          },
-          "name": {
-            "name": "Name"
-          },
-          "bank_account_number": {
-            "name": "Bank Account Number"
-          },
-          "eligible_for_reimbursement": {
-            "name": "Eligible for Reimbursement"
-          },
-          "invited_at": {
-            "name": "Invited At"
-          },
-          "accepted_at": {
-            "name": "Accepted At"
-          },
-          "declined_at": {
-            "name": "Declined At"
-          },
-          "payout_rate": {
-            "name": "Payout Rate"
-          },
-          "fleet": {
-            "name": "Fleet"
-          }
-        }
+      "battery": {
+        "name": "Battery"
       },
       "car": {
         "name": "Car",
         "state_attributes": {
-          "id": {
-            "name": "ID"
-          },
-          "vin": {
-            "name": "VIN"
-          },
-          "display_name": {
-            "name": "Display Name"
-          },
-          "image": {
-            "name": "Image"
-          },
-          "model": {
-            "name": "Model"
-          },
-          "license": {
-            "name": "License"
-          },
           "battery_capacity": {
             "name": "Battery Capacity"
-          },
-          "range": {
-            "name": "Range"
-          },
-          "range_fossil": {
-            "name": "Range Fossil"
-          },
-          "range_electric": {
-            "name": "Range Electric"
-          },
-          "current_range": {
-            "name": "Current Range"
-          },
-          "current_range_fossil": {
-            "name": "Current Range Fossil"
-          },
-          "current_range_electric": {
-            "name": "Current Range Electric"
-          },
-          "estimated_range": {
-            "name": "Estimated Range"
-          },
-          "estimated_range_fossil": {
-            "name": "Estimated Range Fossil"
-          },
-          "estimated_range_electric": {
-            "name": "Estimated Range Electric"
           },
           "battery_level": {
             "name": "Battery Level"
           },
-          "odometer": {
-            "name": "Odometer"
-          },
-          "temp_inside": {
-            "name": "Temperature Inside"
-          },
-          "temp_outside": {
-            "name": "Temperature Outside"
+          "brand": {
+            "name": "Brand"
           },
           "carbon_emission_saved": {
             "name": "Carbon Emission Saved"
           },
-          "type": {
-            "name": "Type"
+          "clear_history_at": {
+            "name": "Clear History At"
+          },
+          "connection": {
+            "name": "Connection"
+          },
+          "created_at": {
+            "name": "Created At"
+          },
+          "current_range": {
+            "name": "Current Range"
+          },
+          "current_range_electric": {
+            "name": "Current Range Electric"
+          },
+          "current_range_fossil": {
+            "name": "Current Range Fossil"
+          },
+          "date_of_purchase": {
+            "name": "Date of Purchase"
+          },
+          "disabled_at": {
+            "name": "Disabled At"
+          },
+          "disabled_by": {
+            "name": "Disabled By"
+          },
+          "display_name": {
+            "name": "Display Name"
+          },
+          "enabled": {
+            "name": "Enabled"
+          },
+          "error": {
+            "name": "Error"
+          },
+          "errors": {
+            "name": "Errors"
+          },
+          "estimated_range": {
+            "name": "Estimated Range"
+          },
+          "estimated_range_electric": {
+            "name": "Estimated Range Electric"
+          },
+          "estimated_range_fossil": {
+            "name": "Estimated Range Fossil"
+          },
+          "flags": {
+            "name": "Flags"
+          },
+          "has_connection": {
+            "name": "Has Connection"
+          },
+          "id": {
+            "name": "ID"
+          },
+          "image": {
+            "name": "Image"
+          },
+          "in_fleet": {
+            "name": "In Fleet"
           },
           "in_service": {
             "name": "In Service"
@@ -367,8 +131,44 @@
           "is_charging": {
             "name": "Is Charging"
           },
-          "tracking_mode": {
-            "name": "Tracking Mode"
+          "last_data_at": {
+            "name": "Last Data At"
+          },
+          "last_refreshed_at": {
+            "name": "Last Refreshed At"
+          },
+          "license": {
+            "name": "License"
+          },
+          "model": {
+            "name": "Model"
+          },
+          "odometer": {
+            "name": "Odometer"
+          },
+          "parked_drain_high": {
+            "name": "Parked Drain High"
+          },
+          "parked_drain_low": {
+            "name": "Parked Drain Low"
+          },
+          "parked_drain_med": {
+            "name": "Parked Drain Med"
+          },
+          "range": {
+            "name": "Range"
+          },
+          "range_electric": {
+            "name": "Range Electric"
+          },
+          "range_fossil": {
+            "name": "Range Fossil"
+          },
+          "temp_inside": {
+            "name": "Temperature Inside"
+          },
+          "temp_outside": {
+            "name": "Temperature Outside"
           },
           "track_filter_enabled": {
             "name": "Track Filter Enabled"
@@ -376,76 +176,34 @@
           "track_from": {
             "name": "Track From"
           },
-          "track_until": {
-            "name": "Track Until"
-          },
-          "track_timezone": {
-            "name": "Track Timezone"
-          },
           "track_location": {
             "name": "Track Location"
           },
           "track_metrics": {
             "name": "Track Metrics"
           },
-          "error": {
-            "name": "Error"
+          "track_timezone": {
+            "name": "Track Timezone"
           },
-          "enabled": {
-            "name": "Enabled"
+          "track_until": {
+            "name": "Track Until"
           },
-          "disabled_at": {
-            "name": "Disabled At"
+          "tracking_mode": {
+            "name": "Tracking Mode"
           },
-          "disabled_by": {
-            "name": "Disabled By"
-          },
-          "parked_drain_high": {
-            "name": "Parked Drain High"
-          },
-          "parked_drain_med": {
-            "name": "Parked Drain Med"
-          },
-          "parked_drain_low": {
-            "name": "Parked Drain Low"
-          },
-          "clear_history_at": {
-            "name": "Clear History At"
-          },
-          "date_of_purchase": {
-            "name": "Date of Purchase"
-          },
-          "flags": {
-            "name": "Flags"
-          },
-          "has_connection": {
-            "name": "Has Connection"
-          },
-          "in_fleet": {
-            "name": "In Fleet"
-          },
-          "last_refreshed_at": {
-            "name": "Last Refreshed At"
-          },
-          "last_data_at": {
-            "name": "Last Data At"
-          },
-          "created_at": {
-            "name": "Created At"
+          "type": {
+            "name": "Type"
           },
           "updated_at": {
             "name": "Updated At"
           },
-          "brand": {
-            "name": "Brand"
-          },
-          "errors": {
-            "name": "Errors"
-          },
-          "connection": {
-            "name": "Connection"
+          "vin": {
+            "name": "VIN"
           }
         }
+      },
+      "carbon_emission_saved": {
+        "name": "Carbon Emission Saved"
       },
       "events": {
         "name": "Events",
@@ -461,62 +219,304 @@
           }
         }
       },
-      "odometer": {
-        "name": "Odometer"
-      },
-      "battery": {
-        "name": "Battery"
-      },
-      "carbon_emission_saved": {
-        "name": "Carbon Emission Saved"
-      },
-      "range": {
-        "name": "Range"
-      },
-      "license": {
-        "name": "License"
+      "fleet": {
+        "name": "Fleet",
+        "state_attributes": {
+          "accepted_at": {
+            "name": "Accepted At"
+          },
+          "bank_account_number": {
+            "name": "Bank Account Number"
+          },
+          "car_id": {
+            "name": "Car ID"
+          },
+          "declined_at": {
+            "name": "Declined At"
+          },
+          "eligible_for_reimbursement": {
+            "name": "Eligible for Reimbursement"
+          },
+          "entity_id": {
+            "name": "Entity ID"
+          },
+          "fleet": {
+            "name": "Fleet"
+          },
+          "id": {
+            "name": "ID"
+          },
+          "invited_at": {
+            "name": "Invited At"
+          },
+          "name": {
+            "name": "Name"
+          },
+          "payout_rate": {
+            "name": "Payout Rate"
+          }
+        }
       },
       "is_charging": {
         "name": "Is Charging"
       },
+      "last_charge": {
+        "name": "Last charging session",
+        "state_attributes": {
+          "address": {
+            "name": "Address"
+          },
+          "battery_charge_added": {
+            "name": "Battery charge added"
+          },
+          "battery_charge_added_day": {
+            "name": "Battery charge added (day)"
+          },
+          "battery_charge_added_night": {
+            "name": "Battery charge added (night)"
+          },
+          "car_id": {
+            "name": "Car ID"
+          },
+          "charge_added": {
+            "name": "Charge added"
+          },
+          "charge_added_day": {
+            "name": "Charge added (day)"
+          },
+          "charge_added_night": {
+            "name": "Charge added (night)"
+          },
+          "charge_duration": {
+            "name": "Charge duration"
+          },
+          "efficiency_trustworthy": {
+            "name": "Efficiency trustworthy"
+          },
+          "estimated": {
+            "name": "Estimated"
+          },
+          "fuel_liters": {
+            "name": "Fuel liters"
+          },
+          "fuel_liters_added": {
+            "name": "Fuel liters added"
+          },
+          "fuel_percent": {
+            "name": "Fuel percent"
+          },
+          "fuel_percent_added": {
+            "name": "Fuel percent added"
+          },
+          "id": {
+            "name": "ID"
+          },
+          "price": {
+            "name": "Price"
+          },
+          "price_per_unit": {
+            "name": "Price per unit"
+          },
+          "rates": {
+            "name": "Rates"
+          },
+          "status": {
+            "name": "Status"
+          },
+          "type": {
+            "name": "Type"
+          }
+        }
+      },
+      "last_trip": {
+        "name": "Last trip",
+        "state_attributes": {
+          "average_height": {
+            "name": "Average height"
+          },
+          "average_speed": {
+            "name": "Average speed"
+          },
+          "car_id": {
+            "name": "Car ID"
+          },
+          "distance_driven_end": {
+            "name": "Distance driven (end)"
+          },
+          "distance_driven_start": {
+            "name": "Distance driven (start)"
+          },
+          "end_address": {
+            "name": "End Address"
+          },
+          "id": {
+            "name": "ID"
+          },
+          "polyline_route": {
+            "name": "Polyline route"
+          },
+          "polyline_stops": {
+            "name": "Polyline stops"
+          },
+          "start_address": {
+            "name": "Start Address"
+          }
+        }
+      },
+      "license": {
+        "name": "License"
+      },
+      "odometer": {
+        "name": "Odometer"
+      },
+      "payout_rate": {
+        "name": "Payout rate",
+        "state_attributes": {
+          "currency_code": {
+            "name": "Currency code"
+          },
+          "max_rate": {
+            "name": "Max rate"
+          },
+          "rate": {
+            "name": "Rate"
+          },
+          "suffix": {
+            "name": "Suffix"
+          },
+          "type": {
+            "name": "Type"
+          }
+        }
+      },
+      "range": {
+        "name": "Range"
+      },
       "state": {
         "name": "State",
         "state": {
-          "parked": "Parked",
+          "charging": "Charging",
           "driving": "Driving",
-          "plugged_in": "Plugged in",
-          "charging": "Charging"
+          "parked": "Parked",
+          "plugged_in": "Plugged in"
         },
         "state_attributes": {
+          "address": {
+            "name": "Address"
+          },
+          "battery_percentage_delta": {
+            "name": "Battery percentage delta"
+          },
+          "duration": {
+            "name": "Duration"
+          },
+          "formatted_started_at": {
+            "name": "Formatted started at"
+          },
           "last_synced": {
             "name": "Last synchronization"
           },
           "started_at": {
             "name": "Started at"
+          }
+        }
+      },
+      "user": {
+        "name": "User",
+        "state_attributes": {
+          "accepted_privacy_at": {
+            "name": "Accepted privacy at"
           },
-          "battery_percentage_delta": {
-            "name": "Battery percentage delta"
+          "accepted_terms_at": {
+            "name": "Accepted terms at"
           },
-          "formatted_started_at": {
-            "name": "Formatted started at"
+          "accounts": {
+            "name": "Accounts"
           },
-          "duration": {
-            "name": "Duration"
+          "active_subscriptions": {
+            "name": "Active subscriptions"
           },
-          "address": {
-            "name": "Address"
+          "authentication_hash": {
+            "name": "Authentication hash"
+          },
+          "charge_passes": {
+            "name": "Charge passes"
+          },
+          "created_at": {
+            "name": "Created at"
+          },
+          "currency_code": {
+            "name": "Currency code"
+          },
+          "currency_symbol": {
+            "name": "Currency symbol"
+          },
+          "email": {
+            "name": "Email"
+          },
+          "first_name": {
+            "name": "First name"
+          },
+          "id": {
+            "name": "ID"
+          },
+          "last_name": {
+            "name": "Last name"
+          },
+          "metric_temperature": {
+            "name": "Metric temperature"
+          },
+          "metric_volume": {
+            "name": "Metric volume"
+          },
+          "news_letters": {
+            "name": "News letters"
+          },
+          "phone_number": {
+            "name": "Phone number"
+          },
+          "updated_at": {
+            "name": "Updated at"
+          },
+          "uses_miles": {
+            "name": "Uses miles"
           }
         }
       }
+    }
+  },
+  "options": {
+    "abort": {
+      "already_configured": "Account is already configured"
     },
-    "device_tracker": {
-      "gps": {
-        "name": "GPS Tracker",
-        "state_attributes": {
-          "last_synced": {
-            "name": "Last synchronization"
-          }
-        }
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "invalid_auth": "Invalid authentication",
+      "service_error": "Service unavailable",
+      "unknown": "Unexpected error"
+    },
+    "step": {
+      "email_password": {
+        "data": {
+          "email": "E-mail address",
+          "password": "Password"
+        },
+        "description": "To do when you changed your account credentials on 'Eevee Mobililty'",
+        "title": "Update your credentials"
+      },
+      "init": {
+        "menu_options": {
+          "email_password": "E-mail and password",
+          "scan_interval": "Update interval"
+        },
+        "title": "Change options"
+      },
+      "scan_interval": {
+        "data": {
+          "scan_interval": "Update interval (min)"
+        },
+        "description": "Change the update interval for refreshing the sensors",
+        "title": "Update interval"
       }
     }
   }

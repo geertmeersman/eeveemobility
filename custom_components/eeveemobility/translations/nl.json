@@ -1,145 +1,38 @@
 {
   "config": {
+    "abort": {
+      "already_configured": "Account is al geconfigureerd"
+    },
+    "error": {
+      "cannot_connect": "Kan geen verbinding maken",
+      "invalid_auth": "Ongeldige authenticatie",
+      "service_error": "Dienst niet beschikbaar",
+      "unknown": "Onverwachte fout"
+    },
     "step": {
       "connection_init": {
-        "title": "Nieuwe Eevee Mobility account",
-        "description": "Stel uw Eevee Mobility gebruikersaccount in",
         "data": {
           "email": "E-mailadres",
           "password": "Wachtwoord",
           "scan_interval": "Update interval (min)"
-        }
+        },
+        "description": "Stel uw Eevee Mobility gebruikersaccount in",
+        "title": "Nieuwe Eevee Mobility account"
       }
-    },
-    "abort": {
-      "already_configured": "Account is al geconfigureerd"
-    },
-    "error": {
-      "cannot_connect": "Kan geen verbinding maken",
-      "invalid_auth": "Ongeldige authenticatie",
-      "unknown": "Onverwachte fout",
-      "service_error": "Dienst niet beschikbaar"
-    }
-  },
-  "options": {
-    "step": {
-      "email_password": {
-        "title": "Werk uw accountgegevens bij",
-        "description": "Te doen wanneer u uw accountgegevens op 'Eevee Mobility' heeft gewijzigd",
-        "data": {
-          "email": "E-mailadres",
-          "password": "Wachtwoord"
-        }
-      },
-      "scan_interval": {
-        "title": "Update interval",
-        "description": "Verander het update interval voor het vernieuwen van de sensoren",
-        "data": {
-          "scan_interval": "Update interval (min)"
-        }
-      },
-      "init": {
-        "title": "Wijzig opties",
-        "menu_options": {
-          "email_password": "Accountgegevens",
-          "scan_interval": "Update interval"
-        }
-      }
-    },
-    "error": {
-      "cannot_connect": "Kan geen verbinding maken",
-      "invalid_auth": "Ongeldige authenticatie",
-      "unknown": "Onverwachte fout",
-      "service_error": "Dienst niet beschikbaar"
-    },
-    "abort": {
-      "already_configured": "Account is al geconfigureerd"
     }
   },
   "entity": {
+    "device_tracker": {
+      "gps": {
+        "name": "GPS Tracker",
+        "state_attributes": {
+          "last_synced": {
+            "name": "Laatste synchronisatie"
+          }
+        }
+      }
+    },
     "sensor": {
-      "payout_rate": {
-        "name": "Uitbetalingstarief",
-        "state_attributes": {
-          "type": {
-            "name": "Type"
-          },
-          "rate": {
-            "name": "Tarief"
-          },
-          "max_rate": {
-            "name": "Maximale tarief"
-          },
-          "currency_code": {
-            "name": "Valutacode"
-          },
-          "suffix": {
-            "name": "Achtervoegsel"
-          }
-        }
-      },
-      "user": {
-        "name": "Gebruiker",
-        "state_attributes": {
-          "id": {
-            "name": "ID"
-          },
-          "email": {
-            "name": "E-mail"
-          },
-          "first_name": {
-            "name": "Voornaam"
-          },
-          "last_name": {
-            "name": "Achternaam"
-          },
-          "phone_number": {
-            "name": "Telefoonnummer"
-          },
-          "currency_code": {
-            "name": "Valutacode"
-          },
-          "currency_symbol": {
-            "name": "Valutasymbool"
-          },
-          "uses_miles": {
-            "name": "Gebruikt mijlen"
-          },
-          "metric_volume": {
-            "name": "Metrisch volume"
-          },
-          "metric_temperature": {
-            "name": "Metrische temperatuur"
-          },
-          "accepted_terms_at": {
-            "name": "Geaccepteerde voorwaarden op"
-          },
-          "accepted_privacy_at": {
-            "name": "Geaccepteerde privacy op"
-          },
-          "news_letters": {
-            "name": "Nieuwsbrieven"
-          },
-          "authentication_hash": {
-            "name": "Authenticatiehash"
-          },
-          "created_at": {
-            "name": "Aangemaakt op"
-          },
-          "updated_at": {
-            "name": "Bijgewerkt op"
-          },
-          "charge_passes": {
-            "name": "Oplaadpassen"
-          },
-          "accounts": {
-            "name": "Accounts"
-          },
-          "active_subscriptions": {
-            "name": "Actieve abonnementen"
-          }
-        }
-      },
       "addresses": {
         "name": "Adressen",
         "state_attributes": {
@@ -148,215 +41,86 @@
           }
         }
       },
-      "last_trip": {
-        "name": "Laatste rit",
-        "state_attributes": {
-          "id": {
-            "name": "ID"
-          },
-          "car_id": {
-            "name": "Auto ID"
-          },
-          "distance_driven_start": {
-            "name": "Afstand (start)"
-          },
-          "distance_driven_end": {
-            "name": "Afstand (einde)"
-          },
-          "polyline_route": {
-            "name": "Polylijn route"
-          },
-          "polyline_stops": {
-            "name": "Polylijn stops"
-          },
-          "average_speed": {
-            "name": "Gemiddelde snelheid"
-          },
-          "average_height": {
-            "name": "Gemiddelde hoogte"
-          },
-          "start_address": {
-            "name": "Startadres"
-          },
-          "end_address": {
-            "name": "Eindadres"
-          }
-        }
-      },
-      "last_charge": {
-        "name": "Laatste laadsessie",
-        "state_attributes": {
-          "id": {
-            "name": "ID"
-          },
-          "car_id": {
-            "name": "Auto ID"
-          },
-          "charge_added": {
-            "name": "Lading toegevoegd"
-          },
-          "charge_added_day": {
-            "name": "Lading toegevoegd (dag)"
-          },
-          "charge_added_night": {
-            "name": "Lading toegevoegd (nacht)"
-          },
-          "battery_charge_added": {
-            "name": "Accu lading toegevoegd"
-          },
-          "battery_charge_added_day": {
-            "name": "Accu lading toegevoegd (dag)"
-          },
-          "battery_charge_added_night": {
-            "name": "Accu lading toegevoegd (nacht)"
-          },
-          "efficiency_trustworthy": {
-            "name": "Betrouwbare efficiëntie"
-          },
-          "fuel_liters": {
-            "name": "Brandstof liters"
-          },
-          "fuel_percent": {
-            "name": "Brandstof percentage"
-          },
-          "fuel_liters_added": {
-            "name": "Brandstof liters toegevoegd"
-          },
-          "fuel_percent_added": {
-            "name": "Brandstof percentage toegevoegd"
-          },
-          "price": {
-            "name": "Prijs"
-          },
-          "rates": {
-            "name": "Tarieven"
-          },
-          "price_per_unit": {
-            "name": "Prijs per eenheid"
-          },
-          "status": {
-            "name": "Status"
-          },
-          "type": {
-            "name": "Type"
-          },
-          "estimated": {
-            "name": "Geschat"
-          },
-          "charge_duration": {
-            "name": "Laadduur"
-          },
-          "address": {
-            "name": "Adres"
-          }
-        }
-      },
-      "fleet": {
-        "name": "Vloot",
-        "state_attributes": {
-          "id": {
-            "name": "ID"
-          },
-          "entity_id": {
-            "name": "Entiteit ID"
-          },
-          "car_id": {
-            "name": "Auto ID"
-          },
-          "name": {
-            "name": "Naam"
-          },
-          "bank_account_number": {
-            "name": "Bankrekeningnummer"
-          },
-          "eligible_for_reimbursement": {
-            "name": "In aanmerking komend voor vergoeding"
-          },
-          "invited_at": {
-            "name": "Uitgenodigd op"
-          },
-          "accepted_at": {
-            "name": "Geaccepteerd op"
-          },
-          "declined_at": {
-            "name": "Afgewezen op"
-          },
-          "payout_rate": {
-            "name": "Uitbetalingspercentage"
-          },
-          "fleet": {
-            "name": "Vloot"
-          }
-        }
+      "battery": {
+        "name": "Batterij"
       },
       "car": {
         "name": "Auto",
         "state_attributes": {
-          "id": {
-            "name": "ID"
-          },
-          "vin": {
-            "name": "VIN"
-          },
-          "display_name": {
-            "name": "Weergavenaam"
-          },
-          "image": {
-            "name": "Afbeelding"
-          },
-          "model": {
-            "name": "Model"
-          },
-          "license": {
-            "name": "Licentie"
-          },
           "battery_capacity": {
             "name": "Batterijcapaciteit"
-          },
-          "range": {
-            "name": "Bereik"
-          },
-          "range_fossil": {
-            "name": "Bereik Fossiel"
-          },
-          "range_electric": {
-            "name": "Bereik Elektrisch"
-          },
-          "current_range": {
-            "name": "Huidig bereik"
-          },
-          "current_range_fossil": {
-            "name": "Huidig bereik Fossiel"
-          },
-          "current_range_electric": {
-            "name": "Huidig bereik Elektrisch"
-          },
-          "estimated_range": {
-            "name": "Geschat bereik"
-          },
-          "estimated_range_fossil": {
-            "name": "Geschat bereik Fossiel"
-          },
-          "estimated_range_electric": {
-            "name": "Geschat bereik Elektrisch"
           },
           "battery_level": {
             "name": "Batterijniveau"
           },
-          "odometer": {
-            "name": "Odometer"
-          },
-          "temp_inside": {
-            "name": "Temperatuur Binnen"
-          },
-          "temp_outside": {
-            "name": "Temperatuur Buiten"
+          "brand": {
+            "name": "Merk"
           },
           "carbon_emission_saved": {
             "name": "Koolstofemissie Bespaard"
           },
-          "type": {
-            "name": "Type"
+          "clear_history_at": {
+            "name": "Wis geschiedenis op"
+          },
+          "connection": {
+            "name": "Verbinding"
+          },
+          "created_at": {
+            "name": "Aangemaakt op"
+          },
+          "current_range": {
+            "name": "Huidig bereik"
+          },
+          "current_range_electric": {
+            "name": "Huidig bereik Elektrisch"
+          },
+          "current_range_fossil": {
+            "name": "Huidig bereik Fossiel"
+          },
+          "date_of_purchase": {
+            "name": "Aankoopdatum"
+          },
+          "disabled_at": {
+            "name": "Uitgeschakeld op"
+          },
+          "disabled_by": {
+            "name": "Uitgeschakeld door"
+          },
+          "display_name": {
+            "name": "Weergavenaam"
+          },
+          "enabled": {
+            "name": "Ingeschakeld"
+          },
+          "error": {
+            "name": "Fout"
+          },
+          "errors": {
+            "name": "Fouten"
+          },
+          "estimated_range": {
+            "name": "Geschat bereik"
+          },
+          "estimated_range_electric": {
+            "name": "Geschat bereik Elektrisch"
+          },
+          "estimated_range_fossil": {
+            "name": "Geschat bereik Fossiel"
+          },
+          "flags": {
+            "name": "Vlaggen"
+          },
+          "has_connection": {
+            "name": "Heeft verbinding"
+          },
+          "id": {
+            "name": "ID"
+          },
+          "image": {
+            "name": "Afbeelding"
+          },
+          "in_fleet": {
+            "name": "In vloot"
           },
           "in_service": {
             "name": "In gebruik"
@@ -367,8 +131,44 @@
           "is_charging": {
             "name": "Wordt opgeladen"
           },
-          "tracking_mode": {
-            "name": "Volgmodus"
+          "last_data_at": {
+            "name": "Laatste gegevens op"
+          },
+          "last_refreshed_at": {
+            "name": "Laatst vernieuwd op"
+          },
+          "license": {
+            "name": "Licentie"
+          },
+          "model": {
+            "name": "Model"
+          },
+          "odometer": {
+            "name": "Odometer"
+          },
+          "parked_drain_high": {
+            "name": "Hoog batterijverlies geparkeerd"
+          },
+          "parked_drain_low": {
+            "name": "Laag batterijverlies geparkeerd"
+          },
+          "parked_drain_med": {
+            "name": "Gemiddeld batterijverlies geparkeerd"
+          },
+          "range": {
+            "name": "Bereik"
+          },
+          "range_electric": {
+            "name": "Bereik Elektrisch"
+          },
+          "range_fossil": {
+            "name": "Bereik Fossiel"
+          },
+          "temp_inside": {
+            "name": "Temperatuur Binnen"
+          },
+          "temp_outside": {
+            "name": "Temperatuur Buiten"
           },
           "track_filter_enabled": {
             "name": "Volgfilter ingeschakeld"
@@ -376,76 +176,34 @@
           "track_from": {
             "name": "Volg van"
           },
-          "track_until": {
-            "name": "Volg tot"
-          },
-          "track_timezone": {
-            "name": "Volg tijdszone"
-          },
           "track_location": {
             "name": "Volg locatie"
           },
           "track_metrics": {
             "name": "Volg metingen"
           },
-          "error": {
-            "name": "Fout"
+          "track_timezone": {
+            "name": "Volg tijdszone"
           },
-          "enabled": {
-            "name": "Ingeschakeld"
+          "track_until": {
+            "name": "Volg tot"
           },
-          "disabled_at": {
-            "name": "Uitgeschakeld op"
+          "tracking_mode": {
+            "name": "Volgmodus"
           },
-          "disabled_by": {
-            "name": "Uitgeschakeld door"
-          },
-          "parked_drain_high": {
-            "name": "Hoog batterijverlies geparkeerd"
-          },
-          "parked_drain_med": {
-            "name": "Gemiddeld batterijverlies geparkeerd"
-          },
-          "parked_drain_low": {
-            "name": "Laag batterijverlies geparkeerd"
-          },
-          "clear_history_at": {
-            "name": "Wis geschiedenis op"
-          },
-          "date_of_purchase": {
-            "name": "Aankoopdatum"
-          },
-          "flags": {
-            "name": "Vlaggen"
-          },
-          "has_connection": {
-            "name": "Heeft verbinding"
-          },
-          "in_fleet": {
-            "name": "In vloot"
-          },
-          "last_refreshed_at": {
-            "name": "Laatst vernieuwd op"
-          },
-          "last_data_at": {
-            "name": "Laatste gegevens op"
-          },
-          "created_at": {
-            "name": "Aangemaakt op"
+          "type": {
+            "name": "Type"
           },
           "updated_at": {
             "name": "Bijgewerkt op"
           },
-          "brand": {
-            "name": "Merk"
-          },
-          "errors": {
-            "name": "Fouten"
-          },
-          "connection": {
-            "name": "Verbinding"
+          "vin": {
+            "name": "VIN"
           }
         }
+      },
+      "carbon_emission_saved": {
+        "name": "Gereduceerde CO2-uitstoot"
       },
       "events": {
         "name": "Gebeurtenissen",
@@ -461,62 +219,304 @@
           }
         }
       },
-      "odometer": {
-        "name": "Kilometerteller"
-      },
-      "battery": {
-        "name": "Batterij"
-      },
-      "carbon_emission_saved": {
-        "name": "Gereduceerde CO2-uitstoot"
-      },
-      "range": {
-        "name": "Bereik"
-      },
-      "license": {
-        "name": "Nummerplaat"
+      "fleet": {
+        "name": "Vloot",
+        "state_attributes": {
+          "accepted_at": {
+            "name": "Geaccepteerd op"
+          },
+          "bank_account_number": {
+            "name": "Bankrekeningnummer"
+          },
+          "car_id": {
+            "name": "Auto ID"
+          },
+          "declined_at": {
+            "name": "Afgewezen op"
+          },
+          "eligible_for_reimbursement": {
+            "name": "In aanmerking komend voor vergoeding"
+          },
+          "entity_id": {
+            "name": "Entiteit ID"
+          },
+          "fleet": {
+            "name": "Vloot"
+          },
+          "id": {
+            "name": "ID"
+          },
+          "invited_at": {
+            "name": "Uitgenodigd op"
+          },
+          "name": {
+            "name": "Naam"
+          },
+          "payout_rate": {
+            "name": "Uitbetalingspercentage"
+          }
+        }
       },
       "is_charging": {
         "name": "Is aan het opladen"
       },
+      "last_charge": {
+        "name": "Laatste laadsessie",
+        "state_attributes": {
+          "address": {
+            "name": "Adres"
+          },
+          "battery_charge_added": {
+            "name": "Accu lading toegevoegd"
+          },
+          "battery_charge_added_day": {
+            "name": "Accu lading toegevoegd (dag)"
+          },
+          "battery_charge_added_night": {
+            "name": "Accu lading toegevoegd (nacht)"
+          },
+          "car_id": {
+            "name": "Auto ID"
+          },
+          "charge_added": {
+            "name": "Lading toegevoegd"
+          },
+          "charge_added_day": {
+            "name": "Lading toegevoegd (dag)"
+          },
+          "charge_added_night": {
+            "name": "Lading toegevoegd (nacht)"
+          },
+          "charge_duration": {
+            "name": "Laadduur"
+          },
+          "efficiency_trustworthy": {
+            "name": "Betrouwbare effici\u00ebntie"
+          },
+          "estimated": {
+            "name": "Geschat"
+          },
+          "fuel_liters": {
+            "name": "Brandstof liters"
+          },
+          "fuel_liters_added": {
+            "name": "Brandstof liters toegevoegd"
+          },
+          "fuel_percent": {
+            "name": "Brandstof percentage"
+          },
+          "fuel_percent_added": {
+            "name": "Brandstof percentage toegevoegd"
+          },
+          "id": {
+            "name": "ID"
+          },
+          "price": {
+            "name": "Prijs"
+          },
+          "price_per_unit": {
+            "name": "Prijs per eenheid"
+          },
+          "rates": {
+            "name": "Tarieven"
+          },
+          "status": {
+            "name": "Status"
+          },
+          "type": {
+            "name": "Type"
+          }
+        }
+      },
+      "last_trip": {
+        "name": "Laatste rit",
+        "state_attributes": {
+          "average_height": {
+            "name": "Gemiddelde hoogte"
+          },
+          "average_speed": {
+            "name": "Gemiddelde snelheid"
+          },
+          "car_id": {
+            "name": "Auto ID"
+          },
+          "distance_driven_end": {
+            "name": "Afstand (einde)"
+          },
+          "distance_driven_start": {
+            "name": "Afstand (start)"
+          },
+          "end_address": {
+            "name": "Eindadres"
+          },
+          "id": {
+            "name": "ID"
+          },
+          "polyline_route": {
+            "name": "Polylijn route"
+          },
+          "polyline_stops": {
+            "name": "Polylijn stops"
+          },
+          "start_address": {
+            "name": "Startadres"
+          }
+        }
+      },
+      "license": {
+        "name": "Nummerplaat"
+      },
+      "odometer": {
+        "name": "Kilometerteller"
+      },
+      "payout_rate": {
+        "name": "Uitbetalingstarief",
+        "state_attributes": {
+          "currency_code": {
+            "name": "Valutacode"
+          },
+          "max_rate": {
+            "name": "Maximale tarief"
+          },
+          "rate": {
+            "name": "Tarief"
+          },
+          "suffix": {
+            "name": "Achtervoegsel"
+          },
+          "type": {
+            "name": "Type"
+          }
+        }
+      },
+      "range": {
+        "name": "Bereik"
+      },
       "state": {
         "name": "Status",
         "state": {
-          "parked": "Geparkeerd",
+          "charging": "Laden",
           "driving": "Rijden",
-          "plugged_in": "Aangesloten",
-          "charging": "Laden"
+          "parked": "Geparkeerd",
+          "plugged_in": "Aangesloten"
         },
         "state_attributes": {
+          "address": {
+            "name": "Adres"
+          },
+          "battery_percentage_delta": {
+            "name": "Batterijpercentage delta"
+          },
+          "duration": {
+            "name": "Duur"
+          },
+          "formatted_started_at": {
+            "name": "Geformatteerd gestart op"
+          },
           "last_synced": {
             "name": "Laatst gesynchroniseerd"
           },
           "started_at": {
             "name": "Gestart op"
+          }
+        }
+      },
+      "user": {
+        "name": "Gebruiker",
+        "state_attributes": {
+          "accepted_privacy_at": {
+            "name": "Geaccepteerde privacy op"
           },
-          "battery_percentage_delta": {
-            "name": "Batterijpercentage delta"
+          "accepted_terms_at": {
+            "name": "Geaccepteerde voorwaarden op"
           },
-          "formatted_started_at": {
-            "name": "Geformatteerd gestart op"
+          "accounts": {
+            "name": "Accounts"
           },
-          "duration": {
-            "name": "Duur"
+          "active_subscriptions": {
+            "name": "Actieve abonnementen"
           },
-          "address": {
-            "name": "Adres"
+          "authentication_hash": {
+            "name": "Authenticatiehash"
+          },
+          "charge_passes": {
+            "name": "Oplaadpassen"
+          },
+          "created_at": {
+            "name": "Aangemaakt op"
+          },
+          "currency_code": {
+            "name": "Valutacode"
+          },
+          "currency_symbol": {
+            "name": "Valutasymbool"
+          },
+          "email": {
+            "name": "E-mail"
+          },
+          "first_name": {
+            "name": "Voornaam"
+          },
+          "id": {
+            "name": "ID"
+          },
+          "last_name": {
+            "name": "Achternaam"
+          },
+          "metric_temperature": {
+            "name": "Metrische temperatuur"
+          },
+          "metric_volume": {
+            "name": "Metrisch volume"
+          },
+          "news_letters": {
+            "name": "Nieuwsbrieven"
+          },
+          "phone_number": {
+            "name": "Telefoonnummer"
+          },
+          "updated_at": {
+            "name": "Bijgewerkt op"
+          },
+          "uses_miles": {
+            "name": "Gebruikt mijlen"
           }
         }
       }
+    }
+  },
+  "options": {
+    "abort": {
+      "already_configured": "Account is al geconfigureerd"
     },
-    "device_tracker": {
-      "gps": {
-        "name": "GPS Tracker",
-        "state_attributes": {
-          "last_synced": {
-            "name": "Laatste synchronisatie"
-          }
-        }
+    "error": {
+      "cannot_connect": "Kan geen verbinding maken",
+      "invalid_auth": "Ongeldige authenticatie",
+      "service_error": "Dienst niet beschikbaar",
+      "unknown": "Onverwachte fout"
+    },
+    "step": {
+      "email_password": {
+        "data": {
+          "email": "E-mailadres",
+          "password": "Wachtwoord"
+        },
+        "description": "Te doen wanneer u uw accountgegevens op 'Eevee Mobility' heeft gewijzigd",
+        "title": "Werk uw accountgegevens bij"
+      },
+      "init": {
+        "menu_options": {
+          "email_password": "Accountgegevens",
+          "scan_interval": "Update interval"
+        },
+        "title": "Wijzig opties"
+      },
+      "scan_interval": {
+        "data": {
+          "scan_interval": "Update interval (min)"
+        },
+        "description": "Verander het update interval voor het vernieuwen van de sensoren",
+        "title": "Update interval"
       }
     }
   }
