@@ -75,7 +75,7 @@ A Home Assistant integration to monitor Eevee Mobililty
 
 ### Manual
 
-1. Copy the `custom_components/eeveemobility` directory of this repository as `config/custom_components/eeveemobility` in your Home Assistant instalation.
+1. Copy the `custom_components/eeveemobility` directory of this repository as `config/custom_components/eeveemobility` in your Home Assistant installation.
 2. Restart Home Assistant
 3. Add the 'eeveemobility' integration via HA Settings > 'Devices and Services' > 'Integrations'
 4. Provide your Eevee Mobililty configuration details

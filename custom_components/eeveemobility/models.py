@@ -1,4 +1,5 @@
 """Models used by EeveeMobility."""
+
 from __future__ import annotations
 
 from typing import TypedDict
