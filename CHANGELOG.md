@@ -1,5 +1,34 @@
 # Changelog
 
+## [v0.11.0](https://github.com/geertmeersman/eeveemobility/tree/v0.11.0) (2025-01-28)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.11...v0.11.0)
+
+**Merged pull requests:**
+
+- fix: deprecation - new options flow properties [\#123](https://github.com/geertmeersman/eeveemobility/pull/123) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.8.6 to 0.9.3 [\#122](https://github.com/geertmeersman/eeveemobility/pull/122) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): update pip requirement from \<24.4,\>=8.0.3 to \>=8.0.3,\<25.1 [\#121](https://github.com/geertmeersman/eeveemobility/pull/121) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore: github sync dev-current workflow [\#118](https://github.com/geertmeersman/eeveemobility/pull/118) ([geertmeersman](https://github.com/geertmeersman))
+- chore: codespell [\#117](https://github.com/geertmeersman/eeveemobility/pull/117) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.8.4 to 0.8.6 [\#116](https://github.com/geertmeersman/eeveemobility/pull/116) ([dependabot[bot]](https://github.com/apps/dependabot))
+- fix: pretty-format-json [\#115](https://github.com/geertmeersman/eeveemobility/pull/115) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.8.3 to 0.8.4 [\#114](https://github.com/geertmeersman/eeveemobility/pull/114) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.8.2 to 0.8.3 [\#113](https://github.com/geertmeersman/eeveemobility/pull/113) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.8.0 to 0.8.2 [\#112](https://github.com/geertmeersman/eeveemobility/pull/112) ([dependabot[bot]](https://github.com/apps/dependabot))
+- fix: github workflow delete pre-releases on release [\#110](https://github.com/geertmeersman/eeveemobility/pull/110) ([geertmeersman](https://github.com/geertmeersman))
+- fix: beta release zip file [\#109](https://github.com/geertmeersman/eeveemobility/pull/109) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.7.4 to 0.8.0 [\#108](https://github.com/geertmeersman/eeveemobility/pull/108) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.7.3 to 0.7.4 [\#107](https://github.com/geertmeersman/eeveemobility/pull/107) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.7.2 to 0.7.3 [\#106](https://github.com/geertmeersman/eeveemobility/pull/106) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore: zip\_release for hacs [\#105](https://github.com/geertmeersman/eeveemobility/pull/105) ([geertmeersman](https://github.com/geertmeersman))
+- docs: release template [\#104](https://github.com/geertmeersman/eeveemobility/pull/104) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump colorlog from 6.8.2 to 6.9.0 [\#103](https://github.com/geertmeersman/eeveemobility/pull/103) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.7.1 to 0.7.2 [\#102](https://github.com/geertmeersman/eeveemobility/pull/102) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.7.0 to 0.7.1 [\#101](https://github.com/geertmeersman/eeveemobility/pull/101) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): update pip requirement from \<24.3,\>=8.0.3 to \>=8.0.3,\<24.4 [\#100](https://github.com/geertmeersman/eeveemobility/pull/100) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.6.9 to 0.7.0 [\#99](https://github.com/geertmeersman/eeveemobility/pull/99) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v0.10.11](https://github.com/geertmeersman/eeveemobility/tree/v0.10.11) (2024-10-08)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.10...v0.10.11)
