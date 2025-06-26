@@ -6,7 +6,6 @@ from datetime import timedelta
 import logging
 from pathlib import Path
 
-from aioeeveemobility import EeveeMobilityClient
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_EMAIL, CONF_PASSWORD, CONF_SCAN_INTERVAL
 from homeassistant.core import HomeAssistant
@@ -14,6 +13,7 @@ from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.storage import STORAGE_DIR, Store
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
+from .client import EeveeMobilityClient
 from .const import (
     CUSTOM_HEADERS,
     DEFAULT_SCAN_INTERVAL,
@@ -32,6 +32,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     hass.data.setdefault(DOMAIN, {})
 
     client = EeveeMobilityClient(
+        hass=hass,
         email=entry.data[CONF_EMAIL],
         password=entry.data[CONF_PASSWORD],
         custom_headers=CUSTOM_HEADERS,
@@ -138,6 +139,7 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
             _LOGGER.debug(f"Car: {car}")
             addresses = await self.client.request(f"cars/{car_id}/addresses")
             _LOGGER.debug(f"Addresses: {addresses}")
+            self.data["cars"].setdefault(car_id, {})
             if car.get("enabled"):
                 if car_id in self.data["cars"]:
                     total = events.get("meta").get("total")
@@ -173,7 +175,6 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
                 else:
                     car_events = {}
                     page = 1
-                    self.data["cars"].setdefault(car_id, {})
                     while True:
                         _LOGGER.debug(f"Fetching page {page}")
                         try:
@@ -196,9 +197,10 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
             self.data["cars"][car_id]["car"] = filter_json(
                 car_info, EVENTS_EXCLUDE_KEYS
             )
-            self.data["cars"][car_id]["addresses"] = filter_json(
-                addresses, EVENTS_EXCLUDE_KEYS
-            )
+            if addresses:
+                self.data["cars"][car_id]["addresses"] = filter_json(
+                    addresses, EVENTS_EXCLUDE_KEYS
+                )
         await self.store.async_save(self.data)
 
     async def _async_update_data(self) -> dict | None:

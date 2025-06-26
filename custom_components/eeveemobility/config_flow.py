@@ -4,7 +4,6 @@ from abc import ABC, abstractmethod
 import logging
 from typing import Any
 
-from aioeeveemobility import EeveeMobilityClient
 from homeassistant.config_entries import ConfigEntry, ConfigFlow, OptionsFlow
 from homeassistant.const import CONF_EMAIL, CONF_PASSWORD, CONF_SCAN_INTERVAL
 from homeassistant.core import callback
@@ -20,6 +19,7 @@ from homeassistant.helpers.selector import (
 from homeassistant.helpers.typing import UNDEFINED
 import voluptuous as vol
 
+from .client import EeveeMobilityClient
 from .const import (
     CUSTOM_HEADERS,
     DEFAULT_SCAN_INTERVAL,
@@ -61,6 +61,7 @@ class EeveeMobilityCommonFlow(ABC, FlowHandler):
         """Validate user credentials."""
 
         client = EeveeMobilityClient(
+            hass=self.hass,
             email=user_input[CONF_EMAIL],
             password=user_input[CONF_PASSWORD],
             custom_headers=CUSTOM_HEADERS,
