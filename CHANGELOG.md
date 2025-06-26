@@ -1,5 +1,26 @@
 # Changelog
 
+## [v0.12.0](https://github.com/geertmeersman/eeveemobility/tree/v0.12.0) (2025-06-26)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.11.0...v0.12.0)
+
+**Closed issues:**
+
+- Integration stopped working [\#141](https://github.com/geertmeersman/eeveemobility/issues/141)
+
+**Merged pull requests:**
+
+- fix: updated Eevee token mechanism, fixes \#141 [\#147](https://github.com/geertmeersman/eeveemobility/pull/147) ([geertmeersman](https://github.com/geertmeersman))
+- chore\(deps\): bump ruff from 0.11.13 to 0.12.0 [\#146](https://github.com/geertmeersman/eeveemobility/pull/146) ([dependabot[bot]](https://github.com/apps/dependabot))
+- fix: reduce to 1 commit when releasing [\#145](https://github.com/geertmeersman/eeveemobility/pull/145) ([geertmeersman](https://github.com/geertmeersman))
+- fix: sync dev-current workflow trigger [\#144](https://github.com/geertmeersman/eeveemobility/pull/144) ([geertmeersman](https://github.com/geertmeersman))
+- chore\(deps\): bump ruff from 0.11.12 to 0.11.13 [\#143](https://github.com/geertmeersman/eeveemobility/pull/143) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.11.2 to 0.11.12 [\#142](https://github.com/geertmeersman/eeveemobility/pull/142) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): update pip requirement from \<25.1,\>=8.0.3 to \>=8.0.3,\<25.2 [\#136](https://github.com/geertmeersman/eeveemobility/pull/136) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.9.9 to 0.11.2 [\#131](https://github.com/geertmeersman/eeveemobility/pull/131) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.9.7 to 0.9.9 [\#128](https://github.com/geertmeersman/eeveemobility/pull/128) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.9.3 to 0.9.7 [\#127](https://github.com/geertmeersman/eeveemobility/pull/127) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v0.11.0](https://github.com/geertmeersman/eeveemobility/tree/v0.11.0) (2025-01-28)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.10.11...v0.11.0)
