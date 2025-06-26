@@ -105,7 +105,8 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         unique_id_fn=lambda car: car.get("car").get("id"),
         icon="mdi:molecule-co2",
         available_fn=lambda car: car.get("car") is not None,
-        value_fn=lambda car: car.get("car").get("carbon_emission_saved") / 1000,
+        value_fn=lambda car: (car.get("car", {}).get("carbon_emission_saved") or 0)
+        / 1000,
         native_unit_of_measurement=UnitOfMass.KILOGRAMS,
         suggested_display_precision=0,
     ),
@@ -140,8 +141,8 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         unique_id_fn=lambda car: car.get("car").get("id"),
         icon="mdi:map-marker",
         available_fn=lambda car: car.get("addresses") is not None,
-        value_fn=lambda car: len(car.get("addresses")),
-        attributes_fn=lambda car: {"addresses": car.get("addresses")},
+        value_fn=lambda car: len(car.get("addresses") or []),
+        attributes_fn=lambda car: {"addresses": (car.get("addresses") or [])},
     ),
     EeveeMobilitySensorDescription(
         key="cars",
@@ -149,8 +150,8 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         unique_id_fn=lambda car: car.get("car").get("id"),
         icon="mdi:calendar-multiple",
         available_fn=lambda car: car.get("events") is not None,
-        value_fn=lambda car: car.get("events").get("meta").get("total"),
-        attributes_fn=lambda car: car.get("events"),
+        value_fn=lambda car: (car.get("events") or {}).get("meta", {}).get("total"),
+        attributes_fn=lambda car: (car.get("events") or {}),
     ),
     EeveeMobilitySensorDescription(
         key="cars",
@@ -158,11 +159,13 @@ SENSOR_TYPES: tuple[EeveeMobilitySensorDescription, ...] = (
         unique_id_fn=lambda car: car.get("car").get("id"),
         icon="mdi:car",
         available_fn=lambda car: car.get("events") is not None,
-        value_fn=lambda car: car.get("events").get("data")[0].get("type"),
+        value_fn=lambda car: ((car.get("events") or {}).get("data") or [{}])[0].get(
+            "type"
+        ),
         attributes_fn=lambda car: {
-            "started_at": (event_data := car.get("events").get("data")[0]).get(
-                "started_at"
-            ),
+            "started_at": (
+                event_data := ((car.get("events") or {}).get("data") or [{}])[0]
+            ).get("started_at"),
             "battery_percentage_delta": event_data.get("percent_end")
             - event_data.get("percent_start"),
             "formatted_started_at": datetime.utcfromtimestamp(
