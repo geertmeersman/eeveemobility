@@ -171,7 +171,9 @@ async def get_data(self) -> dict | None:
                 )["total"] = total
                 self.data["cars"][car_id].setdefault("events", {}).setdefault(
                     "data", []
-                ).pop(0)
+                )
+                if self.data["cars"][car_id]["events"]["data"]:
+                    self.data["cars"][car_id]["events"]["data"].pop(0)
                 self.data["cars"][car_id]["events"]["data"] = (
                     filter_json(events.get("data"), EVENTS_EXCLUDE_KEYS)
                     + self.data["cars"][car_id]["events"]["data"]
@@ -179,7 +181,9 @@ async def get_data(self) -> dict | None:
             else:
                 self.data["cars"][car_id].setdefault("events", {}).setdefault(
                     "data", []
-                ).pop(0)
+                )
+                if self.data["cars"][car_id]["events"]["data"]:
+                    self.data["cars"][car_id]["events"]["data"].pop(0)
                 self.data["cars"][car_id]["events"]["data"] = (
                     filter_json(events.get("data"), EVENTS_EXCLUDE_KEYS)
                     + self.data["cars"][car_id]["events"]["data"]
