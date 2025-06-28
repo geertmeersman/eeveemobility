@@ -220,6 +220,40 @@ async def get_data(self) -> dict | None:
 
     await self.store.async_save(self.data)
 
+    async def _async_update_data(self) -> dict | None:
+        """Update data."""
+        _LOGGER.debug("Updating data")
+        if self._debug:
+            await self.get_data()
+        else:
+            try:
+                await self.get_data()
+            except Exception as exception:
+                _LOGGER.warning(f"Exception {exception}")
+
+        if len(self.data) > 0:
+            current_items = {
+                list(device.identifiers)[0][1]
+                for device in dr.async_entries_for_config_entry(
+                    self._device_registry, self._config_entry.entry_id
+                )
+            }
+
+            if stale_items := current_items - {
+                f"{self._config_entry.entry_id}_{self.data['user'].get('email')}"
+            }:
+                for device_key in stale_items:
+                    if device := self._device_registry.async_get_device(
+                        {(DOMAIN, device_key)}
+                    ):
+                        _LOGGER.debug(
+                            f"[init|EeveeMobilityDataUpdateCoordinator|_async_update_data|async_remove_device] {device_key}",
+                            True,
+                        )
+                        self._device_registry.async_remove_device(device.id)
+            return self.data
+        return {}
+
 
 async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
     """Migrate old entry."""
