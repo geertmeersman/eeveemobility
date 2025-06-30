@@ -41,7 +41,7 @@ class EeveeMobilityClient:
                     headers=self.custom_headers,
                 )
                 response.raise_for_status()
-                self.token = response.json()
+                self.token = await response.json()
                 _LOGGER.debug("Token obtained successfully")
             except Exception as e:
                 _LOGGER.error("Error retrieving token: %s", str(e))
@@ -81,7 +81,7 @@ class EeveeMobilityClient:
 
             if response.status_code == 200:
                 _LOGGER.debug("Request to %s successful", endpoint_path)
-                return response.json()
+                return await response.json()
             else:
                 _LOGGER.error(
                     "Request to %s failed with status code %s",
