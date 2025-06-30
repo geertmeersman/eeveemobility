@@ -1,5 +1,26 @@
 # Changelog
 
+## [v0.12.1](https://github.com/geertmeersman/eeveemobility/tree/v0.12.1) (2025-06-30)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.12.1-beta.7...v0.12.1)
+
+**Merged pull requests:**
+
+- chore\(deps\): bump ruff from 0.12.0 to 0.12.1 [\#149](https://github.com/geertmeersman/eeveemobility/pull/149) ([dependabot[bot]](https://github.com/apps/dependabot))
+- fix: meta bug in events data [\#148](https://github.com/geertmeersman/eeveemobility/pull/148) ([geertmeersman](https://github.com/geertmeersman))
+
+## [v0.12.1-beta.7](https://github.com/geertmeersman/eeveemobility/tree/v0.12.1-beta.7) (2025-06-30)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.12.1-beta.5...v0.12.1-beta.7)
+
+## [v0.12.1-beta.5](https://github.com/geertmeersman/eeveemobility/tree/v0.12.1-beta.5) (2025-06-28)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.12.1-beta.3...v0.12.1-beta.5)
+
+## [v0.12.1-beta.3](https://github.com/geertmeersman/eeveemobility/tree/v0.12.1-beta.3) (2025-06-27)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.12.0...v0.12.1-beta.3)
+
 ## [v0.12.0](https://github.com/geertmeersman/eeveemobility/tree/v0.12.0) (2025-06-26)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.11.0...v0.12.0)
