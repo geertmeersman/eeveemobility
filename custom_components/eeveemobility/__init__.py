@@ -123,9 +123,11 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
         """Get the data from the Eevee client."""
         self.data["user"] = await self.client.request("user")
         _LOGGER.debug(f"User: {self.data['user']}")
+
         fleets = await self.client.request(f"user/{self.data['user'].get('id')}/fleets")
         self.data["fleets"] = {str(fleet.get("id")): fleet for fleet in fleets}
         _LOGGER.debug(f"Fleets: {self.data['fleets']}")
+
         cars = await self.client.request("cars")
         self.data.setdefault("cars", {})
 
@@ -134,21 +136,33 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
             events = await self.client.request(
                 f"cars/{car_id}/events?limit=1&force_refresh=1"
             )
-            _LOGGER.debug(f"{car_id} API total: {events.get('meta').get('total')}")
+
+            meta = events.get("meta") if events else None
+            total = meta.get("total") if meta else None
+
+            if total is None:
+                _LOGGER.warning(f"Missing 'meta.total' for car {car_id}: {events}")
+                continue
+
+            _LOGGER.debug(f"{car_id} API total: {total}")
+
             car_info = await self.client.request(f"cars/{car_id}")
             _LOGGER.debug(f"Car: {car}")
             addresses = await self.client.request(f"cars/{car_id}/addresses")
             _LOGGER.debug(f"Addresses: {addresses}")
+
             self.data["cars"].setdefault(car_id, {})
+
             if car.get("enabled"):
                 if car_id in self.data["cars"]:
                     total = events.get("meta").get("total")
-                    store_total = (
+                    store_total = int(
                         self.data["cars"]
                         .get(car_id)
-                        .get("events")
-                        .get("meta")
+                        .get("events", {})
+                        .get("meta", {})
                         .get("total")
+                        or 0
                     )
                     _LOGGER.debug(
                         f"{total} events in the API and {store_total} in the store"
@@ -159,13 +173,18 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
                         events = await self.client.request(
                             f"cars/{car_id}/events?limit={limit}"
                         )
-                        self.data["cars"][car_id]["events"]["meta"]["total"] = total
-                        # Remove the first item and replace it with it's most up to date version, supposing the API only updates the first item in the list
-                        self.data["cars"][car_id]["events"]["data"].pop(0)
-                        self.data["cars"][car_id]["events"]["data"] = (
-                            filter_json(events.get("data"), EVENTS_EXCLUDE_KEYS)
-                            + self.data["cars"][car_id]["events"]["data"]
-                        )
+                        if store_total == 0:
+                            self.data["cars"][car_id]["events"] = filter_json(
+                                events, EVENTS_EXCLUDE_KEYS
+                            )
+                        else:
+                            self.data["cars"][car_id]["events"]["meta"]["total"] = total
+                            # Remove the first item and replace it with it's most up to date version, supposing the API only updates the first item in the list
+                            self.data["cars"][car_id]["events"]["data"].pop(0)
+                            self.data["cars"][car_id]["events"]["data"] = (
+                                filter_json(events.get("data"), EVENTS_EXCLUDE_KEYS)
+                                + self.data["cars"][car_id]["events"]["data"]
+                            )
                     else:
                         self.data["cars"][car_id]["events"]["data"].pop(0)
                         self.data["cars"][car_id]["events"]["data"] = (
@@ -213,6 +232,7 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
                 await self.get_data()
             except Exception as exception:
                 _LOGGER.warning(f"Exception {exception}")
+                return {}
 
         if len(self.data) > 0:
             current_items = {
