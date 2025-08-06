@@ -101,6 +101,7 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
             _LOGGER,
             name=DOMAIN,
             update_interval=timedelta(minutes=config_entry.data[CONF_SCAN_INTERVAL]),
+            config_entry=config_entry,
         )
         self._debug = _LOGGER.isEnabledFor(logging.DEBUG)
         self._config_entry = config_entry
