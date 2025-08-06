@@ -1,25 +1,27 @@
 # Changelog
 
+## [v1.0.0](https://github.com/geertmeersman/eeveemobility/tree/v1.0.0) (2025-08-06)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.12.1...v1.0.0)
+
+**Merged pull requests:**
+
+- chore: Pass config\_entry explicitly to DataUpdateCoordinator to avoid C… [\#156](https://github.com/geertmeersman/eeveemobility/pull/156) ([geertmeersman](https://github.com/geertmeersman))
+- chore\(deps\): bump ruff from 0.12.5 to 0.12.7 [\#155](https://github.com/geertmeersman/eeveemobility/pull/155) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): update pip requirement from \<25.2,\>=8.0.3 to \>=8.0.3,\<25.3 [\#154](https://github.com/geertmeersman/eeveemobility/pull/154) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.3 to 0.12.5 [\#153](https://github.com/geertmeersman/eeveemobility/pull/153) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump hugo19941994/delete-draft-releases from 1.0.1 to 2.0.0 [\#152](https://github.com/geertmeersman/eeveemobility/pull/152) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.2 to 0.12.3 [\#151](https://github.com/geertmeersman/eeveemobility/pull/151) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.1 to 0.12.2 [\#150](https://github.com/geertmeersman/eeveemobility/pull/150) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v0.12.1](https://github.com/geertmeersman/eeveemobility/tree/v0.12.1) (2025-06-30)
 
-[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.12.1-beta.7...v0.12.1)
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.12.0...v0.12.1)
 
 **Merged pull requests:**
 
 - chore\(deps\): bump ruff from 0.12.0 to 0.12.1 [\#149](https://github.com/geertmeersman/eeveemobility/pull/149) ([dependabot[bot]](https://github.com/apps/dependabot))
 - fix: meta bug in events data [\#148](https://github.com/geertmeersman/eeveemobility/pull/148) ([geertmeersman](https://github.com/geertmeersman))
-
-## [v0.12.1-beta.7](https://github.com/geertmeersman/eeveemobility/tree/v0.12.1-beta.7) (2025-06-30)
-
-[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.12.1-beta.5...v0.12.1-beta.7)
-
-## [v0.12.1-beta.5](https://github.com/geertmeersman/eeveemobility/tree/v0.12.1-beta.5) (2025-06-28)
-
-[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.12.1-beta.3...v0.12.1-beta.5)
-
-## [v0.12.1-beta.3](https://github.com/geertmeersman/eeveemobility/tree/v0.12.1-beta.3) (2025-06-27)
-
-[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.12.0...v0.12.1-beta.3)
 
 ## [v0.12.0](https://github.com/geertmeersman/eeveemobility/tree/v0.12.0) (2025-06-26)
 
