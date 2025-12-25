@@ -19,7 +19,6 @@ from .const import (
     DEFAULT_SCAN_INTERVAL,
     DOMAIN,
     EVENTS_EXCLUDE_KEYS,
-    EVENTS_LIMIT,
     PLATFORMS,
 )
 from .utils import filter_json
@@ -134,12 +133,14 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
 
         for car in cars:
             car_id = str(car.get("id"))
+
+            # Always fetch latest meta
             events = await self.client.request(
                 f"cars/{car_id}/events?limit=1&force_refresh=1"
             )
 
-            meta = events.get("meta") if events else None
-            total = meta.get("total") if meta else None
+            meta = events.get("meta", {})
+            total = meta.get("total")
 
             if total is None:
                 _LOGGER.warning(f"Missing 'meta.total' for car {car_id}: {events}")
@@ -148,80 +149,70 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
             _LOGGER.debug(f"{car_id} API total: {total}")
 
             car_info = await self.client.request(f"cars/{car_id}")
-            _LOGGER.debug(f"Car: {car}")
             addresses = await self.client.request(f"cars/{car_id}/addresses")
-            _LOGGER.debug(f"Addresses: {addresses}")
 
             self.data["cars"].setdefault(car_id, {})
 
             if car.get("enabled"):
-                if car_id in self.data["cars"]:
-                    total = events.get("meta").get("total")
-                    store_total = int(
-                        self.data["cars"]
-                        .get(car_id)
-                        .get("events", {})
-                        .get("meta", {})
-                        .get("total")
-                        or 0
+                car_store = self.data["cars"][car_id]
+                car_store.setdefault("events", {})
+                car_store["events"].setdefault("meta", {})
+                car_store["events"].setdefault("data", [])
+
+                stored_events = car_store["events"]
+                stored_data = stored_events["data"]
+
+                store_total = int(stored_events.get("meta", {}).get("total", 0))
+
+                _LOGGER.debug(
+                    f"{total} events in the API and {store_total} in the store"
+                )
+
+                # Nothing to sync at all
+                if total == 0 and store_total == 0:
+                    continue
+
+                if total != store_total:
+                    limit = max(total - store_total + 1, 1)
+                    _LOGGER.debug(f"Updating the store with {limit} events")
+
+                    events = await self.client.request(
+                        f"cars/{car_id}/events?limit={limit}"
                     )
-                    _LOGGER.debug(
-                        f"{total} events in the API and {store_total} in the store"
+
+                    filtered_data = filter_json(
+                        events.get("data", []), EVENTS_EXCLUDE_KEYS
                     )
-                    if total != store_total:
-                        limit = total - store_total + 1
-                        _LOGGER.debug(f"Updating the store with {limit} events")
-                        events = await self.client.request(
-                            f"cars/{car_id}/events?limit={limit}"
-                        )
-                        if store_total == 0:
-                            self.data["cars"][car_id]["events"] = filter_json(
-                                events, EVENTS_EXCLUDE_KEYS
-                            )
-                        else:
-                            self.data["cars"][car_id]["events"]["meta"]["total"] = total
-                            # Remove the first item and replace it with it's most up to date version, supposing the API only updates the first item in the list
-                            self.data["cars"][car_id]["events"]["data"].pop(0)
-                            self.data["cars"][car_id]["events"]["data"] = (
-                                filter_json(events.get("data"), EVENTS_EXCLUDE_KEYS)
-                                + self.data["cars"][car_id]["events"]["data"]
-                            )
+
+                    if store_total == 0:
+                        # First population
+                        car_store["events"] = filter_json(events, EVENTS_EXCLUDE_KEYS)
                     else:
-                        self.data["cars"][car_id]["events"]["data"].pop(0)
-                        self.data["cars"][car_id]["events"]["data"] = (
-                            filter_json(events.get("data"), EVENTS_EXCLUDE_KEYS)
-                            + self.data["cars"][car_id]["events"]["data"]
-                        )
+                        # Update meta + replace first event safely
+                        stored_events["meta"]["total"] = total
+                        stored_events["data"] = filtered_data + stored_data[1:]
+
                 else:
-                    car_events = {}
-                    page = 1
-                    while True:
-                        _LOGGER.debug(f"Fetching page {page}")
-                        try:
-                            events = await self.client.request(
-                                f"cars/{car_id}/events?limit={EVENTS_LIMIT}&page={page}"
-                            )
-                            if events.get("links").get("previous") is None:
-                                car_events = filter_json(events, EVENTS_EXCLUDE_KEYS)
-                            else:
-                                car_events.get("data").extend(
-                                    filter_json(events.get("data"), EVENTS_EXCLUDE_KEYS)
-                                )
-                            if events.get("links").get("next") is None:
-                                break
-                        except Exception as exception:
-                            _LOGGER.warning(f"Exception {exception}")
-                        page += 1
-                        break  # No more than 1 page for the moment
-                    self.data["cars"][car_id]["events"] = car_events
+                    # Same total → refresh most recent event only
+                    filtered_data = filter_json(
+                        events.get("data", []), EVENTS_EXCLUDE_KEYS
+                    )
+
+                    if filtered_data:
+                        stored_events["data"] = filtered_data + stored_data[1:]
+
+            # Store car info & addresses regardless of enabled state
             self.data["cars"][car_id]["car"] = filter_json(
                 car_info, EVENTS_EXCLUDE_KEYS
             )
+
             if addresses:
                 self.data["cars"][car_id]["addresses"] = filter_json(
                     addresses, EVENTS_EXCLUDE_KEYS
                 )
+
         await self.store.async_save(self.data)
+        return self.data
 
     async def _async_update_data(self) -> dict | None:
         """Update data."""
