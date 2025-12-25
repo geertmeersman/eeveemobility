@@ -356,7 +356,9 @@ class EeveeMobilitySensor(EeveeMobilityEntity, RestoreSensor, SensorEntity):
                 )
                 await self.coordinator.async_request_refresh()
         else:
-            self._value = self.entity_description.value_fn(self.item)
+            item = self.item
+            if item is not None:
+                self._value = self.entity_description.value_fn(item)
 
     @property
     def entity_picture(self) -> str | None:

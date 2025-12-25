@@ -101,7 +101,10 @@ class EeveeMobilityEntity(CoordinatorEntity[EeveeMobilityDataUpdateCoordinator])
     @property
     def available(self) -> bool:
         """Return if the entity is available."""
-        return super().available and self.entity_description.available_fn(self.item)
+        item = self.item
+        if item is None:
+            return False
+        return super().available and self.entity_description.available_fn(item)
 
     async def async_update(self) -> None:
         """Update the entity.  Only used by the generic entity update service."""
