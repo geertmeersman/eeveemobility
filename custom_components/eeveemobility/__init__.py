@@ -19,6 +19,7 @@ from .const import (
     DEFAULT_SCAN_INTERVAL,
     DOMAIN,
     EVENTS_EXCLUDE_KEYS,
+    EVENTS_LIMIT,
     PLATFORMS,
 )
 from .utils import filter_json
@@ -136,7 +137,7 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
 
             # Always fetch latest meta
             events = await self.client.request(
-                f"cars/{car_id}/events?limit=1&force_refresh=1"
+                f"cars/{car_id}/events?limit={EVENTS_LIMIT}&force_refresh=1"
             )
 
             meta = events.get("meta", {})
