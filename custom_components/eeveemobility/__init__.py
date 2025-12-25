@@ -19,7 +19,6 @@ from .const import (
     DEFAULT_SCAN_INTERVAL,
     DOMAIN,
     EVENTS_EXCLUDE_KEYS,
-    EVENTS_LIMIT,
     PLATFORMS,
 )
 from .utils import filter_json
@@ -137,7 +136,7 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
 
             # Always fetch latest meta
             events = await self.client.request(
-                f"cars/{car_id}/events?limit={EVENTS_LIMIT}&force_refresh=1"
+                f"cars/{car_id}/events?limit=1&force_refresh=1"
             )
             _LOGGER.debug(f"Events: {events}")
 
@@ -208,8 +207,12 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
                     )
 
                     if filtered_data:
-                        stored_events["data"] = filtered_data + stored_data[1:]
-
+                        if total > store_total:
+                            # Events added: prepend new events, remove first old event
+                            stored_events["data"] = filtered_data + stored_data[1:]
+                        else:
+                            # Events removed: replace with fresh data, trimmed to total
+                            stored_events["data"] = filtered_data[:total]
             # Store car info & addresses regardless of enabled state
             if car_info and isinstance(car_info, dict):
                 self.data["cars"][car_id]["car"] = filter_json(
