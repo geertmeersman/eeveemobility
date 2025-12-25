@@ -76,11 +76,27 @@ class EeveeMobilityEntity(CoordinatorEntity[EeveeMobilityDataUpdateCoordinator])
         )
 
     @property
-    def item(self) -> dict:
-        """Return the data for this entity."""
-        if self.item_id is not None:
-            return self.coordinator.data[self.entity_description.key][self.item_id]
-        return self.coordinator.data[self.entity_description.key]
+    def item(self) -> dict | None:
+        """Return the data for this entity safely."""
+        data = self.coordinator.data or {}
+
+        # First-level lookup: key may be missing
+        group = data.get(self.entity_description.key)
+        if group is None:
+            return None
+
+        # For iterated sensors (cars/fleets)
+        if isinstance(group, list):
+            # item_id might be None, out of range, or not an int
+            if self.item_id is None:
+                return None
+            try:
+                return group[self.item_id]
+            except (IndexError, TypeError):
+                return None
+
+        # For single object sensors (user)
+        return group
 
     @property
     def available(self) -> bool:

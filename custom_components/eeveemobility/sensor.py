@@ -319,18 +319,27 @@ class EeveeMobilitySensor(EeveeMobilityEntity, RestoreSensor, SensorEntity):
         self._value: StateType = None
 
     @property
-    def native_value(self) -> StateType:
+    def native_value(self):
         """Return the value reported by the sensor."""
-        if self.coordinator.data is not None:
-            return self.entity_description.value_fn(self.item)
-        return self._value
+        item = self.item
+        if item is None:
+            return self._value  # return last restored value if available
+
+        try:
+            return self.entity_description.value_fn(item)
+        except Exception as e:
+            _LOGGER.debug(f"{self.entity_id} native_value error: {e}")
+            return None
 
     @property
     def native_unit_of_measurement(self) -> str | None:
         """Return the unit of measurement of the sensor, if any."""
         if hasattr(self, "entity_description"):
             if self.entity_description.device_class == SensorDeviceClass.MONETARY:
-                return self.coordinator.data["user"].get("currency_symbol")
+                user = (self.coordinator.data or {}).get("user")
+                if user:
+                    return user.get("currency_symbol")
+                return None
         return super().native_unit_of_measurement
 
     async def async_added_to_hass(self) -> None:
@@ -354,7 +363,13 @@ class EeveeMobilitySensor(EeveeMobilityEntity, RestoreSensor, SensorEntity):
         """Return the entity picture to use in the frontend, if any."""
         if self.entity_description.entity_picture_fn is None:
             return None
-        return self.entity_description.entity_picture_fn(self.item)
+        item = self.item
+        if item is None:
+            return None
+        try:
+            return self.entity_description.entity_picture_fn(item)
+        except Exception:
+            return None
 
     @property
     def extra_state_attributes(self):
@@ -364,9 +379,16 @@ class EeveeMobilitySensor(EeveeMobilityEntity, RestoreSensor, SensorEntity):
         attributes = {
             "last_synced": self.last_synced,
         }
-        if (
-            self.entity_description.attributes_fn
-            and self.entity_description.attributes_fn(self.item) is not None
-        ):
-            return attributes | self.entity_description.attributes_fn(self.item)
+        item = self.item
+        if item is None:
+            return attributes
+
+        if self.entity_description.attributes_fn:
+            try:
+                attrs = self.entity_description.attributes_fn(item)
+                if attrs:
+                    return attributes | attrs
+            except Exception as e:
+                _LOGGER.debug(f"{self.entity_id} attributes_fn error: {e}")
+
         return attributes
