@@ -139,6 +139,7 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
             events = await self.client.request(
                 f"cars/{car_id}/events?limit={EVENTS_LIMIT}&force_refresh=1"
             )
+            _LOGGER.debug(f"Events: {events}")
 
             meta = events.get("meta", {})
             total = meta.get("total")
