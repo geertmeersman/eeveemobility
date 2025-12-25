@@ -175,7 +175,12 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
                 if total == 0 and store_total == 0:
                     pass  # Skip event syncing but continue to store car info
                 elif total != store_total:
-                    limit = max(total - store_total + 1, 1)
+                    if total > store_total:
+                        # Events added: fetch the delta
+                        limit = total - store_total + 1
+                    else:
+                        # Events removed: fetch latest and trim stored data
+                        limit = min(total, 10)  # Fetch up to 10 most recent events
                     _LOGGER.debug(f"Updating the store with {limit} events")
 
                     events = await self.client.request(
@@ -216,6 +221,7 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
                     addresses, EVENTS_EXCLUDE_KEYS
                 )
 
+        _LOGGER.debug(f"Eevee data: {self.data}")
         await self.store.async_save(self.data)
         return self.data
 
