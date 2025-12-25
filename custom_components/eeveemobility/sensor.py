@@ -358,7 +358,11 @@ class EeveeMobilitySensor(EeveeMobilityEntity, RestoreSensor, SensorEntity):
         else:
             item = self.item
             if item is not None:
-                self._value = self.entity_description.value_fn(item)
+                try:
+                    self._value = self.entity_description.value_fn(item)
+                except Exception as e:
+                    _LOGGER.debug(f"{self.entity_id} value_fn error during init: {e}")
+                    self._value = None
 
     @property
     def entity_picture(self) -> str | None:

@@ -149,20 +149,23 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
             _LOGGER.debug(f"{car_id} API total: {total}")
 
             car_info = await self.client.request(f"cars/{car_id}")
+            _LOGGER.debug(f"Car info: {car_info}")
             addresses = await self.client.request(f"cars/{car_id}/addresses")
 
             self.data["cars"].setdefault(car_id, {})
 
             if car.get("enabled"):
                 car_store = self.data["cars"][car_id]
-                car_store.setdefault("events", {})
+                # Ensure events is a dict, replacing corrupted values
+                if not isinstance(car_store.get("events"), dict):
+                    car_store["events"] = {}
                 car_store["events"].setdefault("meta", {})
                 car_store["events"].setdefault("data", [])
 
                 stored_events = car_store["events"]
                 stored_data = stored_events["data"]
 
-                store_total = int(stored_events.get("meta", {}).get("total", 0))
+                store_total = int(stored_events.get("meta", {}).get("total") or 0)
 
                 _LOGGER.debug(
                     f"{total} events in the API and {store_total} in the store"
@@ -201,9 +204,12 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
                         stored_events["data"] = filtered_data + stored_data[1:]
 
             # Store car info & addresses regardless of enabled state
-            self.data["cars"][car_id]["car"] = filter_json(
-                car_info, EVENTS_EXCLUDE_KEYS
-            )
+            if car_info and isinstance(car_info, dict):
+                self.data["cars"][car_id]["car"] = filter_json(
+                    car_info, EVENTS_EXCLUDE_KEYS
+                )
+            else:
+                _LOGGER.warning(f"Invalid or missing car_info for car {car_id}")
 
             if addresses:
                 self.data["cars"][car_id]["addresses"] = filter_json(
