@@ -315,6 +315,7 @@ class EeveeMobilitySensor(EeveeMobilityEntity, RestoreSensor, SensorEntity):
     ) -> None:
         """Set entity ID."""
         super().__init__(coordinator, description, device_name, item_id)
+        _LOGGER.debug(f"Sensor init for item {self.item}")
         self.entity_id = f"sensor.{DOMAIN}_{self.entity_description.translation_key}_{self.entity_description.unique_id_fn(self.item)}"
         self._value: StateType = None
 

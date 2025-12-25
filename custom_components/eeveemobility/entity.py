@@ -83,12 +83,17 @@ class EeveeMobilityEntity(CoordinatorEntity[EeveeMobilityDataUpdateCoordinator])
         # First-level lookup: key may be missing
         group = data.get(self.entity_description.key)
         if group is None:
+            _LOGGER.debug(f"Coordinator data for {self.entity_description.key} is None")
             return None
 
         # For iterated sensors (cars/fleets)
         if isinstance(group, list):
+            _LOGGER.debug(f"Entity/item for {self.entity_description.key} is a list")
             # item_id might be None, out of range, or not an int
             if self.item_id is None:
+                _LOGGER.debug(
+                    f"Entity/item for {self.entity_description.key}, self.item_id is None"
+                )
                 return None
             try:
                 return group[self.item_id]
