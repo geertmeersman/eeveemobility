@@ -170,9 +170,8 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
 
                 # Nothing to sync at all
                 if total == 0 and store_total == 0:
-                    continue
-
-                if total != store_total:
+                    pass  # Skip event syncing but continue to store car info
+                elif total != store_total:
                     limit = max(total - store_total + 1, 1)
                     _LOGGER.debug(f"Updating the store with {limit} events")
 
