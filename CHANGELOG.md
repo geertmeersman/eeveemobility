@@ -1,5 +1,82 @@
 # Changelog
 
+## [v1.0.1](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1) (2025-12-27)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.46...v1.0.1)
+
+**Closed issues:**
+
+- Don't get sensors? [\#183](https://github.com/geertmeersman/eeveemobility/issues/183)
+
+**Merged pull requests:**
+
+- fix: safe access coordinator data, fixes \#183 [\#184](https://github.com/geertmeersman/eeveemobility/pull/184) ([geertmeersman](https://github.com/geertmeersman))
+
+## [v1.0.1-beta.46](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.46) (2025-12-25)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.44...v1.0.1-beta.46)
+
+## [v1.0.1-beta.44](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.44) (2025-12-25)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.41...v1.0.1-beta.44)
+
+## [v1.0.1-beta.41](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.41) (2025-12-25)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.39...v1.0.1-beta.41)
+
+## [v1.0.1-beta.39](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.39) (2025-12-25)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.37...v1.0.1-beta.39)
+
+## [v1.0.1-beta.37](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.37) (2025-12-25)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.35...v1.0.1-beta.37)
+
+## [v1.0.1-beta.35](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.35) (2025-12-25)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.33...v1.0.1-beta.35)
+
+## [v1.0.1-beta.33](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.33) (2025-12-25)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.31...v1.0.1-beta.33)
+
+## [v1.0.1-beta.31](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.31) (2025-12-25)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.29...v1.0.1-beta.31)
+
+## [v1.0.1-beta.29](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.29) (2025-12-25)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.27...v1.0.1-beta.29)
+
+**Merged pull requests:**
+
+- chore\(deps\): bump actions/upload-artifact from 5 to 6 [\#182](https://github.com/geertmeersman/eeveemobility/pull/182) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/checkout from 5 to 6 [\#180](https://github.com/geertmeersman/eeveemobility/pull/180) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/upload-artifact from 4 to 5 [\#179](https://github.com/geertmeersman/eeveemobility/pull/179) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore: archived ruff-actions replaced [\#177](https://github.com/geertmeersman/eeveemobility/pull/177) ([geertmeersman](https://github.com/geertmeersman))
+- chore\(release\): improved release workflow [\#176](https://github.com/geertmeersman/eeveemobility/pull/176) ([geertmeersman](https://github.com/geertmeersman))
+- chore\(deps\): bump ruff from 0.14.0 to 0.14.1 [\#174](https://github.com/geertmeersman/eeveemobility/pull/174) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump colorlog from 6.9.0 to 6.10.1 [\#173](https://github.com/geertmeersman/eeveemobility/pull/173) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump github/codeql-action from 3 to 4 [\#171](https://github.com/geertmeersman/eeveemobility/pull/171) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.13.3 to 0.14.0 [\#170](https://github.com/geertmeersman/eeveemobility/pull/170) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.13.2 to 0.13.3 [\#169](https://github.com/geertmeersman/eeveemobility/pull/169) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.13.1 to 0.13.2 [\#168](https://github.com/geertmeersman/eeveemobility/pull/168) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.13.0 to 0.13.1 [\#167](https://github.com/geertmeersman/eeveemobility/pull/167) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.12 to 0.13.0 [\#166](https://github.com/geertmeersman/eeveemobility/pull/166) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/stale from 9 to 10 [\#165](https://github.com/geertmeersman/eeveemobility/pull/165) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/github-script from 7 to 8 [\#164](https://github.com/geertmeersman/eeveemobility/pull/164) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/setup-python from 5 to 6 [\#163](https://github.com/geertmeersman/eeveemobility/pull/163) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.11 to 0.12.12 [\#162](https://github.com/geertmeersman/eeveemobility/pull/162) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.10 to 0.12.11 [\#161](https://github.com/geertmeersman/eeveemobility/pull/161) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.9 to 0.12.10 [\#160](https://github.com/geertmeersman/eeveemobility/pull/160) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/checkout from 4 to 5 [\#159](https://github.com/geertmeersman/eeveemobility/pull/159) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.8 to 0.12.9 [\#158](https://github.com/geertmeersman/eeveemobility/pull/158) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.7 to 0.12.8 [\#157](https://github.com/geertmeersman/eeveemobility/pull/157) ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [v1.0.1-beta.27](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.27) (2025-12-01)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.0...v1.0.1-beta.27)
+
 ## [v1.0.0](https://github.com/geertmeersman/eeveemobility/tree/v1.0.0) (2025-08-06)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v0.12.1...v1.0.0)
