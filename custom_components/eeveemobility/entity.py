@@ -76,16 +76,36 @@ class EeveeMobilityEntity(CoordinatorEntity[EeveeMobilityDataUpdateCoordinator])
         )
 
     @property
-    def item(self) -> dict:
-        """Return the data for this entity."""
-        if self.item_id is not None:
-            return self.coordinator.data[self.entity_description.key][self.item_id]
-        return self.coordinator.data[self.entity_description.key]
+    def item(self) -> dict | None:
+        """Return the data for this entity safely."""
+        data = self.coordinator.data or {}
+
+        group = data.get(self.entity_description.key)
+        if group is None:
+            return None
+
+        # Single object (user)
+        if self.item_id is None:
+            return group
+
+        # Dict-based collections (cars, fleets)
+        if isinstance(group, dict):
+            return group.get(self.item_id)
+
+        _LOGGER.debug(
+            "Unexpected data type for %s: %s",
+            self.entity_description.key,
+            type(group),
+        )
+        return None
 
     @property
     def available(self) -> bool:
         """Return if the entity is available."""
-        return super().available and self.entity_description.available_fn(self.item)
+        item = self.item
+        if item is None:
+            return False
+        return super().available and self.entity_description.available_fn(item)
 
     async def async_update(self) -> None:
         """Update the entity.  Only used by the generic entity update service."""
