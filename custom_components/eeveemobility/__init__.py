@@ -206,13 +206,9 @@ class EeveeMobilityDataUpdateCoordinator(DataUpdateCoordinator):
                         events.get("data", []), EVENTS_EXCLUDE_KEYS
                     )
 
-                    if filtered_data:
-                        if total > store_total:
-                            # Events added: prepend new events, remove first old event
-                            stored_events["data"] = filtered_data + stored_data[1:]
-                        else:
-                            # Events removed: replace with fresh data, trimmed to total
-                            stored_events["data"] = filtered_data[:total]
+                    if filtered_data and stored_data:
+                        # Replace only the first (most recent) event with fresh data
+                        stored_events["data"] = filtered_data + stored_data[1:]
             # Store car info & addresses regardless of enabled state
             if car_info and isinstance(car_info, dict):
                 self.data["cars"][car_id]["car"] = filter_json(
