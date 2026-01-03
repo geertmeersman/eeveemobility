@@ -63,7 +63,11 @@ class EeveeMobilityClient:
         }
 
         try:
-            response = await self.client.get(endpoint_path, headers=headers)
+            response = await self.client.get(
+                endpoint_path,
+                headers=headers,
+                follow_redirects=True,
+            )
             _LOGGER.debug(
                 "Response status from %s: %s", endpoint_path, response.status_code
             )
@@ -72,7 +76,11 @@ class EeveeMobilityClient:
                 _LOGGER.warning("Received 401, refreshing token and retrying request")
                 token = await self._get_token(force=True)
                 headers["Authorization"] = f"Bearer {token}"
-                response = await self.client.get(endpoint_path, headers=headers)
+                response = await self.client.get(
+                    endpoint_path,
+                    headers=headers,
+                    follow_redirects=True,
+                )
                 _LOGGER.debug("Retry response status: %s", response.status_code)
 
             if response.status_code == 404:
