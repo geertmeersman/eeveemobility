@@ -1,8 +1,16 @@
 # Changelog
 
+## [v1.0.2](https://github.com/geertmeersman/eeveemobility/tree/v1.0.2) (2026-01-03)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1...v1.0.2)
+
+**Merged pull requests:**
+
+- fix: Improved HTTP request handling by enabling automatic redirect following [\#185](https://github.com/geertmeersman/eeveemobility/pull/185) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v1.0.1](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1) (2025-12-27)
 
-[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.46...v1.0.1)
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.0...v1.0.1)
 
 **Closed issues:**
 
@@ -11,45 +19,6 @@
 **Merged pull requests:**
 
 - fix: safe access coordinator data, fixes \#183 [\#184](https://github.com/geertmeersman/eeveemobility/pull/184) ([geertmeersman](https://github.com/geertmeersman))
-
-## [v1.0.1-beta.46](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.46) (2025-12-25)
-
-[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.44...v1.0.1-beta.46)
-
-## [v1.0.1-beta.44](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.44) (2025-12-25)
-
-[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.41...v1.0.1-beta.44)
-
-## [v1.0.1-beta.41](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.41) (2025-12-25)
-
-[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.39...v1.0.1-beta.41)
-
-## [v1.0.1-beta.39](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.39) (2025-12-25)
-
-[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.37...v1.0.1-beta.39)
-
-## [v1.0.1-beta.37](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.37) (2025-12-25)
-
-[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.35...v1.0.1-beta.37)
-
-## [v1.0.1-beta.35](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.35) (2025-12-25)
-
-[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.33...v1.0.1-beta.35)
-
-## [v1.0.1-beta.33](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.33) (2025-12-25)
-
-[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.31...v1.0.1-beta.33)
-
-## [v1.0.1-beta.31](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.31) (2025-12-25)
-
-[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.29...v1.0.1-beta.31)
-
-## [v1.0.1-beta.29](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.29) (2025-12-25)
-
-[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1-beta.27...v1.0.1-beta.29)
-
-**Merged pull requests:**
-
 - chore\(deps\): bump actions/upload-artifact from 5 to 6 [\#182](https://github.com/geertmeersman/eeveemobility/pull/182) ([dependabot[bot]](https://github.com/apps/dependabot))
 - chore\(deps\): bump actions/checkout from 5 to 6 [\#180](https://github.com/geertmeersman/eeveemobility/pull/180) ([dependabot[bot]](https://github.com/apps/dependabot))
 - chore\(deps\): bump actions/upload-artifact from 4 to 5 [\#179](https://github.com/geertmeersman/eeveemobility/pull/179) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -72,10 +41,6 @@
 - chore\(deps\): bump actions/checkout from 4 to 5 [\#159](https://github.com/geertmeersman/eeveemobility/pull/159) ([dependabot[bot]](https://github.com/apps/dependabot))
 - chore\(deps\): bump ruff from 0.12.8 to 0.12.9 [\#158](https://github.com/geertmeersman/eeveemobility/pull/158) ([dependabot[bot]](https://github.com/apps/dependabot))
 - chore\(deps\): bump ruff from 0.12.7 to 0.12.8 [\#157](https://github.com/geertmeersman/eeveemobility/pull/157) ([dependabot[bot]](https://github.com/apps/dependabot))
-
-## [v1.0.1-beta.27](https://github.com/geertmeersman/eeveemobility/tree/v1.0.1-beta.27) (2025-12-01)
-
-[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.0...v1.0.1-beta.27)
 
 ## [v1.0.0](https://github.com/geertmeersman/eeveemobility/tree/v1.0.0) (2025-08-06)
 
