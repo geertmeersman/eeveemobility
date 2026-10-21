@@ -36,6 +36,7 @@ A Home Assistant integration to monitor Eevee Mobililty
 [![manifest version](https://img.shields.io/github/manifest-json/v/geertmeersman/eeveemobility/master?filename=custom_components%2Feeveemobility%2Fmanifest.json)](https://github.com/geertmeersman/eeveemobility)
 [![github release](https://img.shields.io/github/v/release/geertmeersman/eeveemobility?logo=github)](https://github.com/geertmeersman/eeveemobility/releases)
 [![github release date](https://img.shields.io/github/release-date/geertmeersman/eeveemobility)](https://github.com/geertmeersman/eeveemobility/releases)
+[![Downloads (latest release)](https://img.shields.io/github/downloads/geertmeersman/eeveemobility/latest/total)](https://github.com/geertmeersman/eeveemobility/releases/latest)
 [![github last-commit](https://img.shields.io/github/last-commit/geertmeersman/eeveemobility)](https://github.com/geertmeersman/eeveemobility/commits)
 [![github contributors](https://img.shields.io/github/contributors/geertmeersman/eeveemobility)](https://github.com/geertmeersman/eeveemobility/graphs/contributors)
 [![github commit activity](https://img.shields.io/github/commit-activity/y/geertmeersman/eeveemobility?logo=github)](https://github.com/geertmeersman/eeveemobility/commits/main)
