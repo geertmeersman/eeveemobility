@@ -7,6 +7,38 @@
 
 A Home Assistant integration to monitor your [Eevee Mobility](https://eeveemobility.com/) electric vehicle(s). It connects to the Eevee Mobility API and exposes your car data, fleet info, trips, charging sessions and GPS location as entities in Home Assistant.
 
+---
+
+<!-- [START BADGES] -->
+<!-- Please keep comment here to allow auto update -->
+
+[![maintainer](https://img.shields.io/badge/maintainer-Geert%20Meersman-green?style=for-the-badge&logo=github)](https://github.com/geertmeersman)
+[![buyme_coffee](https://img.shields.io/badge/Buy%20me%20an%20Omer-donate-yellow?style=for-the-badge&logo=buymeacoffee)](https://www.buymeacoffee.com/geertmeersman)
+[![discord](https://img.shields.io/discord/1104706338111627385?style=for-the-badge&logo=discord)](https://discord.gg/4ZMxfyBZVx)
+
+[![MIT License](https://img.shields.io/github/license/geertmeersman/eeveemobility?style=flat-square)](https://github.com/geertmeersman/eeveemobility/blob/master/LICENSE)
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-41BDF5.svg?style=flat-square)](https://github.com/hacs/integration)
+
+[![Open your Home Assistant instance and open the repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg?style=flat-square)](https://my.home-assistant.io/redirect/hacs_repository/?owner=geertmeersman&repository=eeveemobility&category=integration)
+
+[![GitHub issues](https://img.shields.io/github/issues/geertmeersman/eeveemobility)](https://github.com/geertmeersman/eeveemobility/issues)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/geertmeersman/eeveemobility.svg)](http://isitmaintained.com/project/geertmeersman/eeveemobility)
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/geertmeersman/eeveemobility.svg)](http://isitmaintained.com/project/geertmeersman/eeveemobility)
+[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](https://github.com/geertmeersman/eeveemobility/pulls)
+
+[![Hacs and Hassfest validation](https://github.com/geertmeersman/eeveemobility/actions/workflows/validate.yml/badge.svg)](https://github.com/geertmeersman/eeveemobility/actions/workflows/validate.yml)
+[![Python](https://img.shields.io/badge/Python-FFD43B?logo=python)](https://github.com/geertmeersman/eeveemobility/search?l=python)
+
+[![manifest version](https://img.shields.io/github/manifest-json/v/geertmeersman/eeveemobility/master?filename=custom_components%2Feeveemobility%2Fmanifest.json)](https://github.com/geertmeersman/eeveemobility)
+[![github release](https://img.shields.io/github/v/release/geertmeersman/eeveemobility?logo=github)](https://github.com/geertmeersman/eeveemobility/releases)
+[![github release date](https://img.shields.io/github/release-date/geertmeersman/eeveemobility)](https://github.com/geertmeersman/eeveemobility/releases)
+[![Downloads (latest release)](https://img.shields.io/github/downloads/geertmeersman/eeveemobility/latest/total)](https://github.com/geertmeersman/eeveemobility/releases/latest)
+[![github last-commit](https://img.shields.io/github/last-commit/geertmeersman/eeveemobility)](https://github.com/geertmeersman/eeveemobility/commits)
+[![github contributors](https://img.shields.io/github/contributors/geertmeersman/eeveemobility)](https://github.com/geertmeersman/eeveemobility/graphs/contributors)
+[![github commit activity](https://img.shields.io/github/commit-activity/y/geertmeersman/eeveemobility?logo=github)](https://github.com/geertmeersman/eeveemobility/commits/main)
+
+<!-- [END BADGES] -->
+
 ## Features
 
 ### Sensors (per car)
@@ -44,38 +76,6 @@ A Home Assistant integration to monitor your [Eevee Mobility](https://eeveemobil
 | Entity | Description |
 | --- | --- |
 | GPS Tracker | Real-time GPS position of the car based on the latest event (parked, driving or charging) |
-
----
-
-<!-- [START BADGES] -->
-<!-- Please keep comment here to allow auto update -->
-
-[![maintainer](https://img.shields.io/badge/maintainer-Geert%20Meersman-green?style=for-the-badge&logo=github)](https://github.com/geertmeersman)
-[![buyme_coffee](https://img.shields.io/badge/Buy%20me%20an%20Omer-donate-yellow?style=for-the-badge&logo=buymeacoffee)](https://www.buymeacoffee.com/geertmeersman)
-[![discord](https://img.shields.io/discord/1104706338111627385?style=for-the-badge&logo=discord)](https://discord.gg/4ZMxfyBZVx)
-
-[![MIT License](https://img.shields.io/github/license/geertmeersman/eeveemobility?style=flat-square)](https://github.com/geertmeersman/eeveemobility/blob/master/LICENSE)
-[![hacs_badge](https://img.shields.io/badge/HACS-Default-41BDF5.svg?style=flat-square)](https://github.com/hacs/integration)
-
-[![Open your Home Assistant instance and open the repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg?style=flat-square)](https://my.home-assistant.io/redirect/hacs_repository/?owner=geertmeersman&repository=eeveemobility&category=integration)
-
-[![GitHub issues](https://img.shields.io/github/issues/geertmeersman/eeveemobility)](https://github.com/geertmeersman/eeveemobility/issues)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/geertmeersman/eeveemobility.svg)](http://isitmaintained.com/project/geertmeersman/eeveemobility)
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/geertmeersman/eeveemobility.svg)](http://isitmaintained.com/project/geertmeersman/eeveemobility)
-[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](https://github.com/geertmeersman/eeveemobility/pulls)
-
-[![Hacs and Hassfest validation](https://github.com/geertmeersman/eeveemobility/actions/workflows/validate.yml/badge.svg)](https://github.com/geertmeersman/eeveemobility/actions/workflows/validate.yml)
-[![Python](https://img.shields.io/badge/Python-FFD43B?logo=python)](https://github.com/geertmeersman/eeveemobility/search?l=python)
-
-[![manifest version](https://img.shields.io/github/manifest-json/v/geertmeersman/eeveemobility/master?filename=custom_components%2Feeveemobility%2Fmanifest.json)](https://github.com/geertmeersman/eeveemobility)
-[![github release](https://img.shields.io/github/v/release/geertmeersman/eeveemobility?logo=github)](https://github.com/geertmeersman/eeveemobility/releases)
-[![github release date](https://img.shields.io/github/release-date/geertmeersman/eeveemobility)](https://github.com/geertmeersman/eeveemobility/releases)
-[![Downloads (latest release)](https://img.shields.io/github/downloads/geertmeersman/eeveemobility/latest/total)](https://github.com/geertmeersman/eeveemobility/releases/latest)
-[![github last-commit](https://img.shields.io/github/last-commit/geertmeersman/eeveemobility)](https://github.com/geertmeersman/eeveemobility/commits)
-[![github contributors](https://img.shields.io/github/contributors/geertmeersman/eeveemobility)](https://github.com/geertmeersman/eeveemobility/graphs/contributors)
-[![github commit activity](https://img.shields.io/github/commit-activity/y/geertmeersman/eeveemobility?logo=github)](https://github.com/geertmeersman/eeveemobility/commits/main)
-
-<!-- [END BADGES] -->
 
 ## Table of contents
 
