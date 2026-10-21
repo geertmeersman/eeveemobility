@@ -3,13 +3,47 @@
      align="right"
      style="width: 200px;margin-right: 10px;" />
 
-# Eevee Mobililty for Home Assistant
+# Eevee Mobility for Home Assistant
 
-A Home Assistant integration to monitor Eevee Mobililty
+A Home Assistant integration to monitor your [Eevee Mobility](https://eeveemobility.com/) electric vehicle(s). It connects to the Eevee Mobility API and exposes your car data, fleet info, trips, charging sessions and GPS location as entities in Home Assistant.
 
 ## Features
 
-- All Eevee Mobililty sensors
+### Sensors (per car)
+
+| Sensor | Description | Unit |
+| --- | --- | --- |
+| Car | Display name + full car details as attributes | — |
+| Battery | Current battery level | % |
+| Range | Current estimated range | km |
+| Odometer | Total distance driven | km |
+| License | License plate number | — |
+| Is Charging | Whether the car is currently charging | boolean |
+| Carbon Emission Saved | Total CO₂ saved compared to a combustion car | kg |
+| State | Current state: `parked`, `driving`, `charging` or `plugged_in` | — |
+| Events | Total number of events with full event history as attributes | — |
+| Addresses | Number of known addresses with address list as attributes | — |
+| Last Trip | Distance of the last completed trip | km |
+| Last Charging Session | Cost of the last completed charging session | currency |
+
+### Sensors (per fleet)
+
+| Sensor | Description |
+| --- | --- |
+| Fleet | Fleet name + membership details as attributes |
+| Payout Rate | Reimbursement rate per km for fleet usage |
+
+### Sensors (account)
+
+| Sensor | Description |
+| --- | --- |
+| User | Account email + full profile details as attributes |
+
+### Device Tracker
+
+| Entity | Description |
+| --- | --- |
+| GPS Tracker | Real-time GPS position of the car based on the latest event (parked, driving or charging) |
 
 ---
 
@@ -45,7 +79,7 @@ A Home Assistant integration to monitor Eevee Mobililty
 
 ## Table of contents
 
-- [Eevee Mobililty for Home Assistant](#eevee-mobililty-for-home-assistant)
+- [Eevee Mobility for Home Assistant](#eevee-mobility-for-home-assistant)
   - [Features](#features)
   - [Table of contents](#table-of-contents)
   - [Installation](#installation)
@@ -69,23 +103,24 @@ A Home Assistant integration to monitor Eevee Mobililty
 
 **or follow these steps:**
 
-1. Simply search for `Eevee Mobililty` in HACS and install it easily.
+1. Simply search for `Eevee Mobility` in HACS and install it easily.
 2. Restart Home Assistant
-3. Add the 'Eevee Mobililty' integration via HA Settings > 'Devices and Services' > 'Integrations'
-4. Provide your Eevee Mobililty configuration details
+3. Add the 'Eevee Mobility' integration via HA Settings > 'Devices and Services' > 'Integrations'
+4. Provide your Eevee Mobility email and password
 
 ### Manual
 
 1. Copy the `custom_components/eeveemobility` directory of this repository as `config/custom_components/eeveemobility` in your Home Assistant installation.
 2. Restart Home Assistant
-3. Add the 'eeveemobility' integration via HA Settings > 'Devices and Services' > 'Integrations'
-4. Provide your Eevee Mobililty configuration details
+3. Add the 'Eevee Mobility' integration via HA Settings > 'Devices and Services' > 'Integrations'
+4. Provide your Eevee Mobility email and password
 
 This integration will set up the following platforms.
 
 | Platform        | Description                                 |
 | --------------- | ------------------------------------------- |
-| `eeveemobility` | Home Assistant component for Eevee Mobility |
+| `sensor`        | Car, fleet and account sensors              |
+| `device_tracker`| GPS location tracker per car                |
 
 ## Contributions are welcome!
 
@@ -97,7 +132,7 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 
 ### Enable debug logging
 
-To enable debug logging, go to Settings -> Devices & Services and then click the triple dots for the Eevee Mobililty integration and click Enable Debug Logging.
+To enable debug logging, go to Settings -> Devices & Services and then click the triple dots for the Eevee Mobility integration and click Enable Debug Logging.
 
 ![enable-debug-logging](https://raw.githubusercontent.com/geertmeersman/eeveemobility/main/images/screenshots/enable-debug-logging.gif)
 
