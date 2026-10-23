@@ -1,5 +1,38 @@
 # Changelog
 
+## [v1.0.3](https://github.com/geertmeersman/eeveemobility/tree/v1.0.3) (2026-10-23)
+
+[Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.2...v1.0.3)
+
+**Closed issues:**
+
+- Integration blocking Home Assistant Core from writing to core.restore\_state [\#178](https://github.com/geertmeersman/eeveemobility/issues/178)
+
+**Merged pull requests:**
+
+- fix: let release-drafter determine version via semver-increment, remove semver-action [\#210](https://github.com/geertmeersman/eeveemobility/pull/210) ([geertmeersman](https://github.com/geertmeersman))
+- fix: add Release prefix to release name template [\#209](https://github.com/geertmeersman/eeveemobility/pull/209) ([geertmeersman](https://github.com/geertmeersman))
+- fix: migrate release-drafter to new format, remove deprecated version-resolver [\#207](https://github.com/geertmeersman/eeveemobility/pull/207) ([geertmeersman](https://github.com/geertmeersman))
+- fix: add semver-increment patch to Maintenance and Documentation categories [\#206](https://github.com/geertmeersman/eeveemobility/pull/206) ([geertmeersman](https://github.com/geertmeersman))
+- chore: only trigger release drafter on custom\_components changes [\#204](https://github.com/geertmeersman/eeveemobility/pull/204) ([geertmeersman](https://github.com/geertmeersman))
+- chore: update release drafter template, remove beta release and dev-current workflows [\#203](https://github.com/geertmeersman/eeveemobility/pull/203) ([geertmeersman](https://github.com/geertmeersman))
+- feat: add workflow to auto-label PRs without custom\_components changes as skip-changelog [\#202](https://github.com/geertmeersman/eeveemobility/pull/202) ([geertmeersman](https://github.com/geertmeersman))
+- docs: move features section below badges [\#201](https://github.com/geertmeersman/eeveemobility/pull/201) ([geertmeersman](https://github.com/geertmeersman))
+- docs: improve README with detailed sensor and platform information [\#200](https://github.com/geertmeersman/eeveemobility/pull/200) ([geertmeersman](https://github.com/geertmeersman))
+- docs: add downloads \(latest release\) badge to README [\#199](https://github.com/geertmeersman/eeveemobility/pull/199) ([geertmeersman](https://github.com/geertmeersman))
+- chore: add local brand assets [\#198](https://github.com/geertmeersman/eeveemobility/pull/198) ([geertmeersman](https://github.com/geertmeersman))
+- chore: add semver fallback for missing tags in release workflows [\#197](https://github.com/geertmeersman/eeveemobility/pull/197) ([geertmeersman](https://github.com/geertmeersman))
+- chore\(deps\): bump EndBug/add-and-commit from 10 to 11 [\#195](https://github.com/geertmeersman/eeveemobility/pull/195) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/stale from 10 to 11 [\#194](https://github.com/geertmeersman/eeveemobility/pull/194) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore: update funding configuration, improve issue template, and enha… [\#193](https://github.com/geertmeersman/eeveemobility/pull/193) ([geertmeersman](https://github.com/geertmeersman))
+- chore\(deps\): bump actions/checkout from 6 to 7 [\#192](https://github.com/geertmeersman/eeveemobility/pull/192) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/dependency-review-action from 4 to 5 [\#191](https://github.com/geertmeersman/eeveemobility/pull/191) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/github-script from 8 to 9 [\#190](https://github.com/geertmeersman/eeveemobility/pull/190) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump hugo19941994/delete-draft-releases from 2.0.0 to 3.0.0 [\#189](https://github.com/geertmeersman/eeveemobility/pull/189) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump EndBug/add-and-commit from 9 to 10 [\#188](https://github.com/geertmeersman/eeveemobility/pull/188) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump release-drafter/release-drafter from 6 to 7 [\#187](https://github.com/geertmeersman/eeveemobility/pull/187) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/upload-artifact from 6 to 7 [\#186](https://github.com/geertmeersman/eeveemobility/pull/186) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v1.0.2](https://github.com/geertmeersman/eeveemobility/tree/v1.0.2) (2026-01-03)
 
 [Full Changelog](https://github.com/geertmeersman/eeveemobility/compare/v1.0.1...v1.0.2)
